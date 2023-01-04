@@ -1,0 +1,615 @@
+{
+  "_last_updated": 6.2,
+  "extra_fields": [
+    "level",
+    "quantity"
+  ],
+  "add_venture_duration": true,
+  "venture_minimum_level": 70,
+  "items": {
+    "Dynamis Crystal": {
+      "quantity": 15,
+      "level": 89
+    },
+    "Ophiotauros Hide": {
+      "quantity": 15,
+      "level": 88
+    },
+    "Berkanan Sap": {
+      "quantity": 15,
+      "level": 88
+    },
+    "Bird of Elpis Breast": {
+      "quantity": 15,
+      "level": 86
+    },
+    "Egg of Elpis": {
+      "quantity": 15,
+      "level": 86
+    },
+    "Kumbhira Skin": {
+      "quantity": 15,
+      "level": 86
+    },
+    "Petalouda Scales": {
+      "quantity": 15,
+      "level": 86
+    },
+    "Saiga Hide": {
+      "quantity": 15,
+      "level": 84
+    },
+    "Dynamite Ash": {
+      "quantity": 15,
+      "level": 84
+    },
+    "Mousse Flesh": {
+      "quantity": 15,
+      "level": 84
+    },
+    "Lunatender Blossom": {
+      "quantity": 15,
+      "level": 83
+    },
+    "Ovibos Milk": {
+      "quantity": 15,
+      "level": 82
+    },
+    "Almasty Fur": {
+      "quantity": 15,
+      "level": 82
+    },
+    "Luncheon Toad Skin": {
+      "quantity": 15,
+      "level": 82
+    },
+    "Yakow Chuck": {
+      "quantity": 15,
+      "level": 81
+    },
+    "Hamsa Tenderloin": {
+      "quantity": 15,
+      "level": 80
+    },
+    "Amra": {
+      "quantity": 15,
+      "level": 80
+    },
+    "Gaja Hide": {
+      "quantity": 15,
+      "level": 80
+    },
+    "Cubus Flesh": {
+      "quantity": 15,
+      "level": 79
+    },
+    "Hydrozoan Umbrella": {
+      "quantity": 15,
+      "level": 79
+    },
+    "Sea Swallow Skin": {
+      "quantity": 15,
+      "level": 78
+    },
+    "Ovim Fleece": {
+      "quantity": 15,
+      "level": 77
+    },
+    "Zonure Skin": {
+      "quantity": 15,
+      "level": 77
+    },
+    "Ovim Meat": {
+      "quantity": 15,
+      "level": 76
+    },
+    "Vampire Vine Sap": {
+      "quantity": 15,
+      "level": 75
+    },
+    "Vampire Cup Vine": {
+      "quantity": 15,
+      "level": 75
+    },
+    "Atrociraptor Skin": {
+      "quantity": 15,
+      "level": 74
+    },
+    "Lorikeet Egg": {
+      "quantity": 15,
+      "level": 73
+    },
+    "Lorikeet Down": {
+      "quantity": 15,
+      "level": 73
+    },
+    "Green Glider Skin": {
+      "quantity": 15,
+      "level": 72
+    },
+    "Rail Tenderloin": {
+      "quantity": 15,
+      "level": 71
+    },
+    "Smilodon Skin": {
+      "quantity": 15,
+      "level": 71
+    },
+    "Hoptrap Leaf": {
+      "quantity": 15,
+      "level": 71
+    },
+    "Silkmoth Scales": {
+      "quantity": 15,
+      "level": 71
+    },
+    "Gazelle Hide": {
+      "quantity": 15,
+      "level": 70
+    },
+    "True Griffin Hide": {
+      "quantity": 15,
+      "level": 70
+    },
+    "Island Wolf Fang": {
+      "quantity": 15,
+      "level": 70
+    },
+    "Jhammel Haunch": {
+      "quantity": 15,
+      "level": 69
+    },
+    "Twincoon": {
+      "quantity": 15,
+      "level": 69
+    },
+    "Manzasiri Hair": {
+      "quantity": 15,
+      "level": 68
+    },
+    "Marid Hide": {
+      "quantity": 15,
+      "level": 68
+    },
+    "Halgai Mane": {
+      "quantity": 15,
+      "level": 67
+    },
+    "Gazelle Horn": {
+      "quantity": 15,
+      "level": 67
+    },
+    "Steppe Milk": {
+      "quantity": 15,
+      "level": 66
+    },
+    "Dzo Chuck": {
+      "quantity": 15,
+      "level": 66
+    },
+    "Tiger Skin": {
+      "quantity": 15,
+      "level": 66
+    },
+    "Dzo Horn": {
+      "quantity": 15,
+      "level": 65
+    },
+    "Gyuki Hide": {
+      "quantity": 15,
+      "level": 64
+    },
+    "Hornbill Tenderloin": {
+      "quantity": 15,
+      "level": 63
+    },
+    "Bombfish Spine": {
+      "quantity": 15,
+      "level": 63
+    },
+    "Gagana Skin": {
+      "quantity": 15,
+      "level": 62
+    },
+    "Rhino Beetle Carapace": {
+      "quantity": 15,
+      "level": 62
+    },
+    "Moth Scales": {
+      "quantity": 15,
+      "level": 62
+    },
+    "Gagana Egg": {
+      "quantity": 15,
+      "level": 61
+    },
+    "Muud Suud Horn": {
+      "quantity": 15,
+      "level": 61
+    },
+    "Chimera Mane": {
+      "quantity": 15,
+      "level": 60
+    },
+    "Amphiptere Skin": {
+      "quantity": 15,
+      "level": 59
+    },
+    "Griffin Hide": {
+      "quantity": 15,
+      "level": 59
+    },
+    "Griffin Talon": {
+      "quantity": 15,
+      "level": 59
+    },
+    "Okeanis Tail": {
+      "quantity": 15,
+      "level": 58
+    },
+    "Cockatrice Thigh": {
+      "quantity": 15,
+      "level": 58
+    },
+    "Crawler Cocoon": {
+      "quantity": 15,
+      "level": 58
+    },
+    "Dragon Scale": {
+      "quantity": 15,
+      "level": 58
+    },
+    "Dragon Blood": {
+      "quantity": 15,
+      "level": 58
+    },
+    "Okeanis Egg": {
+      "quantity": 15,
+      "level": 57
+    },
+    "Dragon Skin": {
+      "quantity": 15,
+      "level": 57
+    },
+    "Dragon Fang": {
+      "quantity": 15,
+      "level": 57
+    },
+    "Drake Scales": {
+      "quantity": 15,
+      "level": 56
+    },
+    "Dhalmel Saliva": {
+      "quantity": 15,
+      "level": 56
+    },
+    "Dhalmel Meat": {
+      "quantity": 15,
+      "level": 55
+    },
+    "Dhalmel Hide": {
+      "quantity": 15,
+      "level": 55
+    },
+    "Biast Scales": {
+      "quantity": 15,
+      "level": 54
+    },
+    "Wyvern Skin": {
+      "quantity": 15,
+      "level": 53
+    },
+    "Wyvern Wing": {
+      "quantity": 15,
+      "level": 53
+    },
+    "Loaghtan Chump": {
+      "quantity": 15,
+      "level": 52
+    },
+    "Yeti Fang": {
+      "quantity": 15,
+      "level": 52
+    },
+    "Deepeye Tears": {
+      "quantity": 15,
+      "level": 52
+    },
+    "Bear Fat": {
+      "quantity": 15,
+      "level": 52
+    },
+    "Yak Milk": {
+      "quantity": 15,
+      "level": 51
+    },
+    "Gastornis Egg": {
+      "quantity": 15,
+      "level": 51
+    },
+    "Archaeornis Skin": {
+      "quantity": 15,
+      "level": 51
+    },
+    "Icetrap Leaf": {
+      "quantity": 15,
+      "level": 51
+    },
+    "Gelato Flesh": {
+      "quantity": 15,
+      "level": 51
+    },
+    "Snurble Tufts": {
+      "quantity": 15,
+      "level": 49
+    },
+    "Ogre Horn": {
+      "quantity": 15,
+      "level": 49
+    },
+    "Raptor Skin": {
+      "quantity": 15,
+      "level": 48
+    },
+    "Eft Tail": {
+      "quantity": 15,
+      "level": 47
+    },
+    "Ahriman Wing": {
+      "quantity": 15,
+      "level": 46
+    },
+    "Apkallu Down": {
+      "quantity": 15,
+      "level": 45
+    },
+    "Apkallu Egg": {
+      "quantity": 15,
+      "level": 44
+    },
+    "Buffalo Sirloin": {
+      "quantity": 15,
+      "level": 43
+    },
+    "Basilisk Egg": {
+      "quantity": 15,
+      "level": 42
+    },
+    "Pudding Flesh": {
+      "quantity": 15,
+      "level": 41
+    },
+    "Ochu Vine": {
+      "quantity": 15,
+      "level": 40
+    },
+    "Raptor Sinew": {
+      "quantity": 15,
+      "level": 39
+    },
+    "Grenade Ash": {
+      "quantity": 15,
+      "level": 38
+    },
+    "Karakul Skin": {
+      "quantity": 15,
+      "level": 37
+    },
+    "Spoken Blood": {
+      "quantity": 15,
+      "level": 36
+    },
+    "Fleece": {
+      "quantity": 15,
+      "level": 35
+    },
+    "Peiste Skin": {
+      "quantity": 15,
+      "level": 34
+    },
+    "Boar Hide": {
+      "quantity": 15,
+      "level": 33
+    },
+    "Raptor Shank": {
+      "quantity": 15,
+      "level": 32
+    },
+    "Hippogryph Sinew": {
+      "quantity": 15,
+      "level": 32
+    },
+    "Formic Acid": {
+      "quantity": 15,
+      "level": 31
+    },
+    "Sandworm Fang": {
+      "quantity": 15,
+      "level": 30
+    },
+    "Blue Landtrap Leaf": {
+      "quantity": 15,
+      "level": 30
+    },
+    "Morbol Vine": {
+      "quantity": 15,
+      "level": 30
+    },
+    "Blue Yarzon Leg": {
+      "quantity": 15,
+      "level": 29
+    },
+    "Cactuar Needle": {
+      "quantity": 15,
+      "level": 29
+    },
+    "Night Milk": {
+      "quantity": 15,
+      "level": 28
+    },
+    "Orobon Liver": {
+      "quantity": 15,
+      "level": 28
+    },
+    "Puk Egg": {
+      "quantity": 15,
+      "level": 27
+    },
+    "Gigantoad Skin": {
+      "quantity": 15,
+      "level": 26
+    },
+    "Bomb Ash": {
+      "quantity": 15,
+      "level": 26
+    },
+    "Aldgoat Chuck": {
+      "quantity": 15,
+      "level": 25
+    },
+    "Diremite Sinew": {
+      "quantity": 15,
+      "level": 25
+    },
+    "Aldgoat Horn": {
+      "quantity": 15,
+      "level": 25
+    },
+    "Wolf Fang": {
+      "quantity": 15,
+      "level": 25
+    },
+    "Treant Sap": {
+      "quantity": 15,
+      "level": 25
+    },
+    "Scalekin Blood": {
+      "quantity": 15,
+      "level": 25
+    },
+    "Diremite Web": {
+      "quantity": 15,
+      "level": 24
+    },
+    "Acidic Secretions": {
+      "quantity": 15,
+      "level": 23
+    },
+    "Megalocrab Leg": {
+      "quantity": 15,
+      "level": 22
+    },
+    "Antelope Shank": {
+      "quantity": 15,
+      "level": 21
+    },
+    "Green Megalocrab Shell": {
+      "quantity": 15,
+      "level": 20
+    },
+    "Dodo Feather": {
+      "quantity": 15,
+      "level": 19
+    },
+    "Aldgoat Skin": {
+      "quantity": 15,
+      "level": 18
+    },
+    "Jellyfish Umbrella": {
+      "quantity": 15,
+      "level": 17
+    },
+    "Imp Wing": {
+      "quantity": 15,
+      "level": 16
+    },
+    "Antelope Horn": {
+      "quantity": 15,
+      "level": 15
+    },
+    "Goobbue Fang": {
+      "quantity": 15,
+      "level": 15
+    },
+    "Yellow Yarzon Leg": {
+      "quantity": 15,
+      "level": 15
+    },
+    "Dodo Egg": {
+      "quantity": 15,
+      "level": 14
+    },
+    "Bat Wing": {
+      "quantity": 15,
+      "level": 14
+    },
+    "Viscous Secretions": {
+      "quantity": 15,
+      "level": 13
+    },
+    "Mole Meat": {
+      "quantity": 15,
+      "level": 12
+    },
+    "Puk Wing": {
+      "quantity": 15,
+      "level": 12
+    },
+    "Dodo Tenderloin": {
+      "quantity": 15,
+      "level": 11
+    },
+    "Jellyfish Cnida": {
+      "quantity": 15,
+      "level": 11
+    },
+    "Beast Sinew": {
+      "quantity": 15,
+      "level": 10
+    },
+    "Bat Fang": {
+      "quantity": 15,
+      "level": 10
+    },
+    "Red Landtrap Leaf": {
+      "quantity": 15,
+      "level": 10
+    },
+    "Mutton Loin": {
+      "quantity": 15,
+      "level": 9
+    },
+    "Animal Hide": {
+      "quantity": 15,
+      "level": 8
+    },
+    "Marmot Meat": {
+      "quantity": 15,
+      "level": 7
+    },
+    "Beastkin Blood": {
+      "quantity": 15,
+      "level": 6
+    },
+    "Ram Horn": {
+      "quantity": 15,
+      "level": 5
+    },
+    "Honey": {
+      "quantity": 15,
+      "level": 4
+    },
+    "Shriekshroom": {
+      "quantity": 15,
+      "level": 3
+    },
+    "Animal Sinew": {
+      "quantity": 15,
+      "level": 2
+    },
+    "Animal Skin": {
+      "quantity": 15,
+      "level": 1
+    }
+  }
+}

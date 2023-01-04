@@ -1,0 +1,1443 @@
+{
+  "_last_updated": 6.2,
+  "extra_fields": [
+    "level",
+    "quantity"
+  ],
+  "add_venture_duration": true,
+  "venture_minimum_level": 70,
+  "items": {
+    "Double-edged Herb": {
+      "quantity": 5,
+      "level": 90
+    },
+    "Golden Cocoon": {
+      "quantity": 5,
+      "level": 90
+    },
+    "Mempisang Log": {
+      "quantity": 5,
+      "level": 90
+    },
+    "Potent Spice": {
+      "quantity": 5,
+      "level": 90
+    },
+    "Alien Onion": {
+      "quantity": 20,
+      "level": 90
+    },
+    "AR-Caean Cotton Boll": {
+      "quantity": 20,
+      "level": 89
+    },
+    "Integral Log": {
+      "quantity": 20,
+      "level": 89
+    },
+    "Elder Nutmeg Seeds": {
+      "quantity": 20,
+      "level": 88
+    },
+    "Sideritis Leaves": {
+      "quantity": 20,
+      "level": 88
+    },
+    "Giant Popoto": {
+      "quantity": 20,
+      "level": 87
+    },
+    "Sykon": {
+      "quantity": 20,
+      "level": 87
+    },
+    "Ironwood Log": {
+      "quantity": 20,
+      "level": 86
+    },
+    "Scarlet Moko Grass": {
+      "quantity": 20,
+      "level": 86
+    },
+    "Carrot of Happiness": {
+      "quantity": 30,
+      "level": 85
+    },
+    "Beet": {
+      "quantity": 30,
+      "level": 84
+    },
+    "Red Pine Log": {
+      "quantity": 30,
+      "level": 84
+    },
+    "Snow Flax": {
+      "quantity": 30,
+      "level": 84
+    },
+    "Cucumber": {
+      "quantity": 30,
+      "level": 83
+    },
+    "Eblan Lentils": {
+      "quantity": 30,
+      "level": 83
+    },
+    "Coconut": {
+      "quantity": 40,
+      "level": 82
+    },
+    "Palm Log": {
+      "quantity": 40,
+      "level": 82
+    },
+    "Palm Syrup": {
+      "quantity": 40,
+      "level": 82
+    },
+    "Thavnairian Paprika": {
+      "quantity": 40,
+      "level": 82
+    },
+    "Thavnairian Perilla Leaf": {
+      "quantity": 40,
+      "level": 82
+    },
+    "Dark Hemp": {
+      "quantity": 40,
+      "level": 81
+    },
+    "Dark Rye": {
+      "quantity": 40,
+      "level": 81
+    },
+    "Horse Chestnut Log": {
+      "quantity": 40,
+      "level": 81
+    },
+    "Iceberg Lettuce": {
+      "quantity": 40,
+      "level": 81
+    },
+    "Lemonette": {
+      "quantity": 9,
+      "level": 80
+    },
+    "Lignum Vitae Log": {
+      "quantity": 50,
+      "level": 80
+    },
+    "Ethereal Cocoon": {
+      "quantity": 9,
+      "level": 80
+    },
+    "Sandalwood Log": {
+      "quantity": 9,
+      "level": 80
+    },
+    "Sandalwood Sap": {
+      "quantity": 9,
+      "level": 80
+    },
+    "Duskblooms": {
+      "quantity": 9,
+      "level": 80
+    },
+    "Imperial Fern": {
+      "quantity": 9,
+      "level": 80
+    },
+    "Merbau Log": {
+      "quantity": 9,
+      "level": 80
+    },
+    "Tender Dill": {
+      "quantity": 9,
+      "level": 80
+    },
+    "Raindrop Cotton Boll": {
+      "quantity": 8,
+      "level": 80
+    },
+    "Silver Beech Log": {
+      "quantity": 8,
+      "level": 80
+    },
+    "Wattle Petribark": {
+      "quantity": 8,
+      "level": 80
+    },
+    "Dwarven Cotton Boll": {
+      "quantity": 50,
+      "level": 79
+    },
+    "Light Gerbera": {
+      "quantity": 50,
+      "level": 79
+    },
+    "Tiger Lily": {
+      "quantity": 50,
+      "level": 79
+    },
+    "Bomba Rice": {
+      "quantity": 50,
+      "level": 78
+    },
+    "Coffee Beans": {
+      "quantity": 50,
+      "level": 78
+    },
+    "Harcot": {
+      "quantity": 50,
+      "level": 78
+    },
+    "Lime Basil": {
+      "quantity": 50,
+      "level": 78
+    },
+    "Mist Spinach": {
+      "quantity": 9,
+      "level": 78
+    },
+    "Fernleaf Lavender": {
+      "quantity": 50,
+      "level": 77
+    },
+    "Amber Cloves": {
+      "quantity": 50,
+      "level": 76
+    },
+    "Russet Popoto": {
+      "quantity": 9,
+      "level": 76
+    },
+    "Sandteak Log": {
+      "quantity": 50,
+      "level": 76
+    },
+    "Sweet Alyssum": {
+      "quantity": 50,
+      "level": 76
+    },
+    "Creamtop Mushroom": {
+      "quantity": 50,
+      "level": 75
+    },
+    "Gianthive Chip": {
+      "quantity": 50,
+      "level": 75
+    },
+    "Royal Grapes": {
+      "quantity": 50,
+      "level": 75
+    },
+    "Peppermint": {
+      "quantity": 9,
+      "level": 74
+    },
+    "Pixie Floss Boll": {
+      "quantity": 50,
+      "level": 74
+    },
+    "White Ash Log": {
+      "quantity": 50,
+      "level": 74
+    },
+    "Upland Wheat": {
+      "quantity": 50,
+      "level": 73
+    },
+    "Broad Beans": {
+      "quantity": 9,
+      "level": 72
+    },
+    "Garden Beet": {
+      "quantity": 50,
+      "level": 72
+    },
+    "Iridescent Cocoon": {
+      "quantity": 50,
+      "level": 72
+    },
+    "Miracle Apple Log": {
+      "quantity": 50,
+      "level": 72
+    },
+    "Blood Tomato": {
+      "quantity": 50,
+      "level": 71
+    },
+    "Bright Flax": {
+      "quantity": 50,
+      "level": 71
+    },
+    "Curly Parsley": {
+      "quantity": 50,
+      "level": 71
+    },
+    "Frantoio": {
+      "quantity": 50,
+      "level": 71
+    },
+    "Pixie Apple": {
+      "quantity": 50,
+      "level": 71
+    },
+    "Purple Carrot": {
+      "quantity": 50,
+      "level": 71
+    },
+    "White Oak Branch": {
+      "quantity": 50,
+      "level": 71
+    },
+    "White Oak Log": {
+      "quantity": 50,
+      "level": 71
+    },
+    "Othardian Plum": {
+      "quantity": 50,
+      "level": 70
+    },
+    "Zelkova Log": {
+      "quantity": 50,
+      "level": 70
+    },
+    "Azim Cotton Boll": {
+      "quantity": 50,
+      "level": 70
+    },
+    "Hallowed Basil": {
+      "quantity": 50,
+      "level": 70
+    },
+    "Rhea": {
+      "quantity": 50,
+      "level": 70
+    },
+    "Torreya Log": {
+      "quantity": 50,
+      "level": 70
+    },
+    "Black Willow Log": {
+      "quantity": 50,
+      "level": 70
+    },
+    "Hardened Veteran Tree Sap": {
+      "quantity": 50,
+      "level": 70
+    },
+    "Hingan Flax": {
+      "quantity": 50,
+      "level": 70
+    },
+    "Night Pepper": {
+      "quantity": 50,
+      "level": 70
+    },
+    "Urunday Log": {
+      "quantity": 50,
+      "level": 70
+    },
+    "Yanxian Cotton Boll": {
+      "quantity": 50,
+      "level": 70
+    },
+    "Doman Eggplant": {
+      "quantity": 50,
+      "level": 69
+    },
+    "Twincoon": {
+      "quantity": 50,
+      "level": 69
+    },
+    "Alyssum": {
+      "quantity": 50,
+      "level": 68
+    },
+    "Chickweed": {
+      "quantity": 50,
+      "level": 68
+    },
+    "Jhammel Ginger": {
+      "quantity": 50,
+      "level": 68
+    },
+    "Nagxian Cudweed": {
+      "quantity": 50,
+      "level": 68
+    },
+    "Nipplewort": {
+      "quantity": 50,
+      "level": 68
+    },
+    "Yanxian Parsley": {
+      "quantity": 50,
+      "level": 68
+    },
+    "Persimmon Log": {
+      "quantity": 50,
+      "level": 67
+    },
+    "Persimmon": {
+      "quantity": 50,
+      "level": 67
+    },
+    "Ruby Tide Kelp": {
+      "quantity": 50,
+      "level": 67
+    },
+    "Fennel": {
+      "quantity": 50,
+      "level": 66
+    },
+    "Gyr Abanian Carrot": {
+      "quantity": 50,
+      "level": 66
+    },
+    "Lotus Root": {
+      "quantity": 50,
+      "level": 66
+    },
+    "Persimmon Leaf": {
+      "quantity": 50,
+      "level": 66
+    },
+    "Sun Cabbage": {
+      "quantity": 50,
+      "level": 66
+    },
+    "Bamboo Shoot": {
+      "quantity": 50,
+      "level": 65
+    },
+    "Cumin Seeds": {
+      "quantity": 50,
+      "level": 65
+    },
+    "Kudzu Root": {
+      "quantity": 50,
+      "level": 65
+    },
+    "Kudzu Vine": {
+      "quantity": 50,
+      "level": 65
+    },
+    "Pine Log": {
+      "quantity": 50,
+      "level": 65
+    },
+    "Shiitake Mushroom": {
+      "quantity": 50,
+      "level": 65
+    },
+    "Ama Nori": {
+      "quantity": 50,
+      "level": 64
+    },
+    "Green Leek": {
+      "quantity": 50,
+      "level": 64
+    },
+    "Pine Resin": {
+      "quantity": 50,
+      "level": 64
+    },
+    "Soybeans": {
+      "quantity": 50,
+      "level": 64
+    },
+    "Sugar Beet": {
+      "quantity": 50,
+      "level": 64
+    },
+    "Holy Basil": {
+      "quantity": 50,
+      "level": 63
+    },
+    "Larch Log": {
+      "quantity": 50,
+      "level": 63
+    },
+    "Ruby Cotton Boll": {
+      "quantity": 50,
+      "level": 63
+    },
+    "Buckwheat Kernels": {
+      "quantity": 50,
+      "level": 62
+    },
+    "Gem Algae": {
+      "quantity": 50,
+      "level": 62
+    },
+    "Mountain Popoto": {
+      "quantity": 50,
+      "level": 62
+    },
+    "Beech Branch": {
+      "quantity": 50,
+      "level": 61
+    },
+    "Beech Log": {
+      "quantity": 50,
+      "level": 61
+    },
+    "Loquat": {
+      "quantity": 50,
+      "level": 61
+    },
+    "Chysahl Greens": {
+      "quantity": 50,
+      "level": 60
+    },
+    "Gaelicatnip": {
+      "quantity": 50,
+      "level": 60
+    },
+    "Periwinkle": {
+      "quantity": 50,
+      "level": 60
+    },
+    "Camphorwood Branch": {
+      "quantity": 50,
+      "level": 60
+    },
+    "Camphorwood Log": {
+      "quantity": 50,
+      "level": 60
+    },
+    "Crystallized Sap": {
+      "quantity": 50,
+      "level": 60
+    },
+    "Dravanian Paprika": {
+      "quantity": 50,
+      "level": 60
+    },
+    "Frost Cotton Boll": {
+      "quantity": 50,
+      "level": 60
+    },
+    "Honeydew Almonds": {
+      "quantity": 50,
+      "level": 60
+    },
+    "Old-growth Camphorwood Log": {
+      "quantity": 50,
+      "level": 60
+    },
+    "Seventh Heaven": {
+      "quantity": 50,
+      "level": 60
+    },
+    "Snurbleberry": {
+      "quantity": 50,
+      "level": 60
+    },
+    "Vanilla Beans": {
+      "quantity": 50,
+      "level": 60
+    },
+    "Wattle Bark": {
+      "quantity": 50,
+      "level": 60
+    },
+    "Whitefrost Cotton Boll": {
+      "quantity": 50,
+      "level": 60
+    },
+    "Bloodhemp": {
+      "quantity": 50,
+      "level": 60
+    },
+    "Brown Mushroom": {
+      "quantity": 50,
+      "level": 60
+    },
+    "Gyr Abanian Wheat": {
+      "quantity": 50,
+      "level": 60
+    },
+    "Noble Sage": {
+      "quantity": 50,
+      "level": 60
+    },
+    "Star Cotton Boll": {
+      "quantity": 50,
+      "level": 60
+    },
+    "Teak Log": {
+      "quantity": 50,
+      "level": 60
+    },
+    "Birch Sap": {
+      "quantity": 50,
+      "level": 59
+    },
+    "Cloud Mushroom": {
+      "quantity": 50,
+      "level": 59
+    },
+    "Coriander": {
+      "quantity": 50,
+      "level": 59
+    },
+    "Dandelion": {
+      "quantity": 50,
+      "level": 59
+    },
+    "Morel": {
+      "quantity": 50,
+      "level": 59
+    },
+    "Abalathian Mistletoe": {
+      "quantity": 50,
+      "level": 58
+    },
+    "Birch Branch": {
+      "quantity": 50,
+      "level": 58
+    },
+    "Birch Log": {
+      "quantity": 50,
+      "level": 58
+    },
+    "Rue": {
+      "quantity": 50,
+      "level": 58
+    },
+    "Cloud Banana": {
+      "quantity": 50,
+      "level": 57
+    },
+    "Cow Bitter": {
+      "quantity": 50,
+      "level": 57
+    },
+    "Sesame Seeds": {
+      "quantity": 50,
+      "level": 57
+    },
+    "Coneflower": {
+      "quantity": 50,
+      "level": 56
+    },
+    "Heavens Lemon": {
+      "quantity": 50,
+      "level": 56
+    },
+    "Wind Widow": {
+      "quantity": 50,
+      "level": 56
+    },
+    "Chives": {
+      "quantity": 50,
+      "level": 55
+    },
+    "Dark Chestnut Branch": {
+      "quantity": 50,
+      "level": 55
+    },
+    "Dark Chestnut": {
+      "quantity": 50,
+      "level": 55
+    },
+    "Emerald Beans": {
+      "quantity": 50,
+      "level": 55
+    },
+    "Magma Beet": {
+      "quantity": 50,
+      "level": 55
+    },
+    "Dark Chestnut Log": {
+      "quantity": 50,
+      "level": 54
+    },
+    "Dravanian Mistletoe": {
+      "quantity": 50,
+      "level": 54
+    },
+    "Stalk of Ramie": {
+      "quantity": 50,
+      "level": 54
+    },
+    "Coerthan Tea Leaves": {
+      "quantity": 50,
+      "level": 53
+    },
+    "Coerthan Tea Seeds": {
+      "quantity": 50,
+      "level": 53
+    },
+    "Cyclops Onion": {
+      "quantity": 50,
+      "level": 53
+    },
+    "Highland Wheat": {
+      "quantity": 50,
+      "level": 53
+    },
+    "Mist Dill": {
+      "quantity": 50,
+      "level": 52
+    },
+    "Pearl Sprout Seeds": {
+      "quantity": 50,
+      "level": 52
+    },
+    "Pearl Sprouts": {
+      "quantity": 50,
+      "level": 52
+    },
+    "Cedar Branch": {
+      "quantity": 50,
+      "level": 51
+    },
+    "Cedar Log": {
+      "quantity": 50,
+      "level": 51
+    },
+    "Porcini": {
+      "quantity": 50,
+      "level": 51
+    },
+    "Rainbow Cotton Boll": {
+      "quantity": 50,
+      "level": 51
+    },
+    "Apricot": {
+      "quantity": 50,
+      "level": 50
+    },
+    "Bamboo Stick": {
+      "quantity": 50,
+      "level": 50
+    },
+    "Black Truffle": {
+      "quantity": 50,
+      "level": 50
+    },
+    "Blood Orange": {
+      "quantity": 50,
+      "level": 50
+    },
+    "Cypress Log": {
+      "quantity": 50,
+      "level": 50
+    },
+    "Dark Matter Cluster": {
+      "quantity": 50,
+      "level": 50
+    },
+    "Dzemael Tomato Seeds": {
+      "quantity": 50,
+      "level": 50
+    },
+    "Dzemael Tomato": {
+      "quantity": 50,
+      "level": 50
+    },
+    "Ebony Log": {
+      "quantity": 50,
+      "level": 50
+    },
+    "Honey Lemon Seeds": {
+      "quantity": 50,
+      "level": 50
+    },
+    "Honey Lemon": {
+      "quantity": 50,
+      "level": 50
+    },
+    "La Noscean Leek": {
+      "quantity": 50,
+      "level": 50
+    },
+    "Mazlaya Greens": {
+      "quantity": 50,
+      "level": 50
+    },
+    "Old World Fig Seeds": {
+      "quantity": 50,
+      "level": 50
+    },
+    "Old World Fig": {
+      "quantity": 50,
+      "level": 50
+    },
+    "Prickly Pineapple Seeds": {
+      "quantity": 50,
+      "level": 50
+    },
+    "Prickly Pineapple": {
+      "quantity": 50,
+      "level": 50
+    },
+    "Rosemary": {
+      "quantity": 50,
+      "level": 50
+    },
+    "Scarlet Sap": {
+      "quantity": 50,
+      "level": 50
+    },
+    "Shroud Tea Leaves": {
+      "quantity": 50,
+      "level": 50
+    },
+    "Silkworm Cocoon": {
+      "quantity": 50,
+      "level": 50
+    },
+    "Spruce Log": {
+      "quantity": 50,
+      "level": 50
+    },
+    "Thavnairian Mistletoe": {
+      "quantity": 50,
+      "level": 50
+    },
+    "Trillium Bulb": {
+      "quantity": 50,
+      "level": 50
+    },
+    "Trillium": {
+      "quantity": 50,
+      "level": 50
+    },
+    "Unaspected Crystal": {
+      "quantity": 50,
+      "level": 50
+    },
+    "Vampire Plant": {
+      "quantity": 50,
+      "level": 50
+    },
+    "Waterfowl Feather": {
+      "quantity": 50,
+      "level": 50
+    },
+    "Lava Toad": {
+      "quantity": 50,
+      "level": 49
+    },
+    "Maiden Grass": {
+      "quantity": 50,
+      "level": 49
+    },
+    "Thanalan Tea Leaves": {
+      "quantity": 50,
+      "level": 48
+    },
+    "Rosewood Branch": {
+      "quantity": 50,
+      "level": 47
+    },
+    "Rosewood Log": {
+      "quantity": 50,
+      "level": 46
+    },
+    "Dart Frog": {
+      "quantity": 50,
+      "level": 45
+    },
+    "Mistletoe": {
+      "quantity": 50,
+      "level": 44
+    },
+    "Rolanberry Seeds": {
+      "quantity": 50,
+      "level": 43
+    },
+    "Rolanberry": {
+      "quantity": 50,
+      "level": 43
+    },
+    "Black Scorpion": {
+      "quantity": 50,
+      "level": 42
+    },
+    "Mirror Apple Seeds": {
+      "quantity": 50,
+      "level": 42
+    },
+    "Mirror Apple": {
+      "quantity": 50,
+      "level": 42
+    },
+    "Sagolii Sage": {
+      "quantity": 50,
+      "level": 41
+    },
+    "Almond Seeds": {
+      "quantity": 50,
+      "level": 40
+    },
+    "Almonds": {
+      "quantity": 50,
+      "level": 40
+    },
+    "Nutmeg": {
+      "quantity": 50,
+      "level": 39
+    },
+    "Ramhorn Zucchini": {
+      "quantity": 50,
+      "level": 39
+    },
+    "Thyme": {
+      "quantity": 50,
+      "level": 39
+    },
+    "Maiden Artichoke": {
+      "quantity": 50,
+      "level": 38
+    },
+    "Mahogany Log": {
+      "quantity": 50,
+      "level": 37
+    },
+    "Mugwort": {
+      "quantity": 50,
+      "level": 37
+    },
+    "Blood Currant Seeds": {
+      "quantity": 50,
+      "level": 36
+    },
+    "Blood Currants": {
+      "quantity": 50,
+      "level": 36
+    },
+    "Iron Acorn": {
+      "quantity": 50,
+      "level": 36
+    },
+    "Dragon Pepper": {
+      "quantity": 50,
+      "level": 35
+    },
+    "Tarantula": {
+      "quantity": 50,
+      "level": 35
+    },
+    "Laurel": {
+      "quantity": 50,
+      "level": 34
+    },
+    "Salt Leek": {
+      "quantity": 50,
+      "level": 34
+    },
+    "Wildfowl Feather": {
+      "quantity": 50,
+      "level": 34
+    },
+    "Desert Saffron": {
+      "quantity": 50,
+      "level": 34
+    },
+    "Bloodgrass": {
+      "quantity": 50,
+      "level": 33
+    },
+    "Mandrake Seeds": {
+      "quantity": 50,
+      "level": 33
+    },
+    "Mandrake": {
+      "quantity": 50,
+      "level": 33
+    },
+    "White Truffle": {
+      "quantity": 50,
+      "level": 33
+    },
+    "Aloe": {
+      "quantity": 50,
+      "level": 32
+    },
+    "Midland Basil Seeds": {
+      "quantity": 50,
+      "level": 32
+    },
+    "Midland Basil": {
+      "quantity": 50,
+      "level": 32
+    },
+    "Oak Log": {
+      "quantity": 50,
+      "level": 32
+    },
+    "Flax": {
+      "quantity": 50,
+      "level": 31
+    },
+    "Linseed": {
+      "quantity": 50,
+      "level": 31
+    },
+    "Oak Branch": {
+      "quantity": 50,
+      "level": 31
+    },
+    "Alligator Pear": {
+      "quantity": 50,
+      "level": 30
+    },
+    "Moor Leech": {
+      "quantity": 50,
+      "level": 30
+    },
+    "Chocobo Feather": {
+      "quantity": 50,
+      "level": 29
+    },
+    "Blue Pigment": {
+      "quantity": 50,
+      "level": 28
+    },
+    "Red Pigment": {
+      "quantity": 50,
+      "level": 28
+    },
+    "Yellow Pigment": {
+      "quantity": 50,
+      "level": 28
+    },
+    "Grey Pigment": {
+      "quantity": 50,
+      "level": 28
+    },
+    "Brown Pigment": {
+      "quantity": 50,
+      "level": 28
+    },
+    "Green Pigment": {
+      "quantity": 50,
+      "level": 28
+    },
+    "Purple Pigment": {
+      "quantity": 50,
+      "level": 28
+    },
+    "Midland Cabbage Seeds": {
+      "quantity": 50,
+      "level": 28
+    },
+    "Midland Cabbage": {
+      "quantity": 50,
+      "level": 28
+    },
+    "Wizard Eggplant Seeds": {
+      "quantity": 50,
+      "level": 27
+    },
+    "Wizard Eggplant": {
+      "quantity": 50,
+      "level": 27
+    },
+    "Fire Crystal": {
+      "quantity": 50,
+      "level": 26
+    },
+    "Ice Crystal": {
+      "quantity": 50,
+      "level": 26
+    },
+    "Wind Crystal": {
+      "quantity": 50,
+      "level": 26
+    },
+    "Earth Crystal": {
+      "quantity": 50,
+      "level": 26
+    },
+    "Lightning Crystal": {
+      "quantity": 50,
+      "level": 26
+    },
+    "Water Crystal": {
+      "quantity": 50,
+      "level": 26
+    },
+    "Jade Peas": {
+      "quantity": 50,
+      "level": 26
+    },
+    "Millioncorn Seeds": {
+      "quantity": 50,
+      "level": 25
+    },
+    "Millioncorn": {
+      "quantity": 50,
+      "level": 25
+    },
+    "Sticky Rice": {
+      "quantity": 50,
+      "level": 25
+    },
+    "Chamomile Seeds": {
+      "quantity": 50,
+      "level": 24
+    },
+    "Chamomile": {
+      "quantity": 50,
+      "level": 24
+    },
+    "Pearl Ginger Root": {
+      "quantity": 50,
+      "level": 24
+    },
+    "Pearl Ginger": {
+      "quantity": 50,
+      "level": 24
+    },
+    "Walnut Log": {
+      "quantity": 50,
+      "level": 24
+    },
+    "Ala Mhigan Mustard Seeds": {
+      "quantity": 50,
+      "level": 23
+    },
+    "Ala Mhigan Mustard": {
+      "quantity": 50,
+      "level": 23
+    },
+    "Matron's Mistletoe": {
+      "quantity": 50,
+      "level": 23
+    },
+    "Button Mushroom": {
+      "quantity": 50,
+      "level": 22
+    },
+    "Noble Grapes": {
+      "quantity": 50,
+      "level": 22
+    },
+    "Gridanian Walnut": {
+      "quantity": 50,
+      "level": 21
+    },
+    "Pixie Plum Seeds": {
+      "quantity": 50,
+      "level": 21
+    },
+    "Pixie Plums": {
+      "quantity": 50,
+      "level": 21
+    },
+    "Desert Seedling": {
+      "quantity": 50,
+      "level": 20
+    },
+    "Island Seedling": {
+      "quantity": 50,
+      "level": 20
+    },
+    "Shroud Seedling": {
+      "quantity": 50,
+      "level": 20
+    },
+    "White Scorpion": {
+      "quantity": 50,
+      "level": 20
+    },
+    "Yew Branch": {
+      "quantity": 50,
+      "level": 20
+    },
+    "Gil Bun": {
+      "quantity": 50,
+      "level": 19
+    },
+    "Yew Log": {
+      "quantity": 50,
+      "level": 19
+    },
+    "Belladonna": {
+      "quantity": 50,
+      "level": 18
+    },
+    "Nopales": {
+      "quantity": 50,
+      "level": 18
+    },
+    "Popoto Set": {
+      "quantity": 50,
+      "level": 18
+    },
+    "Popoto": {
+      "quantity": 50,
+      "level": 18
+    },
+    "Lalafellin Lentil": {
+      "quantity": 50,
+      "level": 17
+    },
+    "Sun Lemon Seeds": {
+      "quantity": 50,
+      "level": 17
+    },
+    "Sun Lemon": {
+      "quantity": 50,
+      "level": 17
+    },
+    "Faerie Apple Seeds": {
+      "quantity": 50,
+      "level": 16
+    },
+    "Faerie Apple": {
+      "quantity": 50,
+      "level": 16
+    },
+    "Galago Mint": {
+      "quantity": 50,
+      "level": 16
+    },
+    "Paprika Seeds": {
+      "quantity": 50,
+      "level": 16
+    },
+    "Paprika": {
+      "quantity": 50,
+      "level": 16
+    },
+    "Alpine Parsnip": {
+      "quantity": 50,
+      "level": 15
+    },
+    "Highland Parsley": {
+      "quantity": 50,
+      "level": 15
+    },
+    "Marjoram": {
+      "quantity": 50,
+      "level": 15
+    },
+    "Ruby Tomato": {
+      "quantity": 50,
+      "level": 15
+    },
+    "Black Pepper Seeds": {
+      "quantity": 50,
+      "level": 14
+    },
+    "Black Pepper": {
+      "quantity": 50,
+      "level": 14
+    },
+    "Cieldalaes Spinach": {
+      "quantity": 50,
+      "level": 14
+    },
+    "Cotton Boll": {
+      "quantity": 50,
+      "level": 14
+    },
+    "Gridanian Chestnut": {
+      "quantity": 50,
+      "level": 14
+    },
+    "Carnation": {
+      "quantity": 50,
+      "level": 13
+    },
+    "Cinderfoot Olive": {
+      "quantity": 50,
+      "level": 13
+    },
+    "Coerthan Carrot Seeds": {
+      "quantity": 50,
+      "level": 13
+    },
+    "Coerthan Carrot": {
+      "quantity": 50,
+      "level": 13
+    },
+    "Humus": {
+      "quantity": 50,
+      "level": 13
+    },
+    "La Noscean Lettuce Seeds": {
+      "quantity": 50,
+      "level": 13
+    },
+    "La Noscean Lettuce": {
+      "quantity": 50,
+      "level": 13
+    },
+    "Ogre Pumpkin": {
+      "quantity": 50,
+      "level": 13
+    },
+    "Olive Seeds": {
+      "quantity": 50,
+      "level": 13
+    },
+    "Buffalo Beans": {
+      "quantity": 50,
+      "level": 12
+    },
+    "Elm Log": {
+      "quantity": 50,
+      "level": 12
+    },
+    "Grass Viper": {
+      "quantity": 50,
+      "level": 12
+    },
+    "Lavender Seeds": {
+      "quantity": 50,
+      "level": 12
+    },
+    "Lavender": {
+      "quantity": 50,
+      "level": 12
+    },
+    "Straw": {
+      "quantity": 50,
+      "level": 12
+    },
+    "Wild Onion Set": {
+      "quantity": 50,
+      "level": 12
+    },
+    "Wild Onion": {
+      "quantity": 50,
+      "level": 12
+    },
+    "Chanterelle": {
+      "quantity": 50,
+      "level": 11
+    },
+    "Garlean Garlic": {
+      "quantity": 50,
+      "level": 11
+    },
+    "Garlic Cloves": {
+      "quantity": 50,
+      "level": 11
+    },
+    "Lowland Grape Seeds": {
+      "quantity": 50,
+      "level": 11
+    },
+    "Lowland Grapes": {
+      "quantity": 50,
+      "level": 11
+    },
+    "Moko Grass": {
+      "quantity": 50,
+      "level": 11
+    },
+    "Rye": {
+      "quantity": 50,
+      "level": 11
+    },
+    "Sunset Wheat": {
+      "quantity": 50,
+      "level": 11
+    },
+    "Tree Toad": {
+      "quantity": 50,
+      "level": 11
+    },
+    "Yellow Ginseng": {
+      "quantity": 50,
+      "level": 11
+    },
+    "Cloves": {
+      "quantity": 50,
+      "level": 10
+    },
+    "Crow Feather": {
+      "quantity": 50,
+      "level": 10
+    },
+    "Ash Branch": {
+      "quantity": 50,
+      "level": 9
+    },
+    "Kukuru Bean": {
+      "quantity": 50,
+      "level": 9
+    },
+    "Ash Log": {
+      "quantity": 50,
+      "level": 8
+    },
+    "La Noscean Orange Seeds": {
+      "quantity": 50,
+      "level": 7
+    },
+    "La Noscean Orange": {
+      "quantity": 50,
+      "level": 7
+    },
+    "Cock Feather": {
+      "quantity": 50,
+      "level": 6
+    },
+    "Tinolqa Mistletoe": {
+      "quantity": 50,
+      "level": 6
+    },
+    "Beehive Chip": {
+      "quantity": 50,
+      "level": 5
+    },
+    "Maple Branch": {
+      "quantity": 50,
+      "level": 5
+    },
+    "Cinnamon": {
+      "quantity": 50,
+      "level": 4
+    },
+    "Maple Log": {
+      "quantity": 50,
+      "level": 3
+    },
+    "Allagan Snail": {
+      "quantity": 50,
+      "level": 2
+    },
+    "Maple Sap": {
+      "quantity": 50,
+      "level": 2
+    },
+    "Fire Shard": {
+      "quantity": 50,
+      "level": 1
+    },
+    "Ice Shard": {
+      "quantity": 50,
+      "level": 1
+    },
+    "Wind Shard": {
+      "quantity": 50,
+      "level": 1
+    },
+    "Earth Shard": {
+      "quantity": 50,
+      "level": 1
+    },
+    "Lightning Shard": {
+      "quantity": 50,
+      "level": 1
+    },
+    "Water Shard": {
+      "quantity": 50,
+      "level": 1
+    },
+    "Latex": {
+      "quantity": 50,
+      "level": 1
+    }
+  }
+}

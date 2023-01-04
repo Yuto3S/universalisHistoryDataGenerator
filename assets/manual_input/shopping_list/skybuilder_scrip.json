@@ -1,0 +1,326 @@
+{
+  "_last_updated": 6.2,
+  "extra_fields": [
+    "cost"
+  ],
+  "items": {
+    "Albino Karakul Horn": {
+      "cost": 8400
+    },
+    "Ballroom Etiquette - Uncouth Congratulations": {
+      "cost": 1800
+    },
+    "Ruby Red Dye": {
+      "cost": 100
+    },
+    "Cherry Pink Dye": {
+      "cost": 100
+    },
+    "Canary Yellow Dye": {
+      "cost": 100
+    },
+    "Vanilla Yellow Dye": {
+      "cost": 100
+    },
+    "Dragoon Blue Dye": {
+      "cost": 100
+    },
+    "Turquoise Blue Dye": {
+      "cost": 100
+    },
+    "Gunmetal Black Dye": {
+      "cost": 500
+    },
+    "Pearl White Dye": {
+      "cost": 500
+    },
+    "Metallic Brass Dye": {
+      "cost": 500
+    },
+    "Ballroom Etiquette - Concealing Meals": {
+      "cost": 1800
+    },
+    "Oddly Specific Cedar Log": {
+      "cost": 20
+    },
+    "Oddly Specific Coerthan Iron Ore": {
+      "cost": 20
+    },
+    "Oddly Specific Mythrite Sand": {
+      "cost": 20
+    },
+    "Oddly Specific Silver Ore": {
+      "cost": 20
+    },
+    "Oddly Specific Gagana Skin": {
+      "cost": 20
+    },
+    "Oddly Specific Fleece": {
+      "cost": 20
+    },
+    "Oddly Specific Sap": {
+      "cost": 20
+    },
+    "Oddly Specific Aloe": {
+      "cost": 20
+    },
+    "Oddly Delicate Pine Log": {
+      "cost": 30
+    },
+    "Oddly Delicate Silvergrace Ore": {
+      "cost": 30
+    },
+    "Ballroom Etiquette - Next, Godliness": {
+      "cost": 1800
+    },
+    "Oddly Delicate Scheelite": {
+      "cost": 30
+    },
+    "Oddly Delicate Raw Celestine": {
+      "cost": 30
+    },
+    "Oddly Delicate Gazelle Hide": {
+      "cost": 30
+    },
+    "Oddly Delicate Rhea": {
+      "cost": 30
+    },
+    "Oddly Delicate Mistletoe": {
+      "cost": 30
+    },
+    "Oddly Delicate Hammerhead Shark": {
+      "cost": 30
+    },
+    "Ballroom Etiquette - Well Bread": {
+      "cost": 900
+    },
+    "Modern Aesthetics - Modern Legend": {
+      "cost": 1800
+    },
+    "Modern Aesthetics - Controlled Chaos": {
+      "cost": 1800
+    },
+    "Modern Aesthetics - Saintly Style": {
+      "cost": 1800
+    },
+    "Miniature White Knight": {
+      "cost": 1200
+    },
+    "Cerberpup": {
+      "cost": 1200
+    },
+    "Ufiti Horn": {
+      "cost": 8400
+    },
+    "Paissa Brat": {
+      "cost": 800
+    },
+    "Hunting Hawk": {
+      "cost": 800
+    },
+    "Baby Brachiosaur": {
+      "cost": 800
+    },
+    "Machinist Barding": {
+      "cost": 1200
+    },
+    "Safety in Numbers Orchestrion Roll": {
+      "cost": 1200
+    },
+    "The Mendicant's Relish Orchestrion Roll": {
+      "cost": 1200
+    },
+    "The Heavens' Ward Orchestrion Roll": {
+      "cost": 1200
+    },
+    "Hearthward Orchestrion Roll": {
+      "cost": 1200
+    },
+    "What Is Love? Orchestrion Roll": {
+      "cost": 1200
+    },
+    "Megalotragus Horn": {
+      "cost": 8400
+    },
+    "Skyrise Orchestrion Roll": {
+      "cost": 1200
+    },
+    "Unworthy Orchestrion Roll": {
+      "cost": 1200
+    },
+    "Jewel Orchestrion Roll": {
+      "cost": 600
+    },
+    "Paradise Found Orchestrion Roll": {
+      "cost": 600
+    },
+    "Fealty Orchestrion Roll": {
+      "cost": 600
+    },
+    "Stone and Steel Orchestrion Roll": {
+      "cost": 600
+    },
+    "Order Yet Undeciphered Orchestrion Roll": {
+      "cost": 600
+    },
+    "Freefall Orchestrion Roll": {
+      "cost": 600
+    },
+    "Parasol": {
+      "cost": 1800
+    },
+    "Cheerful Checkered Parasol": {
+      "cost": 1800
+    },
+    "Big Shell Whistle": {
+      "cost": 8400
+    },
+    "Pastoral Dot Parasol": {
+      "cost": 1800
+    },
+    "Sky Blue Parasol": {
+      "cost": 900
+    },
+    "Calming Checkered Parasol": {
+      "cost": 900
+    },
+    "Craftsman's Coverall Top": {
+      "cost": 2200
+    },
+    "Craftsman's Singlet": {
+      "cost": 2200
+    },
+    "Craftsman's Apron": {
+      "cost": 2200
+    },
+    "Craftsman's Coverall Bottoms": {
+      "cost": 2000
+    },
+    "Craftsman's Leather Trousers": {
+      "cost": 2000
+    },
+    "Antelope Doe Horn": {
+      "cost": 8400
+    },
+    "Craftsman's Leather Shoes": {
+      "cost": 2000
+    },
+    "Skyworker's Helmet": {
+      "cost": 1200
+    },
+    "Skyworker's Singlet": {
+      "cost": 2200
+    },
+    "Skyworker's Gloves": {
+      "cost": 1200
+    },
+    "Skyworker's Bottoms": {
+      "cost": 2000
+    },
+    "Skyworker's Boots": {
+      "cost": 1200
+    },
+    "Stuffed Hraesvelgr": {
+      "cost": 600
+    },
+    "Stuffed Estinien": {
+      "cost": 600
+    },
+    "Stuffed Cait Sith": {
+      "cost": 600
+    },
+    "Ballroom Etiquette - The Winsome Wallflower": {
+      "cost": 1800
+    },
+    "Huggable Gaelicat": {
+      "cost": 250
+    },
+    "Lord Commander Portrait": {
+      "cost": 900
+    },
+    "Azure Dragoon Portrait": {
+      "cost": 900
+    },
+    "Garment Rack": {
+      "cost": 350
+    },
+    "Fortemps Sofa": {
+      "cost": 350
+    },
+    "Ishgardian Display Stand": {
+      "cost": 350
+    },
+    "Imposing Ishgardian Shelf": {
+      "cost": 900
+    },
+    "Ishgardian Stove": {
+      "cost": 350
+    },
+    "Apron Rack": {
+      "cost": 350
+    },
+    "Modern Mogseat": {
+      "cost": 200
+    },
+    "Ballroom Etiquette - Intelligent Impressions": {
+      "cost": 1800
+    },
+    "Moogle Round Table": {
+      "cost": 250
+    },
+    "Mandragora Table Chronometer": {
+      "cost": 200
+    },
+    "Paissa Rug": {
+      "cost": 200
+    },
+    "Skysteel Ingot": {
+      "cost": 200
+    },
+    "Skysteel Cloth": {
+      "cost": 200
+    },
+    "Skysteel Leather": {
+      "cost": 200
+    },
+    "Gatherer's Guerdon Materia VII": {
+      "cost": 240
+    },
+    "Gatherer's Guerdon Materia VIII": {
+      "cost": 300
+    },
+    "Ballroom Etiquette - Emphatic Elucidation": {
+      "cost": 1800
+    },
+    "Gatherer's Guile Materia VII": {
+      "cost": 240
+    },
+    "Gatherer's Guile Materia VIII": {
+      "cost": 300
+    },
+    "Gatherer's Grasp Materia VII": {
+      "cost": 240
+    },
+    "Gatherer's Grasp Materia VIII": {
+      "cost": 300
+    },
+    "Craftsman's Competence Materia VII": {
+      "cost": 240
+    },
+    "Craftsman's Competence Materia VIII": {
+      "cost": 300
+    },
+    "Craftsman's Cunning Materia VII": {
+      "cost": 240
+    },
+    "Craftsman's Cunning Materia VIII": {
+      "cost": 300
+    },
+    "Craftsman's Command Materia VII": {
+      "cost": 240
+    },
+    "Craftsman's Command Materia VIII": {
+      "cost": 300
+    }
+  }
+}

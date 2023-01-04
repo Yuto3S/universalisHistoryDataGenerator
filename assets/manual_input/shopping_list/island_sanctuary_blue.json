@@ -1,0 +1,71 @@
+{
+  "_last_updated": 6.2,
+  "extra_fields": [
+    "cost"
+  ],
+  "items": {
+    "Ruby Red Dye": {
+      "cost": 500
+    },
+    "Cherry Pink Dye": {
+      "cost": 500
+    },
+    "Canary Yellow Dye": {
+      "cost": 500
+    },
+    "Vanilla Yellow Dye": {
+      "cost": 500
+    },
+    "Dragoon Blue Dye": {
+      "cost": 500
+    },
+    "Turquoise Blue Dye": {
+      "cost": 500
+    },
+    "Gunmetal Black Dye": {
+      "cost": 2500
+    },
+    "Pearl White Dye": {
+      "cost": 2500
+    },
+    "Metallic Brass Dye": {
+      "cost": 2500
+    },
+    "Craftsman's Cunning Materia X": {
+      "cost": 1500
+    },
+    "Craftsman's Command Materia IX": {
+      "cost": 750
+    },
+    "Craftsman's Command Materia X": {
+      "cost": 1500
+    },
+    "Gatherer's Guerdon Materia IX": {
+      "cost": 750
+    },
+    "Gatherer's Guerdon Materia X": {
+      "cost": 1500
+    },
+    "Gatherer's Guile Materia IX": {
+      "cost": 750
+    },
+    "Gatherer's Guile Materia X": {
+      "cost": 1500
+    },
+    "Gatherer's Grasp Materia IX": {
+      "cost": 750
+    },
+    "Gatherer's Grasp Materia X": {
+      "cost": 1500
+    },
+    "Craftsman's Competence Materia IX": {
+      "cost": 750
+    },
+    "Craftsman's Competence Materia X": {
+      "cost": 1500
+    },
+    "Craftsman's Cunning Materia IX": {
+      "cost": 750
+    }
+  }
+}

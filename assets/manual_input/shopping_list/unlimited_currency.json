@@ -1,0 +1,39 @@
+{
+    "_last_updated": 6.2,
+    "extra_fields": ["cost"],
+    "items": {
+        "Thavnairian Almandine": {
+            "cost": 20
+        },
+        "Vanadinite": {
+            "cost": 20
+        },
+        "Palebloom Kudzu Cloth": {
+            "cost": 20
+        },
+        "Titanoboa Skin": {
+            "cost": 20
+        },
+        "Hannish Varnish": {
+            "cost": 20
+        },
+        "Palaka Mistletoe": {
+            "cost": 20
+        },
+        "Alchemical Abrasive": {
+            "cost": 10
+        },
+        "Thavnairian Thread": {
+            "cost": 10
+        },
+        "Amynodon Hide": {
+            "cost": 10
+        },
+        "Thavnairian Horsetail": {
+            "cost": 10
+        },
+        "Alchemical Charcoal": {
+            "cost": 10
+        }
+    }
+}
