@@ -2,8 +2,11 @@ from enum import Enum
 
 
 class FFXIVServers(Enum):
-    ODIN = "Odin"
+    ALPHA = "Alpha"
     LICH = "Lich"
+    ODIN = "Odin"
+    PHOENIX = "Phoenix"
+    RAIDEN = "Raiden"
     SHIVA = "Shiva"
     TWINTANIA = "Twintania"
     ZODIARK = "Zodiark"

@@ -4,7 +4,7 @@
 # Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
 import json
 
-from calculators import calculate_values
+from calculators import calculate_values, calculate_values_bulk
 from datetime import date
 from datetime import datetime
 # Press the green button in the gutter to run the script.
@@ -52,7 +52,7 @@ def calculate_shopping_lists(selected_server, timeframe_hours, specific_shopping
             print(file_name)
             with open(f"assets/generated/shopping_list/{file_name}", "r") as input_calculate_json_file:
                 items = json.load(input_calculate_json_file)
-                output = calculate_values(items, selected_server, timeframe_hours)
+                output = calculate_values_bulk(items, selected_server, timeframe_hours)
 
             with open(f"{dir_path}/{file_name}", "w") as output_file:
                 output_file.write(json.dumps(output))
@@ -63,8 +63,7 @@ if __name__ == '__main__':
     should_generate_new_shopping_lists = False
     should_calculate_shopping_lists = True
     specific_shopping_list = None
-    # servers = [FFXIVServers.TWINTANIA, FFXIVServers.LICH, FFXIVServers.ZODIARK]
-    servers = [FFXIVServers.ODIN]
+    servers = [server for server in FFXIVServers]
     timeframe_history_hours = HistoryTimeFrameHours.SEVEN_DAYS.value
 
     if should_fetch_new_items:
@@ -75,6 +74,7 @@ if __name__ == '__main__':
 
     if should_calculate_shopping_lists:
         for server in servers:
+            print(f"SERVER {server} SERVER")
             calculate_shopping_lists(server, timeframe_history_hours, specific_shopping_list)
 
     files_tree = get_files_tree_starting_on_folder("assets/generated/history")

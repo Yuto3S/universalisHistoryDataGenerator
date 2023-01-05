@@ -173,3 +173,89 @@ def calculate_values(items, server, timeframe_hours):
         output["items"].append(item_info)
 
     return output
+
+
+def calculate_values_bulk(items, server, timeframe_hours):
+    extra_attributes = set(items[list(items.keys())[0]].keys())
+    extra_attributes = sorted(extra_attributes)
+
+    # TODO: move those columns into CONSTS
+    history = {
+        "columns": [
+            "Item Name",
+            "Average Price",
+            "Total Market",
+            "Total Sold",
+        ],
+        "items": [],
+    }
+    for extra_attribute in extra_attributes:
+        history["columns"].append(extra_attribute)
+
+    # TODO: move to helper function
+    # CUSTOM LOGIC BASED ON COLUMNS BEGIN
+    if "cost" in extra_attributes:
+        history["columns"].append("Price/Cost")
+    if "duration" in extra_attributes:
+        history["columns"].append("Gil/Duration*Quantity")
+    # CUSTOM LOGIC BASED ON COLUMNS END
+
+    item_ids_to_name = {}
+    for item_name in items:
+        item_ids_to_name[str(items[item_name]["id"])] = item_name
+
+    ids_in_url = ""
+    for item_id in list(item_ids_to_name.keys()):
+        ids_in_url += f"{str(item_id)},"
+
+    print(ids_in_url)
+    universalis_request = requests.get(
+        f"{UNIVERSALIS_REQUEST_URL}{server.value}/{ids_in_url}?entriesWithin={timeframe_hours * 60 * 60}")
+    result = json.loads(universalis_request.content)
+    for item_id in result["items"]:
+        total_gil = 0
+        total_quantity_sold = 0
+        entries = 0
+
+        if result["items"][item_id].get("entries") is None:
+            pass  # Do nothing
+        else:
+            for entry in result["items"][item_id]["entries"]:
+                total_gil += entry["pricePerUnit"] * entry["quantity"]
+                total_quantity_sold += entry["quantity"]
+
+                entries = len(result["items"][item_id]["entries"])
+
+        average_price = math.floor(total_gil / total_quantity_sold) if total_quantity_sold > 0 else 0
+
+        item_info = {
+            "Item Name": item_ids_to_name[item_id],
+            "Average Price": average_price,
+            "Total Market": total_gil,
+            "Total Sold": total_quantity_sold,
+            "id": item_id,
+        }
+
+        # history["items"].append({
+        #     "Item Name": item_id,
+        #     "Average Price": average_price,
+        #     "Total Market": total_gil,
+        #     "Total Sold": total_quantity_sold,
+        #     "id": item_id,
+        # })
+
+        for extra_attribute in extra_attributes:
+            item_info[extra_attribute] = items[item_ids_to_name[item_id]][extra_attribute]
+
+        # TODO: move to helper function
+        # CUSTOM LOGIC BASED ON COLUMNS BEGIN
+        if "cost" in extra_attributes:
+            item_info["Price/Cost"] = item_info["Average Price"] / item_info["cost"]
+        if "duration" in extra_attributes:
+            item_info["Gil/Duration*Quantity"] = item_info["Average Price"] / item_info["duration"] * item_info[
+                "quantity"]
+        # CUSTOM LOGIC BASED ON COLUMNS END
+
+        history["items"].append(item_info)
+
+    return history
