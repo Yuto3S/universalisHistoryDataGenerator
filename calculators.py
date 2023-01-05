@@ -53,7 +53,7 @@ def common_item_json(item_name, total_gil, total_quantity, entries, stack_of_99)
 
 def calculate_item_info(item_id, server, timeframe_hours, only_hq=False):
     universalis_timeframe_seconds = timeframe_hours*60*60
-    universalis_request = requests.get(f"{UNIVERSALIS_REQUEST_URL}/{server}/{item_id}?entriesWithin={universalis_timeframe_seconds}")
+    universalis_request = requests.get(f"{UNIVERSALIS_REQUEST_URL}/{server.value}/{item_id}?entriesWithin={universalis_timeframe_seconds}")
 
     if universalis_request.status_code == 200:
         result = json.loads(universalis_request.content)

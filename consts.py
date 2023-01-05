@@ -2,6 +2,8 @@ from enum import Enum
 
 
 class FFXIVServers(Enum):
+    ODIN = "Odin"
+    LICH = "Lich"
     SHIVA = "Shiva"
     TWINTANIA = "Twintania"
     ZODIARK = "Zodiark"
@@ -9,6 +11,8 @@ class FFXIVServers(Enum):
 
 class HistoryTimeFrameHours(Enum):
     SEVEN_DAYS = 168
+    ONE_DAY = 24
+    ONE_HOUR = 1
 
 
 class VentureType(Enum):

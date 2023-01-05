@@ -41,7 +41,7 @@ def generate_files_from_manual_input():
 
 def calculate_shopping_lists(selected_server, timeframe_hours, specific_shopping_list):
     folder_date = str(date.today())
-    dir_path = f"assets/generated/history/{selected_server}/{timeframe_hours}/{folder_date}"
+    dir_path = f"assets/generated/history/{selected_server.value}/{timeframe_hours}/{folder_date}"
     if not os.path.exists(dir_path):
         os.makedirs(dir_path)
 
@@ -52,7 +52,7 @@ def calculate_shopping_lists(selected_server, timeframe_hours, specific_shopping
             print(file_name)
             with open(f"assets/generated/shopping_list/{file_name}", "r") as input_calculate_json_file:
                 items = json.load(input_calculate_json_file)
-                output = calculate_values(items, server, timeframe_hours)
+                output = calculate_values(items, selected_server, timeframe_hours)
 
             with open(f"{dir_path}/{file_name}", "w") as output_file:
                 output_file.write(json.dumps(output))
@@ -60,10 +60,11 @@ def calculate_shopping_lists(selected_server, timeframe_hours, specific_shopping
 
 if __name__ == '__main__':
     should_fetch_new_items = False
-    should_generate_new_shopping_lists = True
+    should_generate_new_shopping_lists = False
     should_calculate_shopping_lists = True
-    specific_shopping_list = "maps.json"
-    server = FFXIVServers.SHIVA.value
+    specific_shopping_list = None
+    # servers = [FFXIVServers.TWINTANIA, FFXIVServers.LICH, FFXIVServers.ZODIARK]
+    servers = [FFXIVServers.ODIN]
     timeframe_history_hours = HistoryTimeFrameHours.SEVEN_DAYS.value
 
     if should_fetch_new_items:
@@ -73,7 +74,8 @@ if __name__ == '__main__':
         generate_files_from_manual_input()
 
     if should_calculate_shopping_lists:
-        calculate_shopping_lists(server, timeframe_history_hours, specific_shopping_list)
+        for server in servers:
+            calculate_shopping_lists(server, timeframe_history_hours, specific_shopping_list)
 
     files_tree = get_files_tree_starting_on_folder("assets/generated/history")
     with open(f"assets/generated/history_tree.json", "w") as latest_tree:
