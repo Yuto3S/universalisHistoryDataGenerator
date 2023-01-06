@@ -1,5 +1,35 @@
 from enum import Enum
 
+ID = "id"
+
+UNIVERSALIS_REQUEST_URL = f"https://universalis.app/api/v2/history/"
+UNIVERSALIS_RESPONSE_PRICE = "pricePerUnit"
+UNIVERSALIS_RESPONSE_QUANTITY = "quantity"
+UNIVERSALIS_RESPONSE_ENTRIES = "entries"
+
+QUANTITY = "quantity"
+COLUMNS = "columns"
+ITEMS = "items"
+COST = "cost"
+CURRENCY = "currency"
+DURATION = "duration"
+
+
+GIL_PER_CURRENCY = "Price/Cost"
+GIL_PER_VENTURE = "Gil/Venture"
+
+HISTORY_INFO_NAME = "Name"
+HISTORY_INFO_AVERAGE_PRICE = "Average Price"
+HISTORY_INFO_TOTAL_MARKET = "Total Market"
+HISTORY_INFO_TOTAL_QUANTITY = "Total Quantity"
+
+HISTORY_INFO_SHARED_COLUMNS = [
+    HISTORY_INFO_NAME,
+    HISTORY_INFO_AVERAGE_PRICE,
+    HISTORY_INFO_TOTAL_MARKET,
+    HISTORY_INFO_TOTAL_QUANTITY,
+]
+
 
 class FFXIVServers(Enum):
     ALPHA = "Alpha"

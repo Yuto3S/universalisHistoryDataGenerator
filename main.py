@@ -4,7 +4,7 @@
 # Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
 import json
 
-from calculators import calculate_values, calculate_values_bulk
+from calculators import calculate_values_bulk
 from datetime import date
 from datetime import datetime
 # Press the green button in the gutter to run the script.
@@ -52,10 +52,10 @@ def calculate_shopping_lists(selected_server, timeframe_hours, specific_shopping
             print(file_name)
             with open(f"assets/generated/shopping_list/{file_name}", "r") as input_calculate_json_file:
                 items = json.load(input_calculate_json_file)
-                output = calculate_values_bulk(items, selected_server, timeframe_hours)
+                history = get_history_bulk_items(items, selected_server, timeframe_hours)
 
             with open(f"{dir_path}/{file_name}", "w") as output_file:
-                output_file.write(json.dumps(output))
+                output_file.write(json.dumps(history))
 
 
 if __name__ == '__main__':
