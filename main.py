@@ -1,25 +1,18 @@
-# This is a sample Python script.
-
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
 import json
 
-from calculators import calculate_values_bulk
+from calculators import get_history_bulk_items
 from datetime import date
 from datetime import datetime
-# Press the green button in the gutter to run the script.
 from consts import FFXIVServers, HistoryTimeFrameHours
 from generators import generate_json, generate_all_items_name_to_id
 import os
 from distutils.dir_util import copy_tree
 
-# TODO:
 from src.utils import get_files_tree_starting_on_folder
 
 """
-- Seeds
-- Furnishing
-- Add working only_hq flag for pots/foods
+    TODO:
+    Working only_hq flag for pots/foods
 """
 
 
@@ -61,7 +54,7 @@ def calculate_shopping_lists(selected_server, timeframe_hours, specific_shopping
 if __name__ == '__main__':
     should_fetch_new_items = False
     should_generate_new_shopping_lists = False
-    should_calculate_shopping_lists = True
+    should_calculate_shopping_lists = False
     specific_shopping_list = None
     servers = [server for server in FFXIVServers]
     timeframe_history_hours = HistoryTimeFrameHours.SEVEN_DAYS.value
@@ -74,7 +67,7 @@ if __name__ == '__main__':
 
     if should_calculate_shopping_lists:
         for server in servers:
-            print(f"SERVER {server} SERVER")
+            print(f"SERVER {server.value} SERVER")
             calculate_shopping_lists(server, timeframe_history_hours, specific_shopping_list)
 
     files_tree = get_files_tree_starting_on_folder("assets/generated/history")
