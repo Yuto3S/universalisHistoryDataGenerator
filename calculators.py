@@ -4,13 +4,18 @@ import math
 import requests
 
 from consts import UNIVERSALIS_REQUEST_URL, HISTORY_INFO_NAME, HISTORY_INFO_AVERAGE_PRICE, HISTORY_INFO_TOTAL_MARKET, \
-    HISTORY_INFO_TOTAL_QUANTITY, ID, HISTORY_INFO_SHARED_COLUMNS, COLUMNS, ITEMS, DURATION, COST, GIL_PER_VENTURE, \
+    HISTORY_INFO_TOTAL_QUANTITY, ID, COLUMNS, ITEMS, DURATION, COST, GIL_PER_VENTURE, \
     GIL_PER_CURRENCY, UNIVERSALIS_RESPONSE_QUANTITY, UNIVERSALIS_RESPONSE_ENTRIES, UNIVERSALIS_RESPONSE_PRICE
 
 
 def get_default_history(extra_attributes):
     history = {
-        COLUMNS: HISTORY_INFO_SHARED_COLUMNS,
+        COLUMNS: [
+            HISTORY_INFO_NAME,
+            HISTORY_INFO_AVERAGE_PRICE,
+            HISTORY_INFO_TOTAL_MARKET,
+            HISTORY_INFO_TOTAL_QUANTITY,
+        ],
         ITEMS: [],
     }
     for extra_attribute in extra_attributes:
@@ -104,7 +109,7 @@ def get_history_bulk_items(items, server, timeframe_hours):
 
     for item_id in result[ITEMS]:
         item_info = calculate_item_info(item_id, result, items, items_id_to_name, extra_attributes)
-        maybe_enrich_item_info(item_info, item_id)
+        maybe_enrich_item_info(item_info, extra_attributes)
 
         history[ITEMS].append(item_info)
 

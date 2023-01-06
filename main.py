@@ -54,7 +54,7 @@ def calculate_shopping_lists(selected_server, timeframe_hours, specific_shopping
 if __name__ == '__main__':
     should_fetch_new_items = False
     should_generate_new_shopping_lists = False
-    should_calculate_shopping_lists = False
+    should_calculate_shopping_lists = True
     specific_shopping_list = None
     servers = [server for server in FFXIVServers]
     timeframe_history_hours = HistoryTimeFrameHours.SEVEN_DAYS.value
