@@ -1,5 +1,10 @@
 from enum import Enum
 
+# One process per server
+PROCESSES = 8
+UNIVERSALIS_API_RATE_LIMIT_PER_SECOND = 20
+
+
 ID = "id"
 
 UNIVERSALIS_REQUEST_URL = f"https://universalis.app/api/v2/history/"

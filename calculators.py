@@ -1,11 +1,12 @@
 import json
 import math
-
+import time
 import requests
 
 from consts import UNIVERSALIS_REQUEST_URL, HISTORY_INFO_NAME, HISTORY_INFO_AVERAGE_PRICE, HISTORY_INFO_TOTAL_MARKET, \
     HISTORY_INFO_TOTAL_QUANTITY, ID, COLUMNS, ITEMS, DURATION, COST, GIL_PER_VENTURE, \
-    GIL_PER_CURRENCY, UNIVERSALIS_RESPONSE_QUANTITY, UNIVERSALIS_RESPONSE_ENTRIES, UNIVERSALIS_RESPONSE_PRICE
+    GIL_PER_CURRENCY, UNIVERSALIS_RESPONSE_QUANTITY, UNIVERSALIS_RESPONSE_ENTRIES, UNIVERSALIS_RESPONSE_PRICE, \
+    PROCESSES, UNIVERSALIS_API_RATE_LIMIT_PER_SECOND
 
 
 def get_default_history(extra_attributes):
@@ -53,6 +54,8 @@ def get_universalis_response(items_id_to_name, server, timeframe_hours):
     if universalis_request.status_code != 200:
         print(f"Failed to get requested items with error code {universalis_request.status_code}")
         return {ITEMS: []}
+
+    time.sleep(PROCESSES / UNIVERSALIS_API_RATE_LIMIT_PER_SECOND)
 
     result = json.loads(universalis_request.content)
     return result
