@@ -1,0 +1,1 @@
+lodestone_item_ids.txt is copied from https://github.com/Asvel/ffxiv-lodestone-item-id
