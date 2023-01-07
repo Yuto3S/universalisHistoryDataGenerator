@@ -2,11 +2,10 @@ import json
 
 from calculators import get_history_bulk_items
 from datetime import date
-from datetime import datetime
+import shutil
 from consts import FFXIVServers, HistoryTimeFrameHours
 from generators import generate_json, generate_all_items_name_to_id
 import os
-from distutils.dir_util import copy_tree
 
 from src.utils import get_files_tree_starting_on_folder
 
@@ -75,7 +74,8 @@ if __name__ == '__main__':
         latest_tree.write(json.dumps(files_tree))
 
     # TODO: Copy files to front-end service and push new branch to git to deploy changes
-    # copy_tree(
-    #     "./assets/generated/history",
-    #     "../my-app/src/assets",
-    # )
+    shutil.copytree("./assets/generated/history", "../my-app/src/assets/history", dirs_exist_ok=True)
+    shutil.copytree("./assets/generated/history", "../my-app/docs/assets/history", dirs_exist_ok=True)
+    shutil.copy("./assets/generated/history_tree.json", "../my-app/src/assets/history_tree.json")
+    shutil.copy("./assets/generated/history_tree.json", "../my-app/docs/assets/history_tree.json")
+    os.popen(f"cd .. && cd my-app/ && git add . && git commit -m \"New shopping list informations for {str(date.today())}\" && git push")
