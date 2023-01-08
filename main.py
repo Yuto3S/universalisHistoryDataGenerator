@@ -3,7 +3,7 @@ from multiprocessing import Pool
 
 from calculators import get_history_bulk_items
 from datetime import date
-import shutil
+from git import Repo
 
 from consts import FFXIVServers, HistoryTimeFrameHours, PROCESSES
 from generators import generate_json, generate_all_items_name_to_id
@@ -54,15 +54,20 @@ def calculate_shopping_lists(selected_server, timeframe_hours, specific_shopping
                 output_file.write(json.dumps(history))
 
 
-def copy_and_push_to_git():
-    # TODO: Copy files to front-end service and push new branch to git to deploy changes
-    shutil.copytree("./assets/generated/history", "../my-app/src/assets/history", dirs_exist_ok=True)
-    shutil.copytree("./assets/generated/history", "../my-app/docs/assets/history", dirs_exist_ok=True)
-    shutil.copy("./assets/generated/history_tree.json", "../my-app/src/assets/history_tree.json")
-    shutil.copy("./assets/generated/history_tree.json", "../my-app/docs/assets/history_tree.json")
-    os.popen(f"cd .. && cd my-app/ && git add . && git commit -m \"New shopping list informations for {str(date.today())}\"")
-    os.popen(f"cd .. && cd my-app/ && git push origin HEAD")
-
+def push_to_git(folder_name, list_of_servers, timeframe_hours):
+    try:
+        repo = Repo("./")
+        repo.git.add("assets/generated/history")
+        repo.git.add("assets/generated/history_tree.json")
+        repo.index.commit(
+            f"New shopping list informations for {folder_name} - "
+            f"{[server.value for server in list_of_servers]} - "
+            f"over the last {timeframe_hours} hours. "
+        )
+        origin = repo.remote(name='origin')
+        origin.push()
+    except:
+        print('Some error occured while pushing the code')
 
 if __name__ == '__main__':
     should_fetch_new_items = False
