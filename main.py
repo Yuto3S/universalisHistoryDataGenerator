@@ -34,8 +34,7 @@ def generate_files_from_manual_input():
         generate_json(file_name)
 
 
-def calculate_shopping_lists(selected_server, timeframe_hours, specific_shopping_list):
-    print(f"SELECTED SERVER: {selected_server}")
+def calculate_shopping_lists(selected_server, folder_date, timeframe_hours, specific_shopping_list):
     folder_date = str(date.today())
     dir_path = f"assets/generated/history/{selected_server.value}/{timeframe_hours}/{folder_date}"
     if not os.path.exists(dir_path):
@@ -69,15 +68,18 @@ def push_to_git(folder_name, list_of_servers, timeframe_hours):
     except:
         print('Some error occured while pushing the code')
 
+
 if __name__ == '__main__':
     should_fetch_new_items = False
     should_generate_new_shopping_lists = False
     should_calculate_shopping_lists = False
-    should_copy_and_push_to_git = True
+    should_push_to_git = True
     specific_shopping_list = None
     servers = [server for server in FFXIVServers]
     # servers = [FFXIVServers.TWINTANIA]
-    timeframe_history_hours = HistoryTimeFrameHours.SEVEN_DAYS.value
+    timeframe_history_hours = HistoryTimeFrameHours.ONE_DAY.value
+    folder_date = str(date.today())
+
 
     if should_fetch_new_items:
         fetch_items_data()
@@ -90,6 +92,7 @@ if __name__ == '__main__':
             result = pool.map(
                 partial(
                     calculate_shopping_lists,
+                    folder_date=folder_date,
                     timeframe_hours=timeframe_history_hours,
                     specific_shopping_list=specific_shopping_list
                 ),
@@ -100,5 +103,5 @@ if __name__ == '__main__':
     with open(f"assets/generated/history_tree.json", "w") as latest_tree:
         latest_tree.write(json.dumps(files_tree))
 
-    if should_copy_and_push_to_git:
-        copy_and_push_to_git()
+    if should_push_to_git:
+        push_to_git(folder_date, servers, timeframe_history_hours)
