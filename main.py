@@ -60,16 +60,18 @@ def copy_and_push_to_git():
     shutil.copytree("./assets/generated/history", "../my-app/docs/assets/history", dirs_exist_ok=True)
     shutil.copy("./assets/generated/history_tree.json", "../my-app/src/assets/history_tree.json")
     shutil.copy("./assets/generated/history_tree.json", "../my-app/docs/assets/history_tree.json")
-    os.popen(f"cd .. && cd my-app/ && git add . && git commit -m \"New shopping list informations for {str(date.today())}\" && git push")
+    os.popen(f"cd .. && cd my-app/ && git add . && git commit -m \"New shopping list informations for {str(date.today())}\"")
+    os.popen(f"cd .. && cd my-app/ && git push origin HEAD")
 
 
 if __name__ == '__main__':
     should_fetch_new_items = False
     should_generate_new_shopping_lists = False
-    should_calculate_shopping_lists = True
-    should_copy_and_push_to_git = False
+    should_calculate_shopping_lists = False
+    should_copy_and_push_to_git = True
     specific_shopping_list = None
     servers = [server for server in FFXIVServers]
+    # servers = [FFXIVServers.TWINTANIA]
     timeframe_history_hours = HistoryTimeFrameHours.SEVEN_DAYS.value
 
     if should_fetch_new_items:

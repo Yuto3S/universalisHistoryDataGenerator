@@ -6,7 +6,7 @@ import requests
 from consts import UNIVERSALIS_REQUEST_URL, HISTORY_INFO_NAME, HISTORY_INFO_AVERAGE_PRICE, HISTORY_INFO_TOTAL_MARKET, \
     HISTORY_INFO_TOTAL_QUANTITY, ID, COLUMNS, ITEMS, DURATION, COST, GIL_PER_VENTURE, \
     GIL_PER_CURRENCY, UNIVERSALIS_RESPONSE_QUANTITY, UNIVERSALIS_RESPONSE_ENTRIES, UNIVERSALIS_RESPONSE_PRICE, \
-    PROCESSES, UNIVERSALIS_API_RATE_LIMIT_PER_SECOND
+    PROCESSES, UNIVERSALIS_API_RATE_LIMIT_PER_SECOND, QUANTITY
 
 
 def get_default_history(extra_attributes):
@@ -96,7 +96,7 @@ def maybe_enrich_item_info(item_info, extra_attributes):
     if COST in extra_attributes:
         item_info[GIL_PER_CURRENCY] = item_info[HISTORY_INFO_AVERAGE_PRICE] / item_info[COST]
     if DURATION in extra_attributes:
-        item_info[GIL_PER_VENTURE] = item_info[HISTORY_INFO_AVERAGE_PRICE] / item_info[DURATION] * item_info[HISTORY_INFO_TOTAL_QUANTITY]
+        item_info[GIL_PER_VENTURE] = item_info[HISTORY_INFO_AVERAGE_PRICE] / item_info[DURATION] * item_info[QUANTITY]
 
 
 def get_history_bulk_items(items, server, timeframe_hours):
