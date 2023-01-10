@@ -2,7 +2,7 @@ import json
 from multiprocessing import Pool
 
 from calculators import get_history_bulk_items
-from datetime import date
+from datetime import date, datetime
 from git import Repo
 
 from consts import FFXIVServers, HistoryTimeFrameHours, PROCESSES
@@ -34,14 +34,13 @@ def generate_files_from_manual_input():
         generate_json(file_name)
 
 
-def calculate_shopping_lists(selected_server, folder_date, timeframe_hours, specific_shopping_list):
-    folder_date = str(date.today())
-    dir_path = f"assets/generated/history/{selected_server.value}/{timeframe_hours}/{folder_date}"
+def calculate_shopping_lists(selected_server, folder_date_func, timeframe_hours, maybe_specific_shopping_list):
+    dir_path = f"assets/generated/history/{selected_server.value}/{timeframe_hours}/{folder_date_func}"
     if not os.path.exists(dir_path):
         os.makedirs(dir_path)
 
     for file_name in os.listdir("assets/generated/shopping_list/"):
-        if specific_shopping_list and file_name != specific_shopping_list:
+        if maybe_specific_shopping_list and file_name != maybe_specific_shopping_list:
             pass    # Do nothing
         else:
             print(f"{selected_server} --> {file_name}")
@@ -51,6 +50,8 @@ def calculate_shopping_lists(selected_server, folder_date, timeframe_hours, spec
 
             with open(f"{dir_path}/{file_name}", "w") as output_file:
                 output_file.write(json.dumps(history))
+
+    print(f"{selected_server} --> Done")
 
 
 def push_to_git(folder_name, list_of_servers, timeframe_hours):
@@ -72,14 +73,17 @@ def push_to_git(folder_name, list_of_servers, timeframe_hours):
 if __name__ == '__main__':
     should_fetch_new_items = False
     should_generate_new_shopping_lists = False
-    should_calculate_shopping_lists = False
+    should_calculate_shopping_lists = True
     should_push_to_git = True
     specific_shopping_list = None
     servers = [server for server in FFXIVServers]
     # servers = [FFXIVServers.TWINTANIA]
-    timeframe_history_hours = HistoryTimeFrameHours.ONE_DAY.value
+    timeframe_history_hours = HistoryTimeFrameHours.ONE_HOUR.value
     folder_date = str(date.today())
 
+    if timeframe_history_hours == HistoryTimeFrameHours.ONE_HOUR.value:
+        now = datetime.now()
+        folder_date += f"-{now.hour:02d}-{now.minute:02d}"
 
     if should_fetch_new_items:
         fetch_items_data()
@@ -92,9 +96,9 @@ if __name__ == '__main__':
             result = pool.map(
                 partial(
                     calculate_shopping_lists,
-                    folder_date=folder_date,
+                    folder_date_func=folder_date,
                     timeframe_hours=timeframe_history_hours,
-                    specific_shopping_list=specific_shopping_list
+                    maybe_specific_shopping_list=specific_shopping_list
                 ),
                 servers
             )
@@ -103,5 +107,5 @@ if __name__ == '__main__':
     with open(f"assets/generated/history_tree.json", "w") as latest_tree:
         latest_tree.write(json.dumps(files_tree))
 
-    if should_push_to_git:
+    if should_calculate_shopping_lists and should_push_to_git:
         push_to_git(folder_date, servers, timeframe_history_hours)
