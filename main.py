@@ -14,7 +14,28 @@ from src.utils import get_files_tree_starting_on_folder
 
 """
     TODO:
-    Working only_hq flag for pots/foods
+    - One shopping file per:
+        - nuts
+        - white scrip crafter
+        - white scrip gatherer
+        - purple scrip crafter
+        - purple scrip gatherer
+        - legendary nodes items 90
+    - Description of the files that is being sent to the front-end
+    - Add black for python formatting
+    - Split logic to calculate values/average and writing it into a file
+        (writing into files/reading from files should be done in its own logic parts as much as possible)
+    - Tests
+    - Working only_hq flag for pots/foods
+    - Make function runnable from command line
+    - Make the following variable parameters of the command line function:
+        should_fetch_new_items
+        should_generate_new_shopping_lists
+        should_calculate_shopping_lists
+        should_push_to_git
+        specific_shopping_list
+        servers
+        timeframe_history_hours
 """
 
 
