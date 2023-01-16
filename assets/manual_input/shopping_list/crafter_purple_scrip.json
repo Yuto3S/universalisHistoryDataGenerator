@@ -1,0 +1,56 @@
+{
+  "_last_updated": 6.3,
+  "_data_taken_from": [
+    "https://ffxiv.consolegameswiki.com/wiki/Scrip_Exchange_(Limsa_Lominsa)/Crafters%27_Scrip_(Master_Recipes/Materials/Misc.)",
+    "https://ffxiv.consolegameswiki.com/wiki/Scrip_Exchange_(Limsa_Lominsa)/Crafters%27_Scrip_(Materia)",
+    "https://garlandtools.org/db/#item/33913",
+    "https://na.finalfantasyxiv.com/lodestone/playguide/db/shop/64bfdf2f346"
+  ],
+  "extra_fields": [
+    "cost"
+  ],
+  "items": {
+    "Craftsman's Competence Materia X": {
+      "cost": 500
+    },
+    "Craftsman's Cunning Materia X": {
+      "cost": 500
+    },
+    "Craftsman's Command Materia X": {
+      "cost": 500
+    },
+    "Immutable Solution": {
+      "cost": 125
+    },
+    "Prime Loaghtan Rump": {
+      "cost": 15
+    },
+    "Sunset Carrot": {
+      "cost": 15
+    },
+    "Piennolo Tomato": {
+      "cost": 15
+    },
+    "Thundermelon": {
+      "cost": 15
+    },
+    "King Urchin": {
+      "cost": 15
+    },
+    "Butterbeef": {
+      "cost": 10
+    },
+    "Giant Pumpkin": {
+      "cost": 10
+    },
+    "White Peach": {
+      "cost": 10
+    },
+    "Subtle Cinnamon Sticks": {
+      "cost": 10
+    },
+    "Glass Scallop": {
+      "cost": 10
+    }
+  }
+}

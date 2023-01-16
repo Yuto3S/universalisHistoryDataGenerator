@@ -1,5 +1,6 @@
 {
-    "_last_updated": 6.2,
+    "_last_updated": 6.3,
+    "_current_currency": "Astronomy",
     "extra_fields": ["cost"],
     "items": {
         "Thavnairian Almandine": {

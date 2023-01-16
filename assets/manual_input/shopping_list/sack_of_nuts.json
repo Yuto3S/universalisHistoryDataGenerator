@@ -3,6 +3,9 @@
   "_data_taken_from": [
     "https://garlandtools.org/db/#item/26533"
   ],
+  "extra_fields": [
+    "cost"
+  ],
   "items": {
     "Crystarium Striking Dummy": {
       "cost": 300

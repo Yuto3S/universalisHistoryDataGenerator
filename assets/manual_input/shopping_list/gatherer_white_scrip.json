@@ -6,6 +6,9 @@
     "https://garlandtools.org/db/#item/25200",
     "https://na.finalfantasyxiv.com/lodestone/playguide/db/shop/64bfdf2f346"
   ],
+  "extra_fields": [
+    "cost"
+  ],
   "items": {
     "Gatherer's Guerdon Materia IV": {
       "cost": 25
