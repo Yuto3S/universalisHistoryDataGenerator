@@ -96,7 +96,7 @@ def maybe_enrich_item_info(item_info, extra_attributes):
     if COST in extra_attributes:
         item_info[GIL_PER_CURRENCY] = item_info[HISTORY_INFO_AVERAGE_PRICE] / item_info[COST]
     if DURATION in extra_attributes:
-        item_info[GIL_PER_VENTURE] = item_info[HISTORY_INFO_AVERAGE_PRICE] / item_info[DURATION] * item_info[QUANTITY]
+        item_info[GIL_PER_VENTURE] = item_info[HISTORY_INFO_AVERAGE_PRICE] * item_info[QUANTITY]
 
 
 def get_history_bulk_items(items, server, timeframe_hours):
