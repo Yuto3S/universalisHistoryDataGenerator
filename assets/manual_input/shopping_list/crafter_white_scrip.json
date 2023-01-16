@@ -10,6 +10,60 @@
     "cost"
   ],
   "items": {
+    "Craftsman's Competence Materia IV": {
+      "cost": 25
+    },
+    "Craftsman's Competence Materia V": {
+      "cost": 200
+    },
+    "Craftsman's Competence Materia VI": {
+      "cost": 200
+    },
+    "Craftsman's Competence Materia VII": {
+      "cost": 200
+    },
+    "Craftsman's Competence Materia VIII": {
+      "cost": 250
+    },
+    "Craftsman's Competence Materia IX": {
+      "cost": 250
+    },
+    "Craftsman's Cunning Materia IV": {
+      "cost": 25
+    },
+    "Craftsman's Cunning Materia V": {
+      "cost": 200
+    },
+    "Craftsman's Cunning Materia VI": {
+      "cost": 200
+    },
+    "Craftsman's Cunning Materia VII": {
+      "cost": 200
+    },
+    "Craftsman's Cunning Materia VIII": {
+      "cost": 250
+    },
+    "Craftsman's Cunning Materia IX": {
+      "cost": 250
+    },
+    "Craftsman's Command Materia IV": {
+      "cost": 25
+    },
+    "Craftsman's Command Materia V": {
+      "cost": 200
+    },
+    "Craftsman's Command Materia VI": {
+      "cost": 200
+    },
+    "Craftsman's Command Materia VII": {
+      "cost": 200
+    },
+    "Craftsman's Command Materia VIII": {
+      "cost": 250
+    },
+    "Craftsman's Command Materia IX": {
+      "cost": 250
+    },
     "Metal Work Lantern": {
       "cost": 50
     },
