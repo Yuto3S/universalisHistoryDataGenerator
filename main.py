@@ -15,12 +15,10 @@ from src.utils import get_files_tree_starting_on_folder
 """
     TODO:
     - One shopping file per:
-        - nuts
         - white scrip crafter
-        - white scrip gatherer
         - purple scrip crafter
-        - purple scrip gatherer
-        - legendary nodes items 90
+    - Remove "materias.json"
+    - Update venture files with new gear values. Rename them to start with "venture_"
     - Description of the files that is being sent to the front-end
     - Add black for python formatting
     - Split logic to calculate values/average and writing it into a file
@@ -92,9 +90,9 @@ def push_to_git(folder_name, list_of_servers, timeframe_hours):
 
 
 if __name__ == '__main__':
-    should_fetch_new_items = True
-    should_generate_new_shopping_lists = True
-    should_calculate_shopping_lists = False
+    should_fetch_new_items = False
+    should_generate_new_shopping_lists = False
+    should_calculate_shopping_lists = True
     should_push_to_git = False
     specific_shopping_list = None
     servers = [server for server in FFXIVServers]

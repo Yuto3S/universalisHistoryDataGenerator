@@ -1,0 +1,104 @@
+{
+  "_last_updated": 6.3,
+  "_data_taken_from": [
+    "https://garlandtools.org/db/#item/26533"
+  ],
+  "items": {
+    "Crystarium Striking Dummy": {
+      "cost": 300
+    },
+    "Rencounter Orchestrion Roll": {
+      "cost": 300
+    },
+    "Piety Materia VII": {
+      "cost": 150
+    },
+    "Heavens' Eye Materia VII": {
+      "cost": 150
+    },
+    "Savage Aim Materia VII": {
+      "cost": 150
+    },
+    "Savage Might Materia VII": {
+      "cost": 150
+    },
+    "Battledance Materia VII": {
+      "cost": 150
+    },
+    "Quickarm Materia VII": {
+      "cost": 150
+    },
+    "Quicktongue Materia VII": {
+      "cost": 150
+    },
+    "Piety Materia VIII": {
+      "cost": 400
+    },
+    "Heavens' Eye Materia VIII": {
+      "cost": 400
+    },
+    "Savage Aim Materia VIII": {
+      "cost": 400
+    },
+    "Savage Might Materia VIII": {
+      "cost": 400
+    },
+    "Battledance Materia VIII": {
+      "cost": 400
+    },
+    "Quickarm Materia VIII": {
+      "cost": 400
+    },
+    "Quicktongue Materia VIII": {
+      "cost": 400
+    },
+    "Thavnairian Striking Dummy": {
+      "cost": 300
+    },
+    "Unbowed Orchestrion Roll": {
+      "cost": 300
+    },
+    "Piety Materia IX": {
+      "cost": 150
+    },
+    "Heavens' Eye Materia IX": {
+      "cost": 150
+    },
+    "Savage Aim Materia IX": {
+      "cost": 150
+    },
+    "Savage Might Materia IX": {
+      "cost": 150
+    },
+    "Battledance Materia IX": {
+      "cost": 150
+    },
+    "Quickarm Materia IX": {
+      "cost": 150
+    },
+    "Quicktongue Materia IX": {
+      "cost": 150
+    },
+    "Piety Materia X": {
+      "cost": 400
+    },
+    "Heavens' Eye Materia X": {
+      "cost": 400
+    },
+    "Savage Aim Materia X": {
+      "cost": 400
+    },
+    "Savage Might Materia X": {
+      "cost": 400
+    },
+    "Battledance Materia X": {
+      "cost": 400
+    },
+    "Quickarm Materia X": {
+      "cost": 400
+    },
+    "Quicktongue Materia X": {
+      "cost": 400
+    }
+  }
+}

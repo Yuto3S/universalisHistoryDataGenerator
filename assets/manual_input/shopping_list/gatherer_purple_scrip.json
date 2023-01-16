@@ -1,0 +1,44 @@
+{
+  "_last_updated": 6.3,
+  "_data_taken_from": [
+    "https://ffxiv.consolegameswiki.com/wiki/Scrip_Exchange_(Limsa_Lominsa)/Gatherers%27_Scrip_(Materials/Misc.)",
+    "https://ffxiv.consolegameswiki.com/wiki/Scrip_Exchange_(Limsa_Lominsa)/Gatherers%27_Scrip_(Materia)",
+    "https://garlandtools.org/db/#item/33914",
+    "https://na.finalfantasyxiv.com/lodestone/playguide/db/shop/64bfdf2f346"
+  ],
+  "items": {
+    "Gatherer's Guerdon Materia X": {
+      "cost": 500
+    },
+    "Gatherer's Guile Materia X": {
+      "cost": 500
+    },
+    "Gatherer's Grasp Materia X": {
+      "cost": 500
+    },
+    "Moonlight Aethersand": {
+      "cost": 100
+    },
+    "Endstone Aethersand": {
+      "cost": 200
+    },
+    "Endwood Aethersand": {
+      "cost": 200
+    },
+    "Endtide Aethersand": {
+      "cost": 200
+    },
+    "Earthbreak Aethersand": {
+      "cost": 300
+    },
+    "Mackerel Strip": {
+      "cost": 5
+    },
+    "Mayfly": {
+      "cost": 5
+    },
+    "Stardust": {
+      "cost": 5
+    }
+  }
+}

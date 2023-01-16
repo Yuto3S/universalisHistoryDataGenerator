@@ -1,5 +1,8 @@
 {
-  "_last_updated": 6.2,
+  "_last_updated": 6.3,
+  "_data_taken_from": [
+    "https://ffxiv.consolegameswiki.com/wiki/Treasure_Hunt"
+  ],
   "items": {
     "Timeworn Leather Map": {},
     "Timeworn Goatskin Map": {},
@@ -14,6 +17,7 @@
     "Timeworn Gliderskin Map": {},
     "Timeworn Zonureskin Map": {},
     "Timeworn Saigaskin Map": {},
-    "Timeworn Kumbhiraskin Map": {}
+    "Timeworn Kumbhiraskin Map": {},
+    "Timeworn Ophiotauroskin Map": {}
   }
 }
