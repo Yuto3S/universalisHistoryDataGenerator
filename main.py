@@ -93,7 +93,7 @@ if __name__ == '__main__':
     should_fetch_new_items = False
     should_generate_new_shopping_lists = False
     should_calculate_shopping_lists = True
-    should_push_to_git = False
+    should_push_to_git = True
     specific_shopping_list = None
     servers = [server for server in FFXIVServers]
     # servers = [FFXIVServers.TWINTANIA]

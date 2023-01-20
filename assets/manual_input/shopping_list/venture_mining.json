@@ -1,38 +1,58 @@
 {
-  "_last_updated": 6.2,
+  "_last_updated": 6.3,
   "extra_fields": [
     "level",
     "quantity"
   ],
   "add_venture_duration": true,
-  "venture_minimum_level": 70,
+  "venture_minimum_level": 1,
   "items": {
+    "Stonehard Water": {
+      "quantity": 7,
+      "level": 90
+    },
+    "Lunar Adamantite Ore": {
+      "quantity": 7,
+      "level": 90
+    },
+    "Rhodium Sand": {
+      "quantity": 7,
+      "level": 90
+    },
+    "Rime Dolomite": {
+      "quantity": 7,
+      "level": 90
+    },
+    "Raw Eblan Danburite": {
+      "quantity": 7,
+      "level": 90
+    },
     "Raw Star Quartz": {
-      "quantity": 50,
+      "quantity": 30,
       "level": 90
     },
     "Chondrite": {
-      "quantity": 50,
+      "quantity": 30,
       "level": 89
     },
     "Ambrosial Water": {
-      "quantity": 50,
+      "quantity": 40,
       "level": 88
     },
     "Annite": {
-      "quantity": 50,
+      "quantity": 40,
       "level": 87
     },
     "Manganese Ore": {
-      "quantity": 50,
+      "quantity": 40,
       "level": 86
     },
     "Raw Blue Zircon": {
-      "quantity": 50,
+      "quantity": 40,
       "level": 86
     },
     "Bismuth Ore": {
-      "quantity": 50,
+      "quantity": 40,
       "level": 85
     },
     "Eblan Alumen": {
@@ -72,47 +92,47 @@
       "level": 80
     },
     "Raw Onyx": {
-      "quantity": 50,
+      "quantity": 9,
       "level": 80
     },
     "Beryllium Ore": {
-      "quantity": 50,
+      "quantity": 9,
       "level": 80
     },
     "Prismstone": {
-      "quantity": 50,
+      "quantity": 9,
       "level": 80
     },
     "Tungsten Ore": {
-      "quantity": 50,
+      "quantity": 9,
       "level": 80
     },
     "Ashen Alumen": {
-      "quantity": 50,
+      "quantity": 9,
       "level": 80
     },
     "Brashgold Ore": {
-      "quantity": 50,
+      "quantity": 9,
       "level": 80
     },
     "Fireheart Cobalt": {
-      "quantity": 50,
+      "quantity": 9,
       "level": 80
     },
     "Purpure Shell Chip": {
-      "quantity": 50,
+      "quantity": 9,
       "level": 80
     },
     "Dolomite": {
-      "quantity": 50,
+      "quantity": 9,
       "level": 80
     },
     "Hard Water": {
-      "quantity": 50,
+      "quantity": 9,
       "level": 80
     },
     "Solstice Stone": {
-      "quantity": 50,
+      "quantity": 9,
       "level": 80
     },
     "Dimythrite Sand": {
@@ -120,7 +140,7 @@
       "level": 79
     },
     "Raw Petalite": {
-      "quantity": 50,
+      "quantity": 9,
       "level": 78
     },
     "Underground Spring Water": {
@@ -136,7 +156,7 @@
       "level": 76
     },
     "Raw Triplite": {
-      "quantity": 50,
+      "quantity": 9,
       "level": 76
     },
     "Titancopper Sand": {
@@ -156,7 +176,7 @@
       "level": 74
     },
     "Raw Lazurite": {
-      "quantity": 50,
+      "quantity": 9,
       "level": 74
     },
     "Highland Spring Water": {
@@ -184,23 +204,23 @@
       "level": 70
     },
     "Raw Rhodonite": {
-      "quantity": 50,
+      "quantity": 9,
       "level": 70
     },
     "Chromite Ore": {
-      "quantity": 50,
+      "quantity": 9,
       "level": 70
     },
     "Gyr Abanian Spring Water": {
-      "quantity": 50,
+      "quantity": 9,
       "level": 70
     },
     "Palladium Ore": {
-      "quantity": 50,
+      "quantity": 9,
       "level": 70
     },
     "Azim Spring Water": {
-      "quantity": 50,
+      "quantity": 9,
       "level": 70
     },
     "Coarse Saltpeter": {
@@ -208,19 +228,19 @@
       "level": 70
     },
     "Hawk's Eye": {
-      "quantity": 50,
+      "quantity": 9,
       "level": 70
     },
     "Nightsteel Ore": {
-      "quantity": 50,
+      "quantity": 9,
       "level": 70
     },
     "Raw Hematite": {
-      "quantity": 50,
+      "quantity": 9,
       "level": 70
     },
     "Silvergrace Ore": {
-      "quantity": 50,
+      "quantity": 9,
       "level": 70
     },
     "Yellow Alumen": {
@@ -228,7 +248,7 @@
       "level": 70
     },
     "Evergleam Ore": {
-      "quantity": 50,
+      "quantity": 9,
       "level": 70
     },
     "Gyr Abanian Ore": {
@@ -248,7 +268,7 @@
       "level": 68
     },
     "Raw Imperial Jade": {
-      "quantity": 50,
+      "quantity": 9,
       "level": 68
     },
     "Doman Iron Sand": {
@@ -260,7 +280,7 @@
       "level": 66
     },
     "Raw Azurite": {
-      "quantity": 50,
+      "quantity": 9,
       "level": 66
     },
     "Doman Iron Ore": {
@@ -268,7 +288,7 @@
       "level": 65
     },
     "Raw Star Spinel": {
-      "quantity": 50,
+      "quantity": 9,
       "level": 65
     },
     "Crescent Spring Water": {
@@ -304,7 +324,7 @@
       "level": 61
     },
     "Adamantite Ore": {
-      "quantity": 50,
+      "quantity": 9,
       "level": 60
     },
     "Eventide Jade": {
@@ -320,11 +340,11 @@
       "level": 60
     },
     "Astral Moraine": {
-      "quantity": 50,
+      "quantity": 9,
       "level": 60
     },
     "Aurum Regis Ore": {
-      "quantity": 50,
+      "quantity": 9,
       "level": 60
     },
     "Beastkin Horn": {
@@ -332,11 +352,11 @@
       "level": 60
     },
     "Blue Quartz": {
-      "quantity": 50,
+      "quantity": 9,
       "level": 60
     },
     "Lumythrite Ore": {
-      "quantity": 50,
+      "quantity": 9,
       "level": 60
     },
     "Lumythrite Sand": {
@@ -344,23 +364,23 @@
       "level": 60
     },
     "Meteorite": {
-      "quantity": 50,
+      "quantity": 9,
       "level": 60
     },
     "Red Alumen": {
-      "quantity": 50,
+      "quantity": 9,
       "level": 60
     },
     "Smithsonite Ore": {
-      "quantity": 50,
+      "quantity": 9,
       "level": 60
     },
     "Sun Mica": {
       "quantity": 50,
-      "level": 60
+      "level": 9
     },
     "Violet Quartz": {
-      "quantity": 50,
+      "quantity": 9,
       "level": 60
     },
     "Gyr Abanian Alumen": {
@@ -368,19 +388,19 @@
       "level": 60
     },
     "Luminium Ore": {
-      "quantity": 50,
+      "quantity": 9,
       "level": 60
     },
     "Raw Triphane": {
-      "quantity": 50,
+      "quantity": 9,
       "level": 60
     },
     "Tungstite": {
-      "quantity": 50,
+      "quantity": 9,
       "level": 60
     },
     "Zeolite Ore": {
-      "quantity": 50,
+      "quantity": 9,
       "level": 60
     },
     "Aurum Regis Sand": {
@@ -404,7 +424,7 @@
       "level": 58
     },
     "Hardsilver Ore": {
-      "quantity": 50,
+      "quantity": 30,
       "level": 58
     },
     "Raw Carnelian": {
@@ -412,7 +432,7 @@
       "level": 58
     },
     "Red Quartz": {
-      "quantity": 50,
+      "quantity": 9,
       "level": 58
     },
     "Abalathian Spring Water": {
@@ -428,7 +448,7 @@
       "level": 57
     },
     "Abalathian Rock Salt": {
-      "quantity": 50,
+      "quantity": 9,
       "level": 56
     },
     "Fossilized Dragon Bone": {
@@ -452,7 +472,7 @@
       "level": 55
     },
     "Titanium Ore": {
-      "quantity": 50,
+      "quantity": 30,
       "level": 55
     },
     "Dravanian Spring Water": {
@@ -504,95 +524,95 @@
       "level": 51
     },
     "Astral Rock": {
-      "quantity": 50,
+      "quantity": 11,
       "level": 50
     },
     "Black Limestone": {
-      "quantity": 50,
+      "quantity": 30,
       "level": 50
     },
     "Dark Matter Cluster": {
-      "quantity": 50,
+      "quantity": 7,
       "level": 50
     },
     "Darksteel Ore": {
-      "quantity": 50,
+      "quantity": 11,
       "level": 50
     },
     "Ferberite": {
-      "quantity": 50,
+      "quantity": 7,
       "level": 50
     },
     "Gold Ore": {
-      "quantity": 50,
+      "quantity": 11,
       "level": 50
     },
     "Gold Sand": {
-      "quantity": 50,
+      "quantity": 11,
       "level": 50
     },
     "Grade 3 La Noscean Topsoil": {
-      "quantity": 50,
+      "quantity": 1,
       "level": 50
     },
     "Grade 3 Shroud Topsoil": {
-      "quantity": 50,
+      "quantity": 1,
       "level": 50
     },
     "Grade 3 Thanalan Topsoil": {
-      "quantity": 50,
+      "quantity": 1,
       "level": 50
     },
     "Gregarious Worm": {
-      "quantity": 50,
+      "quantity": 5,
       "level": 50
     },
     "Native Gold": {
-      "quantity": 50,
+      "quantity": 7,
       "level": 50
     },
     "Platinum Ore": {
-      "quantity": 50,
+      "quantity": 7,
       "level": 50
     },
     "Pumice": {
-      "quantity": 50,
+      "quantity": 7,
       "level": 50
     },
     "Raw Diamond": {
-      "quantity": 50,
+      "quantity": 7,
       "level": 50
     },
     "Raw Emerald": {
-      "quantity": 50,
+      "quantity": 7,
       "level": 50
     },
     "Raw Iolite": {
-      "quantity": 50,
+      "quantity": 7,
       "level": 50
     },
     "Raw Ruby": {
-      "quantity": 50,
+      "quantity": 7,
       "level": 50
     },
     "Raw Sapphire": {
-      "quantity": 50,
+      "quantity": 7,
       "level": 50
     },
     "Raw Topaz": {
-      "quantity": 50,
+      "quantity": 7,
       "level": 50
     },
     "Unaspected Crystal": {
-      "quantity": 50,
+      "quantity": 7,
       "level": 50
     },
     "Virgin Basilisk Egg": {
-      "quantity": 50,
+      "quantity": 7,
       "level": 50
     },
     "Volcanic Rock Salt": {
-      "quantity": 50,
+      "quantity": 11,
       "level": 50
     },
     "Yellow Copper Ore": {
@@ -648,15 +668,15 @@
       "level": 40
     },
     "Grade 2 La Noscean Topsoil": {
-      "quantity": 50,
+      "quantity": 5,
       "level": 40
     },
     "Grade 2 Shroud Topsoil": {
-      "quantity": 50,
+      "quantity": 5,
       "level": 40
     },
     "Grade 2 Thanalan Topsoil": {
-      "quantity": 50,
+      "quantity": 5,
       "level": 40
     },
     "Jade": {
@@ -720,15 +740,15 @@
       "level": 30
     },
     "Grade 1 La Noscean Topsoil": {
-      "quantity": 50,
+      "quantity": 15,
       "level": 30
     },
     "Grade 1 Shroud Topsoil": {
-      "quantity": 50,
+      "quantity": 15,
       "level": 30
     },
     "Grade 1 Thanalan Topsoil": {
-      "quantity": 50,
+      "quantity": 15,
       "level": 30
     },
     "Brimstone": {
@@ -776,27 +796,27 @@
       "level": 26
     },
     "Fire Crystal": {
-      "quantity": 50,
+      "quantity": 120,
       "level": 26
     },
     "Ice Crystal": {
-      "quantity": 50,
+      "quantity": 120,
       "level": 26
     },
     "Wind Crystal": {
-      "quantity": 50,
+      "quantity": 120,
       "level": 26
     },
     "Earth Crystal": {
-      "quantity": 50,
+      "quantity": 120,
       "level": 26
     },
     "Lightning Crystal": {
-      "quantity": 50,
+      "quantity": 120,
       "level": 26
     },
     "Water Crystal": {
-      "quantity": 50,
+      "quantity": 120,
       "level": 26
     },
     "Silver Ore": {
@@ -936,27 +956,27 @@
       "level": 2
     },
     "Fire Shard": {
-      "quantity": 50,
+      "quantity": 120,
       "level": 1
     },
     "Ice Shard": {
-      "quantity": 50,
+      "quantity": 120,
       "level": 1
     },
     "Wind Shard": {
-      "quantity": 50,
+      "quantity": 120,
       "level": 1
     },
     "Earth Shard": {
-      "quantity": 50,
+      "quantity": 120,
       "level": 1
     },
     "Lightning Shard": {
-      "quantity": 50,
+      "quantity": 120,
       "level": 1
     },
     "Water Shard": {
-      "quantity": 50,
+      "quantity": 120,
       "level": 1
     }
   }

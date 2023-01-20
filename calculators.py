@@ -44,7 +44,7 @@ def get_universalis_response(items_id_to_name, server, timeframe_hours):
     time.sleep(PROCESSES / UNIVERSALIS_API_RATE_LIMIT_PER_SECOND)
     ids_in_url = list(items_id_to_name.keys())
 
-    combined_items_result = []
+    combined_items_result = {}
 
     for i in range(0, len(ids_in_url), MAX_IDS_PER_REQUEST_UNIVERSALIS):
         ids_chunk = ids_in_url[i:i + MAX_IDS_PER_REQUEST_UNIVERSALIS]
@@ -63,7 +63,7 @@ def get_universalis_response(items_id_to_name, server, timeframe_hours):
             print(f"Failed to get requested items with error code {universalis_request.status_code}")
         else:
             result = json.loads(universalis_request.content)
-            combined_items_result.append(result[ITEMS])
+            combined_items_result = combined_items_result | result[ITEMS]
 
     return {ITEMS: combined_items_result}
 
