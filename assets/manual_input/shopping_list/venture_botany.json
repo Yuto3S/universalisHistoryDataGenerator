@@ -5,7 +5,7 @@
     "quantity"
   ],
   "add_venture_duration": true,
-  "venture_minimum_level": 1,
+  "venture_minimum_level": 70,
   "items": {
     "Double-edged Herb": {
       "quantity": 5,

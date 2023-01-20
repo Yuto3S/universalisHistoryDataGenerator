@@ -91,10 +91,10 @@ def push_to_git(folder_name, list_of_servers, timeframe_hours):
 
 if __name__ == '__main__':
     should_fetch_new_items = False
-    should_generate_new_shopping_lists = False
+    should_generate_new_shopping_lists = True
     should_calculate_shopping_lists = True
-    should_push_to_git = True
-    specific_shopping_list = None
+    should_push_to_git = False
+    specific_shopping_list = "venture_botany.json"
     servers = [server for server in FFXIVServers]
     # servers = [FFXIVServers.TWINTANIA]
     timeframe_history_hours = HistoryTimeFrameHours.ONE_DAY.value
