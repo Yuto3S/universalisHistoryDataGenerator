@@ -6,7 +6,7 @@ import requests
 from consts import UNIVERSALIS_REQUEST_URL, HISTORY_INFO_NAME, HISTORY_INFO_AVERAGE_PRICE, HISTORY_INFO_TOTAL_MARKET, \
     HISTORY_INFO_TOTAL_QUANTITY, ID, COLUMNS, ITEMS, DURATION, COST, GIL_PER_VENTURE, \
     GIL_PER_CURRENCY, UNIVERSALIS_RESPONSE_QUANTITY, UNIVERSALIS_RESPONSE_ENTRIES, UNIVERSALIS_RESPONSE_PRICE, \
-    PROCESSES, UNIVERSALIS_API_RATE_LIMIT_PER_SECOND, QUANTITY
+    PROCESSES, UNIVERSALIS_API_RATE_LIMIT_PER_SECOND, QUANTITY, MAX_IDS_PER_REQUEST_UNIVERSALIS
 
 
 def get_default_history(extra_attributes):
@@ -41,24 +41,31 @@ def get_items_id_to_name(items):
 
 
 def get_universalis_response(items_id_to_name, server, timeframe_hours):
-    ids_in_url = ""
-    for item_id in list(items_id_to_name.keys()):
-        ids_in_url += f"{str(item_id)},"
-
-    universalis_request = requests.get(
-        f"{UNIVERSALIS_REQUEST_URL}"
-        f"{server.value}/"
-        f"{ids_in_url}"
-        f"?entriesWithin={timeframe_hours * 60 * 60}"
-    )
-    if universalis_request.status_code != 200:
-        print(f"Failed to get requested items with error code {universalis_request.status_code}")
-        return {ITEMS: []}
-
     time.sleep(PROCESSES / UNIVERSALIS_API_RATE_LIMIT_PER_SECOND)
+    ids_in_url = list(items_id_to_name.keys())
 
-    result = json.loads(universalis_request.content)
-    return result
+    combined_items_result = []
+
+    for i in range(0, len(ids_in_url), MAX_IDS_PER_REQUEST_UNIVERSALIS):
+        ids_chunk = ids_in_url[i:i + MAX_IDS_PER_REQUEST_UNIVERSALIS]
+
+        ids_in_url_as_string = ""
+        for item_id in list(ids_chunk):
+            ids_in_url_as_string += f"{str(item_id)},"
+
+        universalis_request = requests.get(
+            f"{UNIVERSALIS_REQUEST_URL}"
+            f"{server.value}/"
+            f"{ids_in_url_as_string}"
+            f"?entriesWithin={timeframe_hours * 60 * 60}"
+        )
+        if universalis_request.status_code != 200:
+            print(f"Failed to get requested items with error code {universalis_request.status_code}")
+        else:
+            result = json.loads(universalis_request.content)
+            combined_items_result.append(result[ITEMS])
+
+    return {ITEMS: combined_items_result}
 
 
 def calculate_item_info(item_id, result, items, items_id_to_name, extra_attributes):
