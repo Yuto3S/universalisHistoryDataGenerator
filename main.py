@@ -4,6 +4,8 @@ from multiprocessing import Pool
 from calculators import get_history_bulk_items
 from datetime import date, datetime
 from git import Repo
+import getopt
+import sys
 
 from consts import FFXIVServers, HistoryTimeFrameHours, PROCESSES
 from generators import generate_json, generate_all_items_name_to_id
@@ -54,7 +56,7 @@ def generate_files_from_manual_input():
 
 
 def calculate_shopping_lists(selected_server, folder_date_func, timeframe_hours, maybe_specific_shopping_list):
-    dir_path = f"assets/generated/history/{selected_server.value}/{timeframe_hours}/{folder_date_func}"
+    dir_path = f"assets/generated/history/{selected_server.value}/{timeframe_hours.value}/{folder_date_func}"
     if not os.path.exists(dir_path):
         os.makedirs(dir_path)
 
@@ -65,7 +67,7 @@ def calculate_shopping_lists(selected_server, folder_date_func, timeframe_hours,
             print(f"{selected_server} --> {file_name}")
             with open(f"assets/generated/shopping_list/{file_name}", "r") as input_calculate_json_file:
                 items = json.load(input_calculate_json_file)
-                history = get_history_bulk_items(items, selected_server, timeframe_hours)
+                history = get_history_bulk_items(items, selected_server, timeframe_hours.value)
 
             with open(f"{dir_path}/{file_name}", "w") as output_file:
                 output_file.write(json.dumps(history))
@@ -81,7 +83,7 @@ def push_to_git(folder_name, list_of_servers, timeframe_hours):
         repo.index.commit(
             f"New shopping list informations for {folder_name} - "
             f"{[server.value for server in list_of_servers]} - "
-            f"over the last {timeframe_hours} hours. "
+            f"over the last {timeframe_hours.value} hours. "
         )
         origin = repo.remote(name='origin')
         origin.push()
@@ -90,17 +92,43 @@ def push_to_git(folder_name, list_of_servers, timeframe_hours):
 
 
 if __name__ == '__main__':
+    argument_list = sys.argv[1:]
+    long_options = ["timeframe_hours=", "server=", "specific_shopping_list=", "push_to_git="]
+
     should_fetch_new_items = False
-    should_generate_new_shopping_lists = True
+    should_generate_new_shopping_lists = False
     should_calculate_shopping_lists = True
     should_push_to_git = False
-    specific_shopping_list = "venture_botany.json"
+    specific_shopping_list = None
     servers = [server for server in FFXIVServers]
-    # servers = [FFXIVServers.TWINTANIA]
-    timeframe_history_hours = HistoryTimeFrameHours.ONE_DAY.value
+    timeframe_history_hours = HistoryTimeFrameHours.ONE_DAY
+
+    try:
+        # Parsing argument
+        print(argument_list)
+        arguments, values = getopt.getopt(argument_list, ":", long_options)
+        # checking each argument
+        for current_argument, current_value in arguments:
+            if "timeframe_hours" in current_argument:
+                timeframe_history_hours = HistoryTimeFrameHours(int(current_value))
+                print(f"Timeframe in hours selected: {timeframe_history_hours}")
+            elif "server" in current_argument:
+                servers = [FFXIVServers(current_value)]
+                print(f"Specific server selected: {servers}")
+            elif "specific_shopping_list" in current_argument:
+                specific_shopping_list = current_value
+                print(f"Specific shopping list selected: {specific_shopping_list}")
+            elif current_argument == "push_to_git":
+                should_push_to_git = bool(current_value)
+                print(f"Should push to git: {should_push_to_git}")
+
+    except getopt.error as err:
+      # output error, and return with an error code
+        print(str(err))
+
     folder_date = str(date.today())
 
-    if timeframe_history_hours == HistoryTimeFrameHours.ONE_HOUR.value:
+    if timeframe_history_hours == HistoryTimeFrameHours.ONE_HOUR:
         now = datetime.now()
         folder_date += f"-{now.hour:02d}-{now.minute:02d}"
 
