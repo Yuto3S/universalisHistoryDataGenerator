@@ -1,12 +1,21 @@
 import json
 import math
 import time
+import socket
 import requests
 
 from consts import UNIVERSALIS_REQUEST_URL, HISTORY_INFO_NAME, HISTORY_INFO_AVERAGE_PRICE, HISTORY_INFO_TOTAL_MARKET, \
     HISTORY_INFO_TOTAL_QUANTITY, ID, COLUMNS, ITEMS, DURATION, COST, GIL_PER_VENTURE, \
     GIL_PER_CURRENCY, UNIVERSALIS_RESPONSE_QUANTITY, UNIVERSALIS_RESPONSE_ENTRIES, UNIVERSALIS_RESPONSE_PRICE, \
     PROCESSES, UNIVERSALIS_API_RATE_LIMIT_PER_SECOND, QUANTITY, MAX_IDS_PER_REQUEST_UNIVERSALIS
+
+from unittest.mock import patch
+
+orig_getaddrinfo = socket.getaddrinfo
+
+
+def getaddrinfoIPv4(host, port, family=0, type=0, proto=0, flags=0):
+    return orig_getaddrinfo(host=host, port=port, family=socket.AF_INET, type=type, proto=proto, flags=flags)
 
 
 def get_default_history(extra_attributes):
@@ -53,12 +62,14 @@ def get_universalis_response(items_id_to_name, server, timeframe_hours):
         for item_id in list(ids_chunk):
             ids_in_url_as_string += f"{str(item_id)},"
 
+        # with patch('socket.getaddrinfo', side_effect=getaddrinfoIPv4):
         universalis_request = requests.get(
             f"{UNIVERSALIS_REQUEST_URL}"
             f"{server.value}/"
             f"{ids_in_url_as_string}"
-            f"?entriesWithin={timeframe_hours * 60 * 60}"
+            f"?entriesWithin={timeframe_hours * 60 * 60}",
         )
+
         if universalis_request.status_code != 200:
             print(f"Failed to get requested items with error code {universalis_request.status_code}")
         else:
