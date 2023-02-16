@@ -62,13 +62,13 @@ def get_universalis_response(items_id_to_name, server, timeframe_hours):
         for item_id in list(ids_chunk):
             ids_in_url_as_string += f"{str(item_id)},"
 
-        # with patch('socket.getaddrinfo', side_effect=getaddrinfoIPv4):
-        universalis_request = requests.get(
-            f"{UNIVERSALIS_REQUEST_URL}"
-            f"{server.value}/"
-            f"{ids_in_url_as_string}"
-            f"?entriesWithin={timeframe_hours * 60 * 60}",
-        )
+        with patch('socket.getaddrinfo', side_effect=getaddrinfoIPv4):
+            universalis_request = requests.get(
+                f"{UNIVERSALIS_REQUEST_URL}"
+                f"{server.value}/"
+                f"{ids_in_url_as_string}"
+                f"?entriesWithin={timeframe_hours * 60 * 60}",
+            )
 
         if universalis_request.status_code != 200:
             print(f"Failed to get requested items with error code {universalis_request.status_code}")

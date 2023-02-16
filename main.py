@@ -55,17 +55,21 @@ def generate_files_from_manual_input():
         generate_json(file_name)
 
 
-def calculate_shopping_lists(selected_server, folder_date_func, timeframe_hours, maybe_specific_shopping_list):
-    dir_path = f"assets/generated/history/{selected_server.value}/{timeframe_hours.value}/{folder_date_func}"
+def calculate_shopping_lists(selected_server, folder_date_func, timeframe_hours, maybe_specific_shopping_list, custom_path):
+    if custom_path:
+        print(custom_path)
+
+    dir_path = f"{custom_path}assets/generated/history/{selected_server.value}/{timeframe_hours.value}/{folder_date_func}"
+    print(dir_path)
     if not os.path.exists(dir_path):
         os.makedirs(dir_path)
 
-    for file_name in os.listdir("assets/generated/shopping_list/"):
+    for file_name in os.listdir(f"{custom_path}assets/generated/shopping_list/"):
         if maybe_specific_shopping_list and file_name != maybe_specific_shopping_list:
             pass    # Do nothing
         else:
             print(f"{selected_server} --> {file_name}")
-            with open(f"assets/generated/shopping_list/{file_name}", "r") as input_calculate_json_file:
+            with open(f"{custom_path}assets/generated/shopping_list/{file_name}", "r") as input_calculate_json_file:
                 items = json.load(input_calculate_json_file)
                 history = get_history_bulk_items(items, selected_server, timeframe_hours.value)
 
@@ -75,11 +79,11 @@ def calculate_shopping_lists(selected_server, folder_date_func, timeframe_hours,
     print(f"{selected_server} --> Done")
 
 
-def push_to_git(folder_name, list_of_servers, timeframe_hours):
+def push_to_git(folder_name, list_of_servers, timeframe_hours, custom_path):
     try:
-        repo = Repo("./")
-        repo.git.add("assets/generated/history")
-        repo.git.add("assets/generated/history_tree.json")
+        repo = Repo(f"{custom_path}")
+        repo.git.add(f"{custom_path}assets/generated/history")
+        repo.git.add(f"{custom_path}assets/generated/history_tree.json")
         repo.index.commit(
             f"New shopping list informations for {folder_name} - "
             f"{[server.value for server in list_of_servers]} - "
@@ -102,6 +106,8 @@ if __name__ == '__main__':
     specific_shopping_list = None
     servers = [server for server in FFXIVServers]
     timeframe_history_hours = HistoryTimeFrameHours.ONE_DAY
+    path = os.getenv('PYTHON_UNIVERSALIS_SCRIPT_PATH')
+    print(path)
 
     try:
         # Parsing argument
@@ -109,6 +115,7 @@ if __name__ == '__main__':
         arguments, values = getopt.getopt(argument_list, ":", long_options)
         # checking each argument
         for current_argument, current_value in arguments:
+            print(current_argument, current_value)
             if "timeframe_hours" in current_argument:
                 timeframe_history_hours = HistoryTimeFrameHours(int(current_value))
                 print(f"Timeframe in hours selected: {timeframe_history_hours}")
@@ -118,7 +125,7 @@ if __name__ == '__main__':
             elif "specific_shopping_list" in current_argument:
                 specific_shopping_list = current_value
                 print(f"Specific shopping list selected: {specific_shopping_list}")
-            elif current_argument == "push_to_git":
+            elif "push_to_git" in current_argument:
                 should_push_to_git = bool(current_value)
                 print(f"Should push to git: {should_push_to_git}")
 
@@ -145,14 +152,15 @@ if __name__ == '__main__':
                     calculate_shopping_lists,
                     folder_date_func=folder_date,
                     timeframe_hours=timeframe_history_hours,
-                    maybe_specific_shopping_list=specific_shopping_list
+                    maybe_specific_shopping_list=specific_shopping_list,
+                    custom_path=path
                 ),
                 servers
             )
 
-    files_tree = get_files_tree_starting_on_folder("assets/generated/history")
+    files_tree = get_files_tree_starting_on_folder(f"{path}assets/generated/history")
     with open(f"assets/generated/history_tree.json", "w") as latest_tree:
         latest_tree.write(json.dumps(files_tree))
 
     if should_calculate_shopping_lists and should_push_to_git:
-        push_to_git(folder_date, servers, timeframe_history_hours)
+        push_to_git(folder_date, servers, timeframe_history_hours, path)
