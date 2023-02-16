@@ -126,7 +126,7 @@ if __name__ == '__main__':
                 specific_shopping_list = current_value
                 print(f"Specific shopping list selected: {specific_shopping_list}")
             elif "push_to_git" in current_argument:
-                should_push_to_git = bool(current_value)
+                should_push_to_git = True if current_value == "True" else False
                 print(f"Should push to git: {should_push_to_git}")
 
     except getopt.error as err:
