@@ -159,8 +159,11 @@ if __name__ == '__main__':
             )
 
     files_tree = get_files_tree_starting_on_folder(f"{path}assets/generated/history")
-    with open(f"assets/generated/history_tree.json", "w") as latest_tree:
+    with open(f"{path}assets/generated/history_tree.json", "w") as latest_tree:
         latest_tree.write(json.dumps(files_tree))
 
     if should_calculate_shopping_lists and should_push_to_git:
+        print("Pushing to git...")
         push_to_git(folder_date, servers, timeframe_history_hours, path)
+
+    print(" --- Done --- ")
