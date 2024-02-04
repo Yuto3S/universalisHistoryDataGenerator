@@ -11,7 +11,8 @@ from src.consts import PROCESSES
 from src.generators import generate_all_items_name_to_id
 from src.generators import generate_json
 from src.utils.command_line_arguments import parse_command_line_arguments
-from src.utils.files_manipulation import get_files_tree_starting_on_folder
+from src.utils.files import get_files_tree_starting_on_folder
+from src.utils.files import get_project_path
 
 """
     TODO:
@@ -49,13 +50,9 @@ def func_calculate_shopping_lists(
     folder_date_func,
     timeframe_hours,
     maybe_specific_shopping_list,
-    custom_path,
 ):
-    if custom_path:
-        print(custom_path)
-
     dir_path = (
-        f"{custom_path}"
+        f"{get_project_path()}"
         f"assets/generated/history/"
         f"{selected_server.value}/"
         f"{timeframe_hours.value}/"
@@ -66,13 +63,13 @@ def func_calculate_shopping_lists(
     if not os.path.exists(dir_path):
         os.makedirs(dir_path)
 
-    for file_name in os.listdir(f"{custom_path}assets/generated/shopping_list/"):
+    for file_name in os.listdir(f"{get_project_path()}assets/generated/shopping_list/"):
         if maybe_specific_shopping_list and file_name != maybe_specific_shopping_list:
             pass  # Do nothing
         else:
             print(f"{selected_server} --> {file_name}")
             with open(
-                f"{custom_path}assets/generated/shopping_list/{file_name}", "r"
+                f"{get_project_path()}assets/generated/shopping_list/{file_name}", "r"
             ) as input_calculate_json_file:
                 items = json.load(input_calculate_json_file)
                 history = get_history_bulk_items(
@@ -86,8 +83,6 @@ def func_calculate_shopping_lists(
 
 
 if __name__ == "__main__":
-    path = os.getenv("PYTHON_UNIVERSALIS_SCRIPT_PATH")
-    print(path)
     folder_date = str(date.today())
 
     (
@@ -117,7 +112,6 @@ if __name__ == "__main__":
                 folder_date_func=folder_date,
                 timeframe_hours=timeframe_hours,
                 maybe_specific_shopping_list=specific_shopping_list,
-                custom_path=path,
             )
         else:
             # TODO(): We can't use ipdb if we go through this flow. If you want to debug, please input only 1 server.
@@ -128,17 +122,20 @@ if __name__ == "__main__":
                         folder_date_func=folder_date,
                         timeframe_hours=timeframe_hours,
                         maybe_specific_shopping_list=specific_shopping_list,
-                        custom_path=path,
                     ),
                     servers,
                 )
 
-    files_tree = get_files_tree_starting_on_folder(f"{path}assets/generated/history")
-    with open(f"{path}assets/generated/history_tree.json", "w") as latest_tree:
+    files_tree = get_files_tree_starting_on_folder(
+        f"{get_project_path()}assets/generated/history"
+    )
+    with open(
+        f"{get_project_path()}assets/generated/history_tree.json", "w"
+    ) as latest_tree:
         latest_tree.write(json.dumps(files_tree))
 
     if calculate_shopping_lists and push_to_git:
         print("Pushing to git...")
-        push_to_git(folder_date, servers, timeframe_hours, path)
+        push_to_git(folder_date, servers, timeframe_hours, get_project_path())
 
     print(" --- Done --- ")

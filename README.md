@@ -16,6 +16,8 @@ https://universalis.app/api/v2/history/Twintania/36262,36246,36261,36630,36256,3
 
 ### Automated runs using launchctl & plist files
 ```
+~/Library/LaunchAgents$ cat ffxiv.universalis.24.plist
+
 cd ~/Library/LaunchAgents
 
 launchctl bootstrap gui/501 ffxiv.universalis.plist

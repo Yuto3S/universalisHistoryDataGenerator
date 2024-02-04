@@ -39,6 +39,7 @@ def parse_command_line_arguments():
         for current_argument, current_value in arguments:
             current_argument = CommandLineArgument(current_argument.split("--")[1])
             print(current_argument, current_value)
+
             match current_argument:
                 case CommandLineArgument.CALCULATE_SHOPPING_LISTS:
                     calculate_shopping_lists = (
@@ -65,10 +66,10 @@ def parse_command_line_arguments():
                     raise Exception(
                         f"{current_argument} doesn't have any implementation."
                     )
-
     except getopt.error as err:
         # output error, and return with an error code
         print(str(err))
+        raise err
 
     return (
         calculate_shopping_lists,
