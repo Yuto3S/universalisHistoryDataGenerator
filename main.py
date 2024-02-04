@@ -1,4 +1,3 @@
-import getopt
 import json
 import os
 import sys
@@ -8,14 +7,12 @@ from functools import partial
 from multiprocessing import Pool
 
 from src.calculators import get_history_bulk_items
-from src.consts import FFXIVServers
 from src.consts import HistoryTimeFrameHours
 from src.consts import PROCESSES
-from src.consts import SystemArgument
 from src.generators import generate_all_items_name_to_id
 from src.generators import generate_json
 from src.utils.files_manipulation import get_files_tree_starting_on_folder
-from src.utils.git import push_to_git
+from src.utils.system_arguments import parse_system_arguments
 
 """
     TODO:
@@ -48,7 +45,7 @@ def generate_files_from_manual_input():
         generate_json(file_name)
 
 
-def calculate_shopping_lists(
+def func_calculate_shopping_lists(
     selected_server,
     folder_date_func,
     timeframe_hours,
@@ -92,75 +89,37 @@ def calculate_shopping_lists(
 if __name__ == "__main__":
     argument_list = sys.argv[1:]
 
-    should_fetch_new_items = False
-    should_generate_new_shopping_lists = False
-    should_calculate_shopping_lists = False
-    should_push_to_git = False
-    specific_shopping_list = None
-    servers = [server for server in FFXIVServers]
-    timeframe_history_hours = HistoryTimeFrameHours.ONE_DAY
     path = os.getenv("PYTHON_UNIVERSALIS_SCRIPT_PATH")
     print(path)
 
-    long_options = [f"{system_argument.value}=" for system_argument in SystemArgument]
-
-    try:
-        # Parsing argument
-        print(argument_list)
-        arguments, values = getopt.getopt(argument_list, ":", long_options)
-        # checking each argument
-        for current_argument, current_value in arguments:
-            current_argument = SystemArgument(current_argument.split("--")[1])
-            print(current_argument, current_value)
-            match current_argument:
-                case SystemArgument.SHOULD_FETCH_NEW_ITEMS:
-                    should_fetch_new_items = True if current_value == "True" else False
-                case SystemArgument.SHOULD_GENERATE_NEW_SHOPPING_LISTS:
-                    should_generate_new_shopping_lists = (
-                        True if current_value == "True" else False
-                    )
-                case SystemArgument.SHOULD_CALCULATE_SHOPPING_LISTS:
-                    should_calculate_shopping_lists = (
-                        True if current_value == "True" else False
-                    )
-                case SystemArgument.TIMEFRAME_HOURS:
-                    timeframe_history_hours = HistoryTimeFrameHours(int(current_value))
-                case SystemArgument.SERVER:
-                    servers = [
-                        FFXIVServers(current_server)
-                        for current_server in current_value.split(",")
-                    ]
-                case SystemArgument.SPECIFIC_SHOPPING_LIST:
-                    specific_shopping_list = current_value
-                case SystemArgument.PUSH_TO_GIT:
-                    should_push_to_git = True if current_value == "True" else False
-                case _:
-                    raise Exception(
-                        f"{current_argument} doesn't have any implementation."
-                    )
-
-    except getopt.error as err:
-        # output error, and return with an error code
-        print(str(err))
-
     folder_date = str(date.today())
 
-    if timeframe_history_hours == HistoryTimeFrameHours.ONE_HOUR:
+    (
+        calculate_shopping_lists,
+        fetch_new_items,
+        generate_new_shopping_lists,
+        push_to_git,
+        servers,
+        specific_shopping_list,
+        timeframe_hours,
+    ) = parse_system_arguments(argument_list)
+
+    if timeframe_hours == HistoryTimeFrameHours.ONE_HOUR:
         now = datetime.now()
         folder_date += f"-{now.hour:02d}-{now.minute:02d}"
 
-    if should_fetch_new_items:
+    if fetch_new_items:
         fetch_items_data()
 
-    if should_generate_new_shopping_lists:
+    if generate_new_shopping_lists:
         generate_files_from_manual_input()
 
-    if should_calculate_shopping_lists:
+    if calculate_shopping_lists:
         if len(servers) == 1:
-            calculate_shopping_lists(
+            func_calculate_shopping_lists(
                 selected_server=servers[0],
                 folder_date_func=folder_date,
-                timeframe_hours=timeframe_history_hours,
+                timeframe_hours=timeframe_hours,
                 maybe_specific_shopping_list=specific_shopping_list,
                 custom_path=path,
             )
@@ -169,9 +128,9 @@ if __name__ == "__main__":
             with Pool(processes=PROCESSES) as pool:
                 result = pool.map(
                     partial(
-                        calculate_shopping_lists,
+                        func_calculate_shopping_lists,
                         folder_date_func=folder_date,
-                        timeframe_hours=timeframe_history_hours,
+                        timeframe_hours=timeframe_hours,
                         maybe_specific_shopping_list=specific_shopping_list,
                         custom_path=path,
                     ),
@@ -182,8 +141,8 @@ if __name__ == "__main__":
     with open(f"{path}assets/generated/history_tree.json", "w") as latest_tree:
         latest_tree.write(json.dumps(files_tree))
 
-    if should_calculate_shopping_lists and should_push_to_git:
+    if calculate_shopping_lists and push_to_git:
         print("Pushing to git...")
-        push_to_git(folder_date, servers, timeframe_history_hours, path)
+        push_to_git(folder_date, servers, timeframe_hours, path)
 
     print(" --- Done --- ")
