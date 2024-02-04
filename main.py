@@ -7,15 +7,14 @@ from datetime import datetime
 from functools import partial
 from multiprocessing import Pool
 
-from git import Repo
-
 from src.calculators import get_history_bulk_items
 from src.consts import FFXIVServers
 from src.consts import HistoryTimeFrameHours
 from src.consts import PROCESSES
 from src.generators import generate_all_items_name_to_id
 from src.generators import generate_json
-from src.utils import get_files_tree_starting_on_folder
+from src.utils.files_manipulation import get_files_tree_starting_on_folder
+from src.utils.git import push_to_git
 
 """
     TODO:
@@ -97,22 +96,6 @@ def calculate_shopping_lists(
                 output_file.write(json.dumps(history))
 
     print(f"{selected_server} --> Done")
-
-
-def push_to_git(folder_name, list_of_servers, timeframe_hours, custom_path):
-    try:
-        repo = Repo(f"{custom_path}")
-        repo.git.add(f"{custom_path}assets/generated/history")
-        repo.git.add(f"{custom_path}assets/generated/history_tree.json")
-        repo.index.commit(
-            f"New shopping list informations for {folder_name} - "
-            f"{[server.value for server in list_of_servers]} - "
-            f"over the last {timeframe_hours.value} hours. "
-        )
-        origin = repo.remote(name="origin")
-        origin.push()
-    except Exception:
-        print("Some error occured while pushing the code")
 
 
 if __name__ == "__main__":
