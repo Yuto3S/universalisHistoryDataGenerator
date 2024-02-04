@@ -140,7 +140,10 @@ if __name__ == "__main__":
                 timeframe_history_hours = HistoryTimeFrameHours(int(current_value))
                 print(f"Timeframe in hours selected: {timeframe_history_hours}")
             elif "server" in current_argument:
-                servers = [FFXIVServers(current_value)]
+                servers = [
+                    FFXIVServers(current_server)
+                    for current_server in current_value.split(",")
+                ]
                 print(f"Specific server selected: {servers}")
             elif "specific_shopping_list" in current_argument:
                 specific_shopping_list = current_value
