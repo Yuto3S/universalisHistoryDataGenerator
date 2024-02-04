@@ -20,6 +20,7 @@ def parse_command_line_arguments():
     command_line_argument_list = sys.argv[1:]
     print(f"CURRENT ARGUMENT LIST: {command_line_argument_list}")
 
+    # DEFAULT VALUES
     calculate_shopping_lists = False
     fetch_new_items = False
     generate_new_shopping_lists = False
@@ -28,17 +29,18 @@ def parse_command_line_arguments():
     specific_shopping_list = None
     timeframe_hours = HistoryTimeFrameHours.ONE_DAY
 
-    long_options = [
+    command_line_available_options = [
         f"{command_line_argument.value}="
         for command_line_argument in CommandLineArgument
     ]
 
     try:
-        arguments, values = getopt.getopt(command_line_argument_list, ":", long_options)
+        arguments, values = getopt.getopt(
+            command_line_argument_list, ":", command_line_available_options
+        )
 
         for current_argument, current_value in arguments:
             current_argument = CommandLineArgument(current_argument.split("--")[1])
-            print(current_argument, current_value)
 
             match current_argument:
                 case CommandLineArgument.CALCULATE_SHOPPING_LISTS:
