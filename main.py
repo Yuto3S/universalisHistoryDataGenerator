@@ -97,11 +97,11 @@ def push_to_git(folder_name, list_of_servers, timeframe_hours, custom_path):
 
 if __name__ == '__main__':
     argument_list = sys.argv[1:]
-    long_options = ["timeframe_hours=", "server=", "specific_shopping_list=", "push_to_git="]
+    long_options = ["timeframe_hours=", "server=", "specific_shopping_list=", "push_to_git=", "should_fetch_new_items=", "should_calculate_shopping_lists=", "should_generate_new_shopping_lists="]
 
     should_fetch_new_items = False
     should_generate_new_shopping_lists = False
-    should_calculate_shopping_lists = True
+    should_calculate_shopping_lists = False
     should_push_to_git = False
     specific_shopping_list = None
     servers = [server for server in FFXIVServers]
@@ -116,6 +116,12 @@ if __name__ == '__main__':
         # checking each argument
         for current_argument, current_value in arguments:
             print(current_argument, current_value)
+            if "should_fetch_new_items" in current_argument:
+                should_fetch_new_items = True if current_value == "True" else False
+            if "should_generate_new_shopping_lists" in current_argument:
+                should_generate_new_shopping_lists = True if current_value == "True" else False
+            if "should_calculate_shopping_lists" in current_argument:
+                should_calculate_shopping_lists = True if current_value == "True" else False
             if "timeframe_hours" in current_argument:
                 timeframe_history_hours = HistoryTimeFrameHours(int(current_value))
                 print(f"Timeframe in hours selected: {timeframe_history_hours}")
@@ -146,17 +152,26 @@ if __name__ == '__main__':
         generate_files_from_manual_input()
 
     if should_calculate_shopping_lists:
-        with Pool(processes=PROCESSES) as pool:
-            result = pool.map(
-                partial(
-                    calculate_shopping_lists,
-                    folder_date_func=folder_date,
-                    timeframe_hours=timeframe_history_hours,
-                    maybe_specific_shopping_list=specific_shopping_list,
-                    custom_path=path
-                ),
-                servers
+        if len(servers) == 1:
+            calculate_shopping_lists(
+                selected_server=servers[0],
+                folder_date_func=folder_date,
+                timeframe_hours=timeframe_history_hours,
+                maybe_specific_shopping_list=specific_shopping_list,
+                custom_path=path
             )
+        else:
+            with Pool(processes=PROCESSES) as pool:
+                result = pool.map(
+                    partial(
+                        calculate_shopping_lists,
+                        folder_date_func=folder_date,
+                        timeframe_hours=timeframe_history_hours,
+                        maybe_specific_shopping_list=specific_shopping_list,
+                        custom_path=path
+                    ),
+                    servers
+                )
 
     files_tree = get_files_tree_starting_on_folder(f"{path}assets/generated/history")
     with open(f"{path}assets/generated/history_tree.json", "w") as latest_tree:

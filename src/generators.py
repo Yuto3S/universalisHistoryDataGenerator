@@ -3,7 +3,7 @@ import time
 
 import requests
 
-from consts import MateriaType
+from src.consts import MateriaType
 
 XIV_API_FIRST_PAGE = 1
 XIV_API_RATE_LIMIT_PER_SECOND = 20
@@ -29,7 +29,7 @@ def generate_all_items_name_to_id():
         time.sleep(1 / XIV_API_RATE_LIMIT_PER_SECOND)
         page = xiv_response_json["Pagination"]["PageNext"]
 
-    with open("../assets/generated/config/all_items_name_to_id.json", "w") as outfile:
+    with open("assets/generated/config/all_items_name_to_id.json", "w") as outfile:
         json.dump(all_items_name_to_id, outfile)
 
 
