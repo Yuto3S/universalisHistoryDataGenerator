@@ -44,9 +44,13 @@ def get_venture_duration(item_level):
 
 
 def generate_json(file_name):
-    with open("../assets/generated/config/all_items_name_to_id.json", "r") as all_items_name_to_id_json_file:
+    with open(
+        "../assets/generated/config/all_items_name_to_id.json", "r"
+    ) as all_items_name_to_id_json_file:
         all_items_name_to_id = json.load(all_items_name_to_id_json_file)
-        with open(f"assets/manual_input/shopping_list/{file_name}", "r") as raw_json_file:
+        with open(
+            f"assets/manual_input/shopping_list/{file_name}", "r"
+        ) as raw_json_file:
             raw_json_input = json.load(raw_json_file)
 
             if raw_json_input.get("use_materia_logic"):
@@ -61,15 +65,23 @@ def generate_json(file_name):
                     }
 
                     for extra_field in extra_fields:
-                        items_infos[item][extra_field] = raw_json_input["items"][item][extra_field]
+                        items_infos[item][extra_field] = raw_json_input["items"][item][
+                            extra_field
+                        ]
 
                     if raw_json_input.get("add_venture_duration"):
-                        items_infos[item]["duration"] = get_venture_duration(raw_json_input["items"][item]["level"])
+                        items_infos[item]["duration"] = get_venture_duration(
+                            raw_json_input["items"][item]["level"]
+                        )
 
-                    if raw_json_input.get("venture_minimum_level", 0) > raw_json_input["items"][item].get("level", 1):
+                    if raw_json_input.get("venture_minimum_level", 0) > raw_json_input[
+                        "items"
+                    ][item].get("level", 1):
                         items_infos.pop(item)
 
-                with open(f"assets/generated/shopping_list/{file_name}", "w") as output_json_file:
+                with open(
+                    f"assets/generated/shopping_list/{file_name}", "w"
+                ) as output_json_file:
                     json.dump(items_infos, output_json_file)
 
 
@@ -85,7 +97,12 @@ def generate_materias_json(all_items_name_to_id, raw_json_input, file_name_input
                 }
 
                 for extra_field in raw_json_input["extra_fields"]:
-                    all_materias_info[entry_name][extra_field] = raw_json_input[materia_level][materia_type.value][extra_field]
+                    all_materias_info[entry_name][extra_field] = raw_json_input[
+                        materia_level
+                    ][materia_type.value][extra_field]
 
-        with open(f"assets/generated/shopping_list/{materia_type.value}_{file_name_input}", "w") as output_materias_json_file:
+        with open(
+            f"assets/generated/shopping_list/{materia_type.value}_{file_name_input}",
+            "w",
+        ) as output_materias_json_file:
             json.dump(all_materias_info, output_materias_json_file)

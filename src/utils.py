@@ -5,13 +5,13 @@ def get_files_tree_starting_on_folder(startpath):
     """
     Starts in a given folder and return the tree as a dict. This only works in our history formatted folder,
     where files are only at the lowest level and never in between.
-   """
+    """
     tree_as_dict = {}
     parent_keys = []
     previous_level = -1
 
     for root, dirs, files in os.walk(startpath):
-        level = root.replace(startpath, '').count(os.sep)
+        level = root.replace(startpath, "").count(os.sep)
 
         if previous_level >= level:
             for i in range(0, previous_level - level + 1):

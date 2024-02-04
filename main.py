@@ -1,17 +1,20 @@
+import getopt
 import json
+import os
+import sys
+from datetime import date
+from datetime import datetime
+from functools import partial
 from multiprocessing import Pool
 
-from src.calculators import get_history_bulk_items
-from datetime import date, datetime
 from git import Repo
-import getopt
-import sys
 
-from src.consts import FFXIVServers, HistoryTimeFrameHours, PROCESSES
-from src.generators import generate_json, generate_all_items_name_to_id
-import os
-from functools import partial
-
+from src.calculators import get_history_bulk_items
+from src.consts import FFXIVServers
+from src.consts import HistoryTimeFrameHours
+from src.consts import PROCESSES
+from src.generators import generate_all_items_name_to_id
+from src.generators import generate_json
 from src.utils import get_files_tree_starting_on_folder
 
 """
@@ -41,21 +44,27 @@ from src.utils import get_files_tree_starting_on_folder
 
 def fetch_items_data():
     """
-        Run this logic when new items that can be sold on the MarketBoard are added into the game
-        This is likely when a new patch happens (versions _.X)
+    Run this logic when new items that can be sold on the MarketBoard are added into the game
+    This is likely when a new patch happens (versions _.X)
     """
     generate_all_items_name_to_id()
 
 
 def generate_files_from_manual_input():
     """
-        Run after modifying files in assets/manual_input/
+    Run after modifying files in assets/manual_input/
     """
     for file_name in os.listdir("assets/manual_input/shopping_list/"):
         generate_json(file_name)
 
 
-def calculate_shopping_lists(selected_server, folder_date_func, timeframe_hours, maybe_specific_shopping_list, custom_path):
+def calculate_shopping_lists(
+    selected_server,
+    folder_date_func,
+    timeframe_hours,
+    maybe_specific_shopping_list,
+    custom_path,
+):
     if custom_path:
         print(custom_path)
 
@@ -66,12 +75,16 @@ def calculate_shopping_lists(selected_server, folder_date_func, timeframe_hours,
 
     for file_name in os.listdir(f"{custom_path}assets/generated/shopping_list/"):
         if maybe_specific_shopping_list and file_name != maybe_specific_shopping_list:
-            pass    # Do nothing
+            pass  # Do nothing
         else:
             print(f"{selected_server} --> {file_name}")
-            with open(f"{custom_path}assets/generated/shopping_list/{file_name}", "r") as input_calculate_json_file:
+            with open(
+                f"{custom_path}assets/generated/shopping_list/{file_name}", "r"
+            ) as input_calculate_json_file:
                 items = json.load(input_calculate_json_file)
-                history = get_history_bulk_items(items, selected_server, timeframe_hours.value)
+                history = get_history_bulk_items(
+                    items, selected_server, timeframe_hours.value
+                )
 
             with open(f"{dir_path}/{file_name}", "w") as output_file:
                 output_file.write(json.dumps(history))
@@ -89,15 +102,23 @@ def push_to_git(folder_name, list_of_servers, timeframe_hours, custom_path):
             f"{[server.value for server in list_of_servers]} - "
             f"over the last {timeframe_hours.value} hours. "
         )
-        origin = repo.remote(name='origin')
+        origin = repo.remote(name="origin")
         origin.push()
     except:
-        print('Some error occured while pushing the code')
+        print("Some error occured while pushing the code")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     argument_list = sys.argv[1:]
-    long_options = ["timeframe_hours=", "server=", "specific_shopping_list=", "push_to_git=", "should_fetch_new_items=", "should_calculate_shopping_lists=", "should_generate_new_shopping_lists="]
+    long_options = [
+        "timeframe_hours=",
+        "server=",
+        "specific_shopping_list=",
+        "push_to_git=",
+        "should_fetch_new_items=",
+        "should_calculate_shopping_lists=",
+        "should_generate_new_shopping_lists=",
+    ]
 
     should_fetch_new_items = False
     should_generate_new_shopping_lists = False
@@ -106,7 +127,7 @@ if __name__ == '__main__':
     specific_shopping_list = None
     servers = [server for server in FFXIVServers]
     timeframe_history_hours = HistoryTimeFrameHours.ONE_DAY
-    path = os.getenv('PYTHON_UNIVERSALIS_SCRIPT_PATH')
+    path = os.getenv("PYTHON_UNIVERSALIS_SCRIPT_PATH")
     print(path)
 
     try:
@@ -119,9 +140,13 @@ if __name__ == '__main__':
             if "should_fetch_new_items" in current_argument:
                 should_fetch_new_items = True if current_value == "True" else False
             if "should_generate_new_shopping_lists" in current_argument:
-                should_generate_new_shopping_lists = True if current_value == "True" else False
+                should_generate_new_shopping_lists = (
+                    True if current_value == "True" else False
+                )
             if "should_calculate_shopping_lists" in current_argument:
-                should_calculate_shopping_lists = True if current_value == "True" else False
+                should_calculate_shopping_lists = (
+                    True if current_value == "True" else False
+                )
             if "timeframe_hours" in current_argument:
                 timeframe_history_hours = HistoryTimeFrameHours(int(current_value))
                 print(f"Timeframe in hours selected: {timeframe_history_hours}")
@@ -136,7 +161,7 @@ if __name__ == '__main__':
                 print(f"Should push to git: {should_push_to_git}")
 
     except getopt.error as err:
-      # output error, and return with an error code
+        # output error, and return with an error code
         print(str(err))
 
     folder_date = str(date.today())
@@ -158,7 +183,7 @@ if __name__ == '__main__':
                 folder_date_func=folder_date,
                 timeframe_hours=timeframe_history_hours,
                 maybe_specific_shopping_list=specific_shopping_list,
-                custom_path=path
+                custom_path=path,
             )
         else:
             with Pool(processes=PROCESSES) as pool:
@@ -168,9 +193,9 @@ if __name__ == '__main__':
                         folder_date_func=folder_date,
                         timeframe_hours=timeframe_history_hours,
                         maybe_specific_shopping_list=specific_shopping_list,
-                        custom_path=path
+                        custom_path=path,
                     ),
-                    servers
+                    servers,
                 )
 
     files_tree = get_files_tree_starting_on_folder(f"{path}assets/generated/history")
