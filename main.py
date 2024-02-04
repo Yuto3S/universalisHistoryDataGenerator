@@ -21,7 +21,6 @@ from src.utils.git import push_to_git
     - One shopping file per:
         - white scrip crafter
         - purple scrip crafter
-    - Remove "materias.json"
     - Update venture files with new gear values. Rename them to start with "venture_"
     - Description of the files that is being sent to the front-end
     - Add black for python formatting
