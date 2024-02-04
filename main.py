@@ -68,7 +68,14 @@ def calculate_shopping_lists(
     if custom_path:
         print(custom_path)
 
-    dir_path = f"{custom_path}assets/generated/history/{selected_server.value}/{timeframe_hours.value}/{folder_date_func}"
+    dir_path = (
+        f"{custom_path}"
+        f"assets/generated/history/"
+        f"{selected_server.value}/"
+        f"{timeframe_hours.value}/"
+        f"{folder_date_func}"
+    )
+
     print(dir_path)
     if not os.path.exists(dir_path):
         os.makedirs(dir_path)
@@ -104,7 +111,7 @@ def push_to_git(folder_name, list_of_servers, timeframe_hours, custom_path):
         )
         origin = repo.remote(name="origin")
         origin.push()
-    except:
+    except Exception:
         print("Some error occured while pushing the code")
 
 

@@ -7,7 +7,7 @@ UNIVERSALIS_API_RATE_LIMIT_PER_SECOND = 20
 
 ID = "id"
 
-UNIVERSALIS_REQUEST_URL = f"https://universalis.app/api/v2/history/"
+UNIVERSALIS_REQUEST_URL = "https://universalis.app/api/v2/history/"
 MAX_IDS_PER_REQUEST_UNIVERSALIS = 100
 UNIVERSALIS_RESPONSE_PRICE = "pricePerUnit"
 UNIVERSALIS_RESPONSE_QUANTITY = "quantity"
