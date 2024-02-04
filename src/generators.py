@@ -29,7 +29,7 @@ def generate_all_items_name_to_id():
         time.sleep(1 / XIV_API_RATE_LIMIT_PER_SECOND)
         page = xiv_response_json["Pagination"]["PageNext"]
 
-    with open("assets/generated/config/all_items_name_to_id.json", "w") as outfile:
+    with open("../assets/generated/config/all_items_name_to_id.json", "w") as outfile:
         json.dump(all_items_name_to_id, outfile)
 
 
@@ -44,7 +44,7 @@ def get_venture_duration(item_level):
 
 
 def generate_json(file_name):
-    with open("assets/generated/config/all_items_name_to_id.json", "r") as all_items_name_to_id_json_file:
+    with open("../assets/generated/config/all_items_name_to_id.json", "r") as all_items_name_to_id_json_file:
         all_items_name_to_id = json.load(all_items_name_to_id_json_file)
         with open(f"assets/manual_input/shopping_list/{file_name}", "r") as raw_json_file:
             raw_json_input = json.load(raw_json_file)

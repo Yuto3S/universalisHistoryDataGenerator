@@ -1,14 +1,14 @@
 import json
 from multiprocessing import Pool
 
-from calculators import get_history_bulk_items
+from src.calculators import get_history_bulk_items
 from datetime import date, datetime
 from git import Repo
 import getopt
 import sys
 
-from consts import FFXIVServers, HistoryTimeFrameHours, PROCESSES
-from generators import generate_json, generate_all_items_name_to_id
+from src.consts import FFXIVServers, HistoryTimeFrameHours, PROCESSES
+from src.generators import generate_json, generate_all_items_name_to_id
 import os
 from functools import partial
 
