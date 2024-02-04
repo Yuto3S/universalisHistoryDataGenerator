@@ -1,11 +1,12 @@
 import getopt
+import sys
 from enum import Enum
 
 from src.consts import FFXIVServers
 from src.consts import HistoryTimeFrameHours
 
 
-class SystemArgument(Enum):
+class CommandLineArgument(Enum):
     CALCULATE_SHOPPING_LISTS = "calculate_shopping_lists"
     FETCH_NEW_ITEMS = "fetch_new_items"
     GENERATE_NEW_SHOPPING_LISTS = "generate_new_shopping_lists"
@@ -15,7 +16,10 @@ class SystemArgument(Enum):
     TIMEFRAME_HOURS = "timeframe_hours"
 
 
-def parse_system_arguments(argument_list):
+def parse_command_line_arguments():
+    command_line_argument_list = sys.argv[1:]
+    print(f"CURRENT ARGUMENT LIST: {command_line_argument_list}")
+
     calculate_shopping_lists = False
     fetch_new_items = False
     generate_new_shopping_lists = False
@@ -24,37 +28,38 @@ def parse_system_arguments(argument_list):
     specific_shopping_list = None
     timeframe_hours = HistoryTimeFrameHours.ONE_DAY
 
-    long_options = [f"{system_argument.value}=" for system_argument in SystemArgument]
+    long_options = [
+        f"{command_line_argument.value}="
+        for command_line_argument in CommandLineArgument
+    ]
 
     try:
-        # Parsing argument
-        print(argument_list)
-        arguments, values = getopt.getopt(argument_list, ":", long_options)
-        # checking each argument
+        arguments, values = getopt.getopt(command_line_argument_list, ":", long_options)
+
         for current_argument, current_value in arguments:
-            current_argument = SystemArgument(current_argument.split("--")[1])
+            current_argument = CommandLineArgument(current_argument.split("--")[1])
             print(current_argument, current_value)
             match current_argument:
-                case SystemArgument.CALCULATE_SHOPPING_LISTS:
+                case CommandLineArgument.CALCULATE_SHOPPING_LISTS:
                     calculate_shopping_lists = (
                         True if current_value == "True" else False
                     )
-                case SystemArgument.FETCH_NEW_ITEMS:
+                case CommandLineArgument.FETCH_NEW_ITEMS:
                     fetch_new_items = True if current_value == "True" else False
-                case SystemArgument.GENERATE_NEW_SHOPPING_LISTS:
+                case CommandLineArgument.GENERATE_NEW_SHOPPING_LISTS:
                     generate_new_shopping_lists = (
                         True if current_value == "True" else False
                     )
-                case SystemArgument.PUSH_TO_GIT:
+                case CommandLineArgument.PUSH_TO_GIT:
                     push_to_git = True if current_value == "True" else False
-                case SystemArgument.SERVER:
+                case CommandLineArgument.SERVER:
                     servers = [
                         FFXIVServers(current_server)
                         for current_server in current_value.split(",")
                     ]
-                case SystemArgument.SPECIFIC_SHOPPING_LIST:
+                case CommandLineArgument.SPECIFIC_SHOPPING_LIST:
                     specific_shopping_list = current_value
-                case SystemArgument.TIMEFRAME_HOURS:
+                case CommandLineArgument.TIMEFRAME_HOURS:
                     timeframe_hours = HistoryTimeFrameHours(int(current_value))
                 case _:
                     raise Exception(

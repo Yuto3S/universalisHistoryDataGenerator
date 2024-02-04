@@ -1,6 +1,5 @@
 import json
 import os
-import sys
 from datetime import date
 from datetime import datetime
 from functools import partial
@@ -11,8 +10,8 @@ from src.consts import HistoryTimeFrameHours
 from src.consts import PROCESSES
 from src.generators import generate_all_items_name_to_id
 from src.generators import generate_json
+from src.utils.command_line_arguments import parse_command_line_arguments
 from src.utils.files_manipulation import get_files_tree_starting_on_folder
-from src.utils.system_arguments import parse_system_arguments
 
 """
     TODO:
@@ -87,11 +86,8 @@ def func_calculate_shopping_lists(
 
 
 if __name__ == "__main__":
-    argument_list = sys.argv[1:]
-
     path = os.getenv("PYTHON_UNIVERSALIS_SCRIPT_PATH")
     print(path)
-
     folder_date = str(date.today())
 
     (
@@ -102,7 +98,7 @@ if __name__ == "__main__":
         servers,
         specific_shopping_list,
         timeframe_hours,
-    ) = parse_system_arguments(argument_list)
+    ) = parse_command_line_arguments()
 
     if timeframe_hours == HistoryTimeFrameHours.ONE_HOUR:
         now = datetime.now()
