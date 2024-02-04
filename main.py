@@ -13,6 +13,7 @@ from src.generators import generate_json
 from src.utils.command_line_arguments import parse_command_line_arguments
 from src.utils.files import get_files_tree_starting_on_folder
 from src.utils.files import get_project_path
+from src.utils.git import push_generated_to_git
 
 """
     TODO:
@@ -134,8 +135,8 @@ if __name__ == "__main__":
     ) as latest_tree:
         latest_tree.write(json.dumps(files_tree))
 
-    if calculate_shopping_lists and push_to_git:
+    if push_to_git:
         print("Pushing to git...")
-        push_to_git(folder_date, servers, timeframe_hours, get_project_path())
+        push_generated_to_git(folder_date, servers, timeframe_hours, get_project_path())
 
     print(" --- Done --- ")

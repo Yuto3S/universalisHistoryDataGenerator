@@ -88,11 +88,11 @@ def get_universalis_response(items_id_to_name, server, timeframe_hours):
             )
 
         if universalis_request.status_code != 200:
-            import ipdb
-
-            ipdb.set_trace()
             print(
-                f"Failed to get requested items with error code {universalis_request.status_code}"
+                f"Failed to get requested items with error code {universalis_request.status_code}, "
+                f"{universalis_request.url}, "
+                f"{universalis_request.content}, "
+                f"{universalis_request.text}"
             )
         else:
             result = json.loads(universalis_request.content)
