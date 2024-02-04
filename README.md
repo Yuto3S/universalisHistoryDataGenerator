@@ -1,13 +1,13 @@
 # universalisHistoryDataGenerator
 
-This 
+This
 
 # Running locally
 Open your favorite terminal and `cd` to the repo where you want to run this script.
 ```
 $ git clone https://github.com/Yuto3S/universalisHistoryDataGenerator
 $ python -m main --should_fetch_new_items True
-$ python -m 
+$ python -m
 $ python -m main --server Twintania --should_calculate_shopping_lists True
 ```
 
