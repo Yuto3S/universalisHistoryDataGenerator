@@ -11,6 +11,7 @@ from src.calculators import get_history_bulk_items
 from src.consts import FFXIVServers
 from src.consts import HistoryTimeFrameHours
 from src.consts import PROCESSES
+from src.consts import SystemArgument
 from src.generators import generate_all_items_name_to_id
 from src.generators import generate_json
 from src.utils.files_manipulation import get_files_tree_starting_on_folder
@@ -28,15 +29,6 @@ from src.utils.git import push_to_git
         (writing into files/reading from files should be done in its own logic parts as much as possible)
     - Tests
     - Working only_hq flag for pots/foods
-    - Make function runnable from command line
-    - Make the following variable parameters of the command line function:
-        should_fetch_new_items
-        should_generate_new_shopping_lists
-        should_calculate_shopping_lists
-        should_push_to_git
-        specific_shopping_list
-        servers
-        timeframe_history_hours
 """
 
 
@@ -99,15 +91,6 @@ def calculate_shopping_lists(
 
 if __name__ == "__main__":
     argument_list = sys.argv[1:]
-    long_options = [
-        "timeframe_hours=",
-        "server=",
-        "specific_shopping_list=",
-        "push_to_git=",
-        "should_fetch_new_items=",
-        "should_calculate_shopping_lists=",
-        "should_generate_new_shopping_lists=",
-    ]
 
     should_fetch_new_items = False
     should_generate_new_shopping_lists = False
@@ -119,38 +102,42 @@ if __name__ == "__main__":
     path = os.getenv("PYTHON_UNIVERSALIS_SCRIPT_PATH")
     print(path)
 
+    long_options = [f"{system_argument.value}=" for system_argument in SystemArgument]
+
     try:
         # Parsing argument
         print(argument_list)
         arguments, values = getopt.getopt(argument_list, ":", long_options)
         # checking each argument
         for current_argument, current_value in arguments:
+            current_argument = SystemArgument(current_argument.split("--")[1])
             print(current_argument, current_value)
-            if "should_fetch_new_items" in current_argument:
-                should_fetch_new_items = True if current_value == "True" else False
-            if "should_generate_new_shopping_lists" in current_argument:
-                should_generate_new_shopping_lists = (
-                    True if current_value == "True" else False
-                )
-            if "should_calculate_shopping_lists" in current_argument:
-                should_calculate_shopping_lists = (
-                    True if current_value == "True" else False
-                )
-            if "timeframe_hours" in current_argument:
-                timeframe_history_hours = HistoryTimeFrameHours(int(current_value))
-                print(f"Timeframe in hours selected: {timeframe_history_hours}")
-            elif "server" in current_argument:
-                servers = [
-                    FFXIVServers(current_server)
-                    for current_server in current_value.split(",")
-                ]
-                print(f"Specific server selected: {servers}")
-            elif "specific_shopping_list" in current_argument:
-                specific_shopping_list = current_value
-                print(f"Specific shopping list selected: {specific_shopping_list}")
-            elif "push_to_git" in current_argument:
-                should_push_to_git = True if current_value == "True" else False
-                print(f"Should push to git: {should_push_to_git}")
+            match current_argument:
+                case SystemArgument.SHOULD_FETCH_NEW_ITEMS:
+                    should_fetch_new_items = True if current_value == "True" else False
+                case SystemArgument.SHOULD_GENERATE_NEW_SHOPPING_LISTS:
+                    should_generate_new_shopping_lists = (
+                        True if current_value == "True" else False
+                    )
+                case SystemArgument.SHOULD_CALCULATE_SHOPPING_LISTS:
+                    should_calculate_shopping_lists = (
+                        True if current_value == "True" else False
+                    )
+                case SystemArgument.TIMEFRAME_HOURS:
+                    timeframe_history_hours = HistoryTimeFrameHours(int(current_value))
+                case SystemArgument.SERVER:
+                    servers = [
+                        FFXIVServers(current_server)
+                        for current_server in current_value.split(",")
+                    ]
+                case SystemArgument.SPECIFIC_SHOPPING_LIST:
+                    specific_shopping_list = current_value
+                case SystemArgument.PUSH_TO_GIT:
+                    should_push_to_git = True if current_value == "True" else False
+                case _:
+                    raise Exception(
+                        f"{current_argument} doesn't have any implementation."
+                    )
 
     except getopt.error as err:
         # output error, and return with an error code
@@ -178,6 +165,7 @@ if __name__ == "__main__":
                 custom_path=path,
             )
         else:
+            # TODO(): We can't use ipdb if we go through this flow. If you want to debug, please input only 1 server.
             with Pool(processes=PROCESSES) as pool:
                 result = pool.map(
                     partial(

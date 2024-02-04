@@ -51,3 +51,14 @@ class VentureType(Enum):
     BOTANY = "botany"
     HUNTING = "hunting"
     MINING = "mining"
+
+
+class SystemArgument(Enum):
+    TEST = "test"
+    PUSH_TO_GIT = "push_to_git"
+    SERVER = "server"
+    SHOULD_CALCULATE_SHOPPING_LISTS = "should_calculate_shopping_lists"
+    SHOULD_FETCH_NEW_ITEMS = "should_fetch_new_items"
+    SHOULD_GENERATE_NEW_SHOPPING_LISTS = "should_generate_new_shopping_lists"
+    SPECIFIC_SHOPPING_LIST = "specific_shopping_list"
+    TIMEFRAME_HOURS = "timeframe_hours"
