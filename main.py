@@ -1,4 +1,3 @@
-import json
 import os
 from datetime import date
 from datetime import datetime
@@ -13,6 +12,8 @@ from src.generators import generate_json
 from src.utils.command_line_arguments import parse_command_line_arguments
 from src.utils.files import get_files_tree_starting_on_folder
 from src.utils.files import get_project_path
+from src.utils.files import read_dict_from_file
+from src.utils.files import write_dict_content_on_file
 from src.utils.git import push_generated_to_git
 
 """
@@ -69,16 +70,14 @@ def func_calculate_shopping_lists(
             pass  # Do nothing
         else:
             print(f"{selected_server} --> {file_name}")
-            with open(
-                f"{get_project_path()}assets/generated/shopping_list/{file_name}", "r"
-            ) as input_calculate_json_file:
-                items = json.load(input_calculate_json_file)
-                history = get_history_bulk_items(
-                    items, selected_server, timeframe_hours.value
-                )
+            items = read_dict_from_file(
+                f"{get_project_path()}assets/generated/shopping_list/{file_name}"
+            )
 
-            with open(f"{dir_path}/{file_name}", "w") as output_file:
-                output_file.write(json.dumps(history))
+            history = get_history_bulk_items(
+                items, selected_server, timeframe_hours.value
+            )
+            write_dict_content_on_file(history, f"{dir_path}/{file_name}")
 
     print(f"{selected_server} --> Done")
 
@@ -130,10 +129,9 @@ if __name__ == "__main__":
     files_tree = get_files_tree_starting_on_folder(
         f"{get_project_path()}assets/generated/history"
     )
-    with open(
-        f"{get_project_path()}assets/generated/history_tree.json", "w"
-    ) as latest_tree:
-        latest_tree.write(json.dumps(files_tree))
+    write_dict_content_on_file(
+        files_tree, f"{get_project_path()}assets/generated/history_tree.json"
+    )
 
     if push_to_git:
         print("Pushing to git...")

@@ -1,3 +1,4 @@
+import json
 import os
 
 
@@ -50,3 +51,15 @@ def get_files_tree_starting_on_folder(start_path):
             tmp_tree[os.path.basename(root)] = [filename for filename in files]
 
     return tree_as_dict
+
+
+def read_dict_from_file(file_path):
+    with open(file_path, "r") as input_calculate_json_file:
+        content = json.load(input_calculate_json_file)
+
+    return content
+
+
+def write_dict_content_on_file(file_content_as_dict, file_path):
+    with open(file_path, "w") as file:
+        file.write(json.dumps(file_content_as_dict))
