@@ -12,6 +12,8 @@ from src.utils.command_line_arguments import parse_command_line_arguments
     - Description of the files that is being sent to the front-end
     - Tests
     - Working only_hq flag for pots/foods
+    - Handle maybe_specific_shopping_list for generating_enriched_shopping_list
+        as it currently only works for calculating the trends
 """
 
 

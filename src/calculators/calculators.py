@@ -1,6 +1,5 @@
 import json
 import math
-import socket
 import time
 from unittest.mock import patch
 
@@ -25,14 +24,7 @@ from src.consts import UNIVERSALIS_REQUEST_URL
 from src.consts import UNIVERSALIS_RESPONSE_ENTRIES
 from src.consts import UNIVERSALIS_RESPONSE_PRICE
 from src.consts import UNIVERSALIS_RESPONSE_QUANTITY
-
-orig_getaddrinfo = socket.getaddrinfo
-
-
-def getaddrinfoIPv4(host, port, family=0, type=0, proto=0, flags=0):
-    return orig_getaddrinfo(
-        host=host, port=port, family=socket.AF_INET, type=type, proto=proto, flags=flags
-    )
+from src.utils.ipv4 import getaddrinfoIPv4
 
 
 def get_default_history(extra_attributes):
@@ -79,6 +71,16 @@ def get_universalis_response(items_id_to_name, server, timeframe_hours):
         for item_id in list(ids_chunk):
             ids_in_url_as_string += f"{str(item_id)},"
 
+        """
+            Under the hood, the logic that does the request starts by opening a socket to validate the connection.
+            This would sometimes hang until timeout, which took up to 2 mins.
+
+            After debugging, I noticed that this only happened when the socket opened using IPv6, and was always fine
+            when we did it using IPv4. It was flaky, sometimes worked for IPV6 and sometimes did not.
+
+            To avoid unecessary failures and spending more time debugging this issue which might be on the API's side,
+            I decided to mock the function opening the socket to force it to use IPv4.
+        """
         with patch("socket.getaddrinfo", side_effect=getaddrinfoIPv4):
             universalis_request = requests.get(
                 f"{UNIVERSALIS_REQUEST_URL}"
@@ -88,6 +90,7 @@ def get_universalis_response(items_id_to_name, server, timeframe_hours):
             )
 
         if universalis_request.status_code != 200:
+            # TODO(): Handle retry if status_code is 5XX
             print(
                 f"Failed to get requested items with error code {universalis_request.status_code}, "
                 f"{universalis_request.url}, "
