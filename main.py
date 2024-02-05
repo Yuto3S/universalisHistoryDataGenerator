@@ -25,9 +25,6 @@ from src.utils.git import push_generated_to_git
         - purple scrip crafter
     - Update venture files with new gear values. Rename them to start with "venture_"
     - Description of the files that is being sent to the front-end
-    - Add black for python formatting
-    - Split logic to calculate values/average and writing it into a file
-        (writing into files/reading from files should be done in its own logic parts as much as possible)
     - Tests
     - Working only_hq flag for pots/foods
 """
