@@ -44,6 +44,7 @@ Examples:
 ```
 $ python -m main --fetch_new_items True
 $ python -m main --generate_new_shopping_lists True
+$ python -m main --generate_new_shopping_lists True --specific_shopping_list venture_botany
 $ python -m main --server Twintania --calculate_shopping_lists True
 $ python -m main --calculate_shopping_lists True --push_to_git True
 $ python -m main --calculate_shopping_lists True --generate_new_shopping_lists True --servers Twintania --fetch_new_items True

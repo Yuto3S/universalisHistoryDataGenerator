@@ -4,7 +4,7 @@
     "level",
     "quantity"
   ],
-  "add_venture_duration": true,
+  "is_venture_file": true,
   "venture_minimum_level": 70,
   "items": {
     "Dynamis Crystal": {

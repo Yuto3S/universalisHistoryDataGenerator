@@ -1,4 +1,3 @@
-import os
 from datetime import date
 from datetime import datetime
 from functools import partial
@@ -7,11 +6,10 @@ from multiprocessing import Pool
 from src.calculators.history import func_calculate_shopping_lists
 from src.consts import FILE_PATH_GENERATED_HISTORY
 from src.consts import FILE_PATH_GENERATED_HISTORY_TREE
-from src.consts import FILE_PATH_MANUAL_SHOPPING_LIST
 from src.consts import HistoryTimeFrameHours
 from src.consts import PROCESSES
 from src.generators.items import generate_all_items_name_to_id
-from src.generators.shopping_list import generate_json
+from src.generators.shopping_list import generate_enriched_shopping_lists
 from src.utils.command_line_arguments import parse_command_line_arguments
 from src.utils.files import get_files_tree_starting_on_folder
 from src.utils.files import get_root_project_path
@@ -45,9 +43,7 @@ if __name__ == "__main__":
         generate_all_items_name_to_id()
 
     if generate_new_shopping_lists:
-        for file_name in os.listdir(FILE_PATH_MANUAL_SHOPPING_LIST):
-            print(file_name)
-            generate_json(file_name)
+        generate_enriched_shopping_lists()
 
     folder_date = str(date.today())
     if timeframe_hours == HistoryTimeFrameHours.ONE_HOUR:

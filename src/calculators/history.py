@@ -19,6 +19,7 @@ def func_calculate_shopping_lists(
     maybe_make_dir(dir_path)
 
     for file_name in get_all_file_names_in_dir(f"{FILE_PATH_GENERATED_SHOPPING_LIST}"):
+        print(f"{maybe_specific_shopping_list}")
         if maybe_specific_shopping_list and file_name != maybe_specific_shopping_list:
             pass  # Do nothing
         else:
