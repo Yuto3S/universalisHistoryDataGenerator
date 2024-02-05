@@ -34,8 +34,6 @@ from src.utils.git import push_generated_to_git
 
 
 if __name__ == "__main__":
-    folder_date = str(date.today())
-
     (
         calculate_shopping_lists,
         fetch_new_items,
@@ -46,10 +44,6 @@ if __name__ == "__main__":
         timeframe_hours,
     ) = parse_command_line_arguments()
 
-    if timeframe_hours == HistoryTimeFrameHours.ONE_HOUR:
-        now = datetime.now()
-        folder_date += f"-{now.hour:02d}-{now.minute:02d}"
-
     if fetch_new_items:
         generate_all_items_name_to_id()
 
@@ -57,6 +51,11 @@ if __name__ == "__main__":
         for file_name in os.listdir(FILE_PATH_MANUAL_SHOPPING_LIST):
             print(file_name)
             generate_json(file_name)
+
+    folder_date = str(date.today())
+    if timeframe_hours == HistoryTimeFrameHours.ONE_HOUR:
+        now = datetime.now()
+        folder_date += f"-{now.hour:02d}-{now.minute:02d}"
 
     if calculate_shopping_lists:
         if len(servers) == 1:
