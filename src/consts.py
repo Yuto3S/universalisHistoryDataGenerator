@@ -5,6 +5,8 @@ PROCESSES = 8
 UNIVERSALIS_API_RATE_LIMIT_PER_SECOND = 20
 
 
+NON_BREAKING_SPACE = " "
+
 ID = "id"
 
 UNIVERSALIS_REQUEST_URL = "https://universalis.app/api/v2/history/"
