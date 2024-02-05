@@ -1,20 +1,7 @@
-from datetime import date
-from datetime import datetime
-from functools import partial
-from multiprocessing import Pool
-
-from src.calculators.history import func_calculate_shopping_lists
-from src.consts import FILE_PATH_GENERATED_HISTORY
-from src.consts import FILE_PATH_GENERATED_HISTORY_TREE
-from src.consts import HistoryTimeFrameHours
-from src.consts import PROCESSES
+from src.calculators.history import calculate_trends
 from src.generators.items import generate_all_items_name_to_id
 from src.generators.shopping_list import generate_enriched_shopping_lists
 from src.utils.command_line_arguments import parse_command_line_arguments
-from src.utils.files import get_files_tree_starting_on_folder
-from src.utils.files import get_root_project_path
-from src.utils.files import write_dict_content_on_file
-from src.utils.git import push_generated_to_git
 
 """
     TODO:
@@ -45,39 +32,7 @@ if __name__ == "__main__":
     if generate_new_shopping_lists:
         generate_enriched_shopping_lists()
 
-    folder_date = str(date.today())
-    if timeframe_hours == HistoryTimeFrameHours.ONE_HOUR:
-        now = datetime.now()
-        folder_date += f"-{now.hour:02d}-{now.minute:02d}"
-
     if calculate_shopping_lists:
-        if len(servers) == 1:
-            func_calculate_shopping_lists(
-                selected_server=servers[0],
-                folder_date=folder_date,
-                timeframe_hours=timeframe_hours,
-                maybe_specific_shopping_list=specific_shopping_list,
-            )
-        else:
-            # TODO(): We can't use ipdb if we go through this flow. If you want to debug, please input only 1 server.
-            with Pool(processes=PROCESSES) as pool:
-                result = pool.map(
-                    partial(
-                        func_calculate_shopping_lists,
-                        folder_date=folder_date,
-                        timeframe_hours=timeframe_hours,
-                        maybe_specific_shopping_list=specific_shopping_list,
-                    ),
-                    servers,
-                )
-
-        files_tree = get_files_tree_starting_on_folder(
-            f"{get_root_project_path()}{FILE_PATH_GENERATED_HISTORY}"
-        )
-        write_dict_content_on_file(files_tree, FILE_PATH_GENERATED_HISTORY_TREE)
-
-    if push_to_git:
-        print("Pushing to git...")
-        push_generated_to_git(folder_date, servers, timeframe_hours)
+        calculate_trends(servers, push_to_git, timeframe_hours, specific_shopping_list)
 
     print(" --- Done --- ")

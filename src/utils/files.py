@@ -1,7 +1,10 @@
 import json
 import os
+from datetime import date
+from datetime import datetime
 
 from src.consts import FILE_PATH_GENERATED_HISTORY
+from src.consts import HistoryTimeFrameHours
 
 
 class MemoizeProjectPath:
@@ -85,3 +88,12 @@ def get_generated_shopping_lists_path(selected_server, timeframe_hours, folder_d
         f"{timeframe_hours.value}/"
         f"{folder_date}"
     )
+
+
+def get_folder_date(timeframe):
+    folder_date = str(date.today())
+    if timeframe == HistoryTimeFrameHours.ONE_HOUR:
+        now = datetime.now()
+        folder_date += f"-{now.hour:02d}-{now.minute:02d}"
+
+    return folder_date

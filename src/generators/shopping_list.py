@@ -23,7 +23,7 @@ def generate_enriched_shopping_lists():
     )
 
     for shopping_list in os.listdir(
-        f"{get_root_project_path()}/{FILE_PATH_MANUAL_SHOPPING_LIST}"
+        f"{get_root_project_path()}{FILE_PATH_MANUAL_SHOPPING_LIST}"
     ):
         manual_shopping_list_dict = read_dict_from_file(
             f"{FILE_PATH_MANUAL_SHOPPING_LIST}/{shopping_list}"

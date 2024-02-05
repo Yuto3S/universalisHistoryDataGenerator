@@ -1,7 +1,5 @@
 from enum import Enum
 
-# One process per server
-PROCESSES = 8
 UNIVERSALIS_API_RATE_LIMIT_PER_SECOND = 20
 
 
@@ -63,3 +61,6 @@ class VentureType(Enum):
     BOTANY = "botany"
     HUNTING = "hunting"
     MINING = "mining"
+
+
+PROCESSES = len(FFXIVServers)
