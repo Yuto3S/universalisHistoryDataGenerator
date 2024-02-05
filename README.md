@@ -1,8 +1,11 @@
 # universalisHistoryDataGenerator
+This project contains multiple scripts that when combined together will generate the history (over 1 or 7 days) trends for specific items for the MMORPG Final Fantasy XIV.
 
-This
+These trends are currently output as JSON files, and another project [universalisHistoryData](https://github.com/Yuto3S/universalisHistoryData) takes care of displaying them.
+The live version is available at [https://yuto3s.github.io/universalisHistoryData/](https://yuto3s.github.io/universalisHistoryData/)
 
-# Running locally
+You can develop your own parser (web, script) to analyze those files. You can see how they look like by picking a specific day in [github - universalisHistoryDataGenerator - Twintania](https://github.com/Yuto3S/universalisHistoryDataGenerator/tree/main/assets/generated/history/Twintania/24)
+# How to running locally
 Open your favorite terminal and `cd` to the repo where you want to run this script.
 ```
 $ git clone https://github.com/Yuto3S/universalisHistoryDataGenerator
@@ -10,8 +13,9 @@ $ cd universalisHistoryDataGenerator
 $ pip install -r requirements.txt
 $ pip install -r requirements-dev.txt
 ```
-
 You can run the script manually with `python -m main` but nothing will happen because it will be lacking command line parameters.
+
+Before delving into the command line parameters, let's explain how the
 
 ## Command line parameters
 - `--calculate_shopping_lists`
