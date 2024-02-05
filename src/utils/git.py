@@ -18,5 +18,5 @@ def push_generated_to_git(folder_name, list_of_servers, timeframe_hours):
         )
         origin = repo.remote(name="origin")
         origin.push()
-    except Exception:
-        print("Some error occured while pushing the code")
+    except Exception as e:
+        print(f"Some error occured while pushing the code with {e}")

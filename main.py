@@ -71,10 +71,10 @@ if __name__ == "__main__":
                     servers,
                 )
 
-    files_tree = get_files_tree_starting_on_folder(
-        f"{get_root_project_path()}{FILE_PATH_GENERATED_HISTORY}"
-    )
-    write_dict_content_on_file(files_tree, FILE_PATH_GENERATED_HISTORY_TREE)
+        files_tree = get_files_tree_starting_on_folder(
+            f"{get_root_project_path()}{FILE_PATH_GENERATED_HISTORY}"
+        )
+        write_dict_content_on_file(files_tree, FILE_PATH_GENERATED_HISTORY_TREE)
 
     if push_to_git:
         print("Pushing to git...")
