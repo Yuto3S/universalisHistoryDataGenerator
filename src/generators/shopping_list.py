@@ -25,30 +25,26 @@ def generate_enriched_shopping_lists():
     for shopping_list in os.listdir(
         f"{get_root_project_path()}/{FILE_PATH_MANUAL_SHOPPING_LIST}"
     ):
-        enrich_shopping_list(shopping_list, all_items_name_to_id)
-        print(f"{shopping_list} was enriched and generated.")
+        manual_shopping_list_dict = read_dict_from_file(
+            f"{FILE_PATH_MANUAL_SHOPPING_LIST}/{shopping_list}"
+        )
 
+        print(f"Enriching {shopping_list}...")
+        items_infos = get_enriched_shopping_list(
+            manual_shopping_list_dict, all_items_name_to_id
+        )
 
-def enrich_shopping_list(shopping_list_name, all_items_name_to_id):
-    manual_shopping_list_dict = read_dict_from_file(
-        f"{FILE_PATH_MANUAL_SHOPPING_LIST}/{shopping_list_name}"
-    )
-
-    items_infos = get_enriched_shopping_list(
-        manual_shopping_list_dict, all_items_name_to_id
-    )
-
-    write_dict_content_on_file(
-        items_infos, f"{FILE_PATH_GENERATED_SHOPPING_LIST}/{shopping_list_name}"
-    )
+        write_dict_content_on_file(
+            items_infos, f"{FILE_PATH_GENERATED_SHOPPING_LIST}/{shopping_list}"
+        )
 
 
 def get_enriched_shopping_list(manual_shopping_list_dict, all_items_name_to_id):
-    extra_fields = manual_shopping_list_dict.get(MANUAL_SHOPPING_LIST__EXTRA_FIELDS, [])
     items_infos = {}
+    extra_fields = manual_shopping_list_dict.get(MANUAL_SHOPPING_LIST__EXTRA_FIELDS, [])
 
     for item in manual_shopping_list_dict[MANUAL_SHOPPING_LIST__ITEMS]:
-        if should_skip_item(manual_shopping_list_dict, item):
+        if should_skip_item(item, manual_shopping_list_dict):
             continue
 
         items_infos[item] = {
@@ -60,13 +56,13 @@ def get_enriched_shopping_list(manual_shopping_list_dict, all_items_name_to_id):
                 MANUAL_SHOPPING_LIST__ITEMS
             ][item][extra_field]
 
-        if manual_shopping_list_dict.get(MANUAL_SHOPPING_LIST__IS_VENTURE_FILE):
+        if is_venture_shopping_list(manual_shopping_list_dict):
             handle_venture_fields(manual_shopping_list_dict, items_infos, item)
 
     return items_infos
 
 
-def should_skip_item(manual_shopping_list_dict, item):
+def should_skip_item(item, manual_shopping_list_dict):
     if is_venture_shopping_list(
         manual_shopping_list_dict
     ) and is_item_venture_level_too_low(manual_shopping_list_dict, item):
