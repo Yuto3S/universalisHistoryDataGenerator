@@ -1,11 +1,16 @@
 from git import Repo
 
+from src.consts import FILE_PATH_GENERATED_HISTORY
+from src.consts import FILE_PATH_GENERATED_HISTORY_TREE
+from src.utils.files import get_root_project_path
 
-def push_generated_to_git(folder_name, list_of_servers, timeframe_hours, custom_path):
+
+def push_generated_to_git(folder_name, list_of_servers, timeframe_hours):
+    project_path = get_root_project_path()
     try:
-        repo = Repo(f"{custom_path}")
-        repo.git.add(f"{custom_path}assets/generated/history")
-        repo.git.add(f"{custom_path}assets/generated/history_tree.json")
+        repo = Repo(f"{project_path}")
+        repo.git.add(f"{project_path}{FILE_PATH_GENERATED_HISTORY}")
+        repo.git.add(f"{project_path}{FILE_PATH_GENERATED_HISTORY_TREE}")
         repo.index.commit(
             f"New shopping list informations for {folder_name} - "
             f"{[server.value for server in list_of_servers]} - "

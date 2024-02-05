@@ -3,6 +3,11 @@ import time
 
 import requests
 
+from src.consts import FILE_PATH_GENERATED_ALL_ITEMS_NAMES_TO_ID
+from src.consts import FILE_PATH_GENERATED_SHOPPING_LIST
+from src.consts import FILE_PATH_MANUAL_SHOPPING_LIST
+from src.utils.files import read_dict_from_file
+from src.utils.files import write_dict_content_on_file
 
 XIV_API_FIRST_PAGE = 1
 XIV_API_RATE_LIMIT_PER_SECOND = 20
@@ -21,15 +26,21 @@ def generate_all_items_name_to_id():
         )
         xiv_response_json = json.loads(xiv_api_request.content)
         for entry in xiv_response_json["Results"]:
-            all_items_name_to_id[entry["Name_en"]] = entry["ID"]
+            item_name_en = entry["Name_en"]
+            if " " in item_name_en:
+                item_name_en = item_name_en.replace(" ", " ")
+                print(f"{entry} had NBSP")
+
+            all_items_name_to_id[item_name_en] = entry["ID"]
 
         print(f"Page: {page}/{xiv_response_json['Pagination']['PageTotal']}")
 
         time.sleep(1 / XIV_API_RATE_LIMIT_PER_SECOND)
         page = xiv_response_json["Pagination"]["PageNext"]
 
-    with open("assets/generated/config/all_items_name_to_id.json", "w") as outfile:
-        json.dump(all_items_name_to_id, outfile)
+    write_dict_content_on_file(
+        all_items_name_to_id, FILE_PATH_GENERATED_ALL_ITEMS_NAMES_TO_ID
+    )
 
 
 def get_venture_duration(item_level):
@@ -43,39 +54,34 @@ def get_venture_duration(item_level):
 
 
 def generate_json(file_name):
-    with open(
-        "../assets/generated/config/all_items_name_to_id.json", "r"
-    ) as all_items_name_to_id_json_file:
-        all_items_name_to_id = json.load(all_items_name_to_id_json_file)
-        with open(
-            f"assets/manual_input/shopping_list/{file_name}", "r"
-        ) as raw_json_file:
-            raw_json_input = json.load(raw_json_file)
+    all_items_name_to_id = read_dict_from_file(
+        FILE_PATH_GENERATED_ALL_ITEMS_NAMES_TO_ID
+    )
+    raw_json_input = read_dict_from_file(
+        f"{FILE_PATH_MANUAL_SHOPPING_LIST}/{file_name}"
+    )
 
-            extra_fields = raw_json_input.get("extra_fields", [])
-            items_infos = {}
+    extra_fields = raw_json_input.get("extra_fields", [])
+    items_infos = {}
 
-            for item in raw_json_input["items"]:
-                items_infos[item] = {
-                    "id": all_items_name_to_id[item],
-                }
+    for item in raw_json_input["items"]:
+        items_infos[item] = {
+            "id": all_items_name_to_id[item],
+        }
 
-                for extra_field in extra_fields:
-                    items_infos[item][extra_field] = raw_json_input["items"][item][
-                        extra_field
-                    ]
+        for extra_field in extra_fields:
+            items_infos[item][extra_field] = raw_json_input["items"][item][extra_field]
 
-                if raw_json_input.get("add_venture_duration"):
-                    items_infos[item]["duration"] = get_venture_duration(
-                        raw_json_input["items"][item]["level"]
-                    )
+        if raw_json_input.get("add_venture_duration"):
+            items_infos[item]["duration"] = get_venture_duration(
+                raw_json_input["items"][item]["level"]
+            )
 
-                if raw_json_input.get("venture_minimum_level", 0) > raw_json_input[
-                    "items"
-                ][item].get("level", 1):
-                    items_infos.pop(item)
+        if raw_json_input.get("venture_minimum_level", 0) > raw_json_input["items"][
+            item
+        ].get("level", 1):
+            items_infos.pop(item)
 
-            with open(
-                f"assets/generated/shopping_list/{file_name}", "w"
-            ) as output_json_file:
-                json.dump(items_infos, output_json_file)
+    write_dict_content_on_file(
+        items_infos, f"{FILE_PATH_GENERATED_SHOPPING_LIST}/{file_name}"
+    )

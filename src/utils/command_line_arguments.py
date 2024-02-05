@@ -11,7 +11,7 @@ class CommandLineArgument(Enum):
     FETCH_NEW_ITEMS = "fetch_new_items"
     GENERATE_NEW_SHOPPING_LISTS = "generate_new_shopping_lists"
     PUSH_TO_GIT = "push_to_git"
-    SERVER = "server"
+    SERVER = "servers"
     SPECIFIC_SHOPPING_LIST = "specific_shopping_list"
     TIMEFRAME_HOURS = "timeframe_hours"
 

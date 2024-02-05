@@ -10,6 +10,8 @@ $ python -m main --should_fetch_new_items True
 $ python -m
 $ python -m main --server Twintania --calculate_shopping_lists True
 $ python -m main --calculate_shopping_lists True --push_to_git True
+$ python -m main --calculate_shopping_lists True --generate_new_shopping_lists True --servers Twintania --fetch_new_items True
+$ python -m main --generate_new_shopping_lists True
 ```
 
 https://universalis.app/api/v2/history/Twintania/36262,36246,36261,36630,36256,36245,36260,36244,36259,36257,36258,36255,36203,36243,36254,36253,36264,36242,27799,27800,27736,27756,27735,27852,27774,27773,27734,27851,27797,27733,27850,27732,27763,27764,20003,20004,27798

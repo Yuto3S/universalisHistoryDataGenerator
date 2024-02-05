@@ -1,6 +1,8 @@
 import json
 import os
 
+from src.consts import FILE_PATH_GENERATED_HISTORY
+
 
 class MemoizeProjectPath:
     def __init__(self, func):
@@ -15,7 +17,7 @@ class MemoizeProjectPath:
 
 
 @MemoizeProjectPath
-def get_project_path():
+def get_root_project_path():
     if script_path := os.getenv("PYTHON_UNIVERSALIS_SCRIPT_PATH"):
         return script_path
     else:
@@ -53,13 +55,33 @@ def get_files_tree_starting_on_folder(start_path):
     return tree_as_dict
 
 
+def get_all_file_names_in_dir(dir_path):
+    return os.listdir(f"{get_root_project_path()}/{dir_path}")
+
+
 def read_dict_from_file(file_path):
-    with open(file_path, "r") as input_calculate_json_file:
+    with open(
+        f"{get_root_project_path()}{file_path}", "r"
+    ) as input_calculate_json_file:
         content = json.load(input_calculate_json_file)
 
     return content
 
 
 def write_dict_content_on_file(file_content_as_dict, file_path):
-    with open(file_path, "w") as file:
+    with open(f"{get_root_project_path()}{file_path}", "w") as file:
         file.write(json.dumps(file_content_as_dict))
+
+
+def maybe_make_dir(dir_path):
+    if not os.path.exists(dir_path):
+        os.makedirs(dir_path)
+
+
+def get_generated_shopping_lists_path(selected_server, timeframe_hours, folder_date):
+    return (
+        f"{FILE_PATH_GENERATED_HISTORY}/"
+        f"{selected_server.value}/"
+        f"{timeframe_hours.value}/"
+        f"{folder_date}"
+    )

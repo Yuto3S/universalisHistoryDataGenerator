@@ -4,15 +4,17 @@ from datetime import datetime
 from functools import partial
 from multiprocessing import Pool
 
-from src.calculators import get_history_bulk_items
+from src.calculators.history import func_calculate_shopping_lists
+from src.consts import FILE_PATH_GENERATED_HISTORY
+from src.consts import FILE_PATH_GENERATED_HISTORY_TREE
+from src.consts import FILE_PATH_MANUAL_SHOPPING_LIST
 from src.consts import HistoryTimeFrameHours
 from src.consts import PROCESSES
 from src.generators import generate_all_items_name_to_id
 from src.generators import generate_json
 from src.utils.command_line_arguments import parse_command_line_arguments
 from src.utils.files import get_files_tree_starting_on_folder
-from src.utils.files import get_project_path
-from src.utils.files import read_dict_from_file
+from src.utils.files import get_root_project_path
 from src.utils.files import write_dict_content_on_file
 from src.utils.git import push_generated_to_git
 
@@ -29,57 +31,6 @@ from src.utils.git import push_generated_to_git
     - Tests
     - Working only_hq flag for pots/foods
 """
-
-
-def fetch_items_data():
-    """
-    Run this logic when new items that can be sold on the MarketBoard are added into the game
-    This is likely when a new patch happens (versions _.X)
-    """
-    generate_all_items_name_to_id()
-
-
-def generate_files_from_manual_input():
-    """
-    Run after modifying files in assets/manual_input/
-    """
-    for file_name in os.listdir("assets/manual_input/shopping_list/"):
-        generate_json(file_name)
-
-
-def func_calculate_shopping_lists(
-    selected_server,
-    folder_date_func,
-    timeframe_hours,
-    maybe_specific_shopping_list,
-):
-    dir_path = (
-        f"{get_project_path()}"
-        f"assets/generated/history/"
-        f"{selected_server.value}/"
-        f"{timeframe_hours.value}/"
-        f"{folder_date_func}"
-    )
-
-    print(dir_path)
-    if not os.path.exists(dir_path):
-        os.makedirs(dir_path)
-
-    for file_name in os.listdir(f"{get_project_path()}assets/generated/shopping_list/"):
-        if maybe_specific_shopping_list and file_name != maybe_specific_shopping_list:
-            pass  # Do nothing
-        else:
-            print(f"{selected_server} --> {file_name}")
-            items = read_dict_from_file(
-                f"{get_project_path()}assets/generated/shopping_list/{file_name}"
-            )
-
-            history = get_history_bulk_items(
-                items, selected_server, timeframe_hours.value
-            )
-            write_dict_content_on_file(history, f"{dir_path}/{file_name}")
-
-    print(f"{selected_server} --> Done")
 
 
 if __name__ == "__main__":
@@ -100,16 +51,18 @@ if __name__ == "__main__":
         folder_date += f"-{now.hour:02d}-{now.minute:02d}"
 
     if fetch_new_items:
-        fetch_items_data()
+        generate_all_items_name_to_id()
 
     if generate_new_shopping_lists:
-        generate_files_from_manual_input()
+        for file_name in os.listdir(FILE_PATH_MANUAL_SHOPPING_LIST):
+            print(file_name)
+            generate_json(file_name)
 
     if calculate_shopping_lists:
         if len(servers) == 1:
             func_calculate_shopping_lists(
                 selected_server=servers[0],
-                folder_date_func=folder_date,
+                folder_date=folder_date,
                 timeframe_hours=timeframe_hours,
                 maybe_specific_shopping_list=specific_shopping_list,
             )
@@ -119,7 +72,7 @@ if __name__ == "__main__":
                 result = pool.map(
                     partial(
                         func_calculate_shopping_lists,
-                        folder_date_func=folder_date,
+                        folder_date=folder_date,
                         timeframe_hours=timeframe_hours,
                         maybe_specific_shopping_list=specific_shopping_list,
                     ),
@@ -127,14 +80,12 @@ if __name__ == "__main__":
                 )
 
     files_tree = get_files_tree_starting_on_folder(
-        f"{get_project_path()}assets/generated/history"
+        f"{get_root_project_path()}{FILE_PATH_GENERATED_HISTORY}"
     )
-    write_dict_content_on_file(
-        files_tree, f"{get_project_path()}assets/generated/history_tree.json"
-    )
+    write_dict_content_on_file(files_tree, FILE_PATH_GENERATED_HISTORY_TREE)
 
     if push_to_git:
         print("Pushing to git...")
-        push_generated_to_git(folder_date, servers, timeframe_hours, get_project_path())
+        push_generated_to_git(folder_date, servers, timeframe_hours)
 
     print(" --- Done --- ")
