@@ -1,10 +1,7 @@
 import json
 import os
-from datetime import date
-from datetime import datetime
 
 from src.consts import FILE_PATH_GENERATED_HISTORY
-from src.consts import HistoryTimeFrameHours
 
 
 class MemoizeProjectPath:
@@ -59,7 +56,7 @@ def get_files_tree_starting_on_folder(start_path):
 
 
 def get_all_file_names_in_dir(dir_path):
-    return os.listdir(f"{get_root_project_path()}/{dir_path}")
+    return os.listdir(f"{get_root_project_path()}{dir_path}")
 
 
 def read_dict_from_file(file_path):
@@ -83,17 +80,8 @@ def maybe_make_dir(dir_path):
 
 def get_generated_shopping_lists_path(selected_server, timeframe_hours, folder_date):
     return (
-        f"{FILE_PATH_GENERATED_HISTORY}/"
+        f"{FILE_PATH_GENERATED_HISTORY}"
         f"{selected_server.value}/"
         f"{timeframe_hours.value}/"
-        f"{folder_date}"
+        f"{folder_date}/"
     )
-
-
-def get_folder_date(timeframe):
-    folder_date = str(date.today())
-    if timeframe == HistoryTimeFrameHours.ONE_HOUR:
-        now = datetime.now()
-        folder_date += f"-{now.hour:02d}-{now.minute:02d}"
-
-    return folder_date

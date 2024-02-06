@@ -14,7 +14,6 @@ from src.consts import HISTORY_INFO_AVERAGE_PRICE
 from src.consts import HISTORY_INFO_NAME
 from src.consts import HISTORY_INFO_TOTAL_MARKET
 from src.consts import HISTORY_INFO_TOTAL_QUANTITY
-from src.consts import ID
 from src.consts import ITEMS
 from src.consts import MAX_IDS_PER_REQUEST_UNIVERSALIS
 from src.consts import PROCESSES
@@ -27,35 +26,11 @@ from src.consts import UNIVERSALIS_RESPONSE_QUANTITY
 from src.utils.ipv4 import getaddrinfoIPv4
 
 
-def get_default_history(extra_attributes):
-    history = {
-        COLUMNS: [
-            HISTORY_INFO_NAME,
-            HISTORY_INFO_AVERAGE_PRICE,
-            HISTORY_INFO_TOTAL_MARKET,
-            HISTORY_INFO_TOTAL_QUANTITY,
-        ],
-        ITEMS: [],
-    }
-    for extra_attribute in extra_attributes:
-        history[COLUMNS].append(extra_attribute)
-
-    return history
-
-
 def maybe_enrich_history(history, extra_attributes):
     if COST in extra_attributes:
         history[COLUMNS].append(GIL_PER_CURRENCY)
     if DURATION in extra_attributes:
         history[COLUMNS].append(GIL_PER_VENTURE)
-
-
-def get_items_id_to_name(items):
-    item_ids_to_name = {}
-    for item_name in items:
-        item_ids_to_name[str(items[item_name][ID])] = item_name
-
-    return item_ids_to_name
 
 
 def get_universalis_response(items_id_to_name, server, timeframe_hours):
@@ -150,25 +125,3 @@ def maybe_enrich_item_info(item_info, extra_attributes):
         item_info[GIL_PER_VENTURE] = (
             item_info[HISTORY_INFO_AVERAGE_PRICE] * item_info[QUANTITY]
         )
-
-
-def get_history_bulk_items(items, server, timeframe_hours):
-    extra_attributes = set(items[list(items.keys())[0]].keys())
-    extra_attributes = sorted(extra_attributes)
-
-    history = get_default_history(extra_attributes)
-    maybe_enrich_history(history, extra_attributes)
-
-    items_id_to_name = get_items_id_to_name(items)
-
-    result = get_universalis_response(items_id_to_name, server, timeframe_hours)
-
-    for item_id in result[ITEMS]:
-        item_info = calculate_item_info(
-            item_id, result, items, items_id_to_name, extra_attributes
-        )
-        maybe_enrich_item_info(item_info, extra_attributes)
-
-        history[ITEMS].append(item_info)
-
-    return history

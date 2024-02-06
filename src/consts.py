@@ -31,9 +31,9 @@ HISTORY_INFO_TOTAL_MARKET = "Total Market"
 HISTORY_INFO_TOTAL_QUANTITY = "Total Quantity"
 
 
-FILE_PATH_MANUAL_SHOPPING_LIST = "assets/manual_input/shopping_list"
-FILE_PATH_GENERATED_SHOPPING_LIST = "assets/generated/shopping_list"
-FILE_PATH_GENERATED_HISTORY = "assets/generated/history"
+FILE_PATH_MANUAL_SHOPPING_LIST = "assets/manual_input/shopping_list/"
+FILE_PATH_GENERATED_SHOPPING_LIST = "assets/generated/shopping_list/"
+FILE_PATH_GENERATED_HISTORY = "assets/generated/history/"
 FILE_PATH_GENERATED_HISTORY_TREE = "assets/generated/history_tree.json"
 FILE_PATH_GENERATED_ALL_ITEMS_NAMES_TO_ID = (
     "assets/generated/config/all_items_name_to_id.json"

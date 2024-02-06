@@ -5,6 +5,7 @@ import requests
 
 from src.consts import FILE_PATH_GENERATED_ALL_ITEMS_NAMES_TO_ID
 from src.consts import NON_BREAKING_SPACE
+from src.generators.shopping_list import MANUAL_SHOPPING_LIST__FIELD_ID
 from src.utils.files import write_dict_content_on_file
 
 
@@ -65,3 +66,13 @@ def maybe_sanitize_item_name(item_name):
 
 def prevent_rate_limit_xiv_api():
     time.sleep(1 / XIV_API_RATE_LIMIT_PER_SECOND)
+
+
+def get_items_id_to_name(items):
+    item_ids_to_name = {}
+    for item_name in items:
+        item_ids_to_name[
+            str(items[item_name][MANUAL_SHOPPING_LIST__FIELD_ID])
+        ] = item_name
+
+    return item_ids_to_name

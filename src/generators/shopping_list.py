@@ -9,7 +9,8 @@ from src.utils.files import write_dict_content_on_file
 
 
 MANUAL_SHOPPING_LIST__EXTRA_FIELDS = "extra_fields"
-MANUAL_SHOPPING_LIST__ITEMS = "items"
+MANUAL_SHOPPING_LIST__FIELD_ITEMS = "items"
+MANUAL_SHOPPING_LIST__FIELD_ID = "id"
 
 MANUAL_SHOPPING_LIST__IS_VENTURE_FILE = "is_venture_file"
 MANUAL_SHOPPING_LIST__LEVEL = "level"
@@ -26,7 +27,7 @@ def generate_enriched_shopping_lists():
         f"{get_root_project_path()}{FILE_PATH_MANUAL_SHOPPING_LIST}"
     ):
         manual_shopping_list_dict = read_dict_from_file(
-            f"{FILE_PATH_MANUAL_SHOPPING_LIST}/{shopping_list}"
+            f"{FILE_PATH_MANUAL_SHOPPING_LIST}{shopping_list}"
         )
 
         print(f"Enriching {shopping_list}...")
@@ -35,7 +36,7 @@ def generate_enriched_shopping_lists():
         )
 
         write_dict_content_on_file(
-            items_infos, f"{FILE_PATH_GENERATED_SHOPPING_LIST}/{shopping_list}"
+            items_infos, f"{FILE_PATH_GENERATED_SHOPPING_LIST}{shopping_list}"
         )
 
 
@@ -43,7 +44,7 @@ def get_enriched_shopping_list(manual_shopping_list_dict, all_items_name_to_id):
     items_infos = {}
     extra_fields = manual_shopping_list_dict.get(MANUAL_SHOPPING_LIST__EXTRA_FIELDS, [])
 
-    for item in manual_shopping_list_dict[MANUAL_SHOPPING_LIST__ITEMS]:
+    for item in manual_shopping_list_dict[MANUAL_SHOPPING_LIST__FIELD_ITEMS]:
         if should_skip_item(item, manual_shopping_list_dict):
             continue
 
@@ -53,7 +54,7 @@ def get_enriched_shopping_list(manual_shopping_list_dict, all_items_name_to_id):
 
         for extra_field in extra_fields:
             items_infos[item][extra_field] = manual_shopping_list_dict[
-                MANUAL_SHOPPING_LIST__ITEMS
+                MANUAL_SHOPPING_LIST__FIELD_ITEMS
             ][item][extra_field]
 
         if is_venture_shopping_list(manual_shopping_list_dict):
@@ -78,7 +79,7 @@ def is_venture_shopping_list(current_shopping_list):
 def is_item_venture_level_too_low(manual_shopping_list_dict, item):
     return manual_shopping_list_dict.get(
         MANUAL_SHOPPING_LIST__VENTURE_MIN_LEVEL, 0
-    ) > manual_shopping_list_dict[MANUAL_SHOPPING_LIST__ITEMS][item].get(
+    ) > manual_shopping_list_dict[MANUAL_SHOPPING_LIST__FIELD_ITEMS][item].get(
         MANUAL_SHOPPING_LIST__LEVEL, 1
     )
 
@@ -89,7 +90,7 @@ def handle_venture_fields(manual_shopping_list_dict, items_infos, item):
 
 def add_venture_duration(manual_shopping_list_dict, items_infos, item):
     items_infos[item][MANUAL_SHOPPING_LIST__DURATION] = get_venture_duration(
-        manual_shopping_list_dict[MANUAL_SHOPPING_LIST__ITEMS][item][
+        manual_shopping_list_dict[MANUAL_SHOPPING_LIST__FIELD_ITEMS][item][
             MANUAL_SHOPPING_LIST__LEVEL
         ]
     )
