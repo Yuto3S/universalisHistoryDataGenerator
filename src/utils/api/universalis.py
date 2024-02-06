@@ -5,11 +5,17 @@ from unittest.mock import patch
 import requests
 
 from src.consts import ITEMS
-from src.consts import MAX_IDS_PER_REQUEST_UNIVERSALIS
 from src.consts import PROCESSES
-from src.consts import UNIVERSALIS_API_RATE_LIMIT_PER_SECOND
-from src.consts import UNIVERSALIS_REQUEST_URL
 from src.utils.ipv4 import getaddrinfoIPv4
+
+
+UNIVERSALIS_API_RATE_LIMIT_PER_SECOND = 20
+
+UNIVERSALIS_REQUEST_URL = "https://universalis.app/api/v2/history/"
+MAX_IDS_PER_REQUEST_UNIVERSALIS = 100
+UNIVERSALIS_RESPONSE_PRICE = "pricePerUnit"
+UNIVERSALIS_RESPONSE_QUANTITY = "quantity"
+UNIVERSALIS_RESPONSE_ENTRIES = "entries"
 
 
 def get_universalis_response(items_id_to_name, server, timeframe_hours):

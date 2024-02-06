@@ -1,17 +1,9 @@
 from enum import Enum
 
-UNIVERSALIS_API_RATE_LIMIT_PER_SECOND = 20
-
 
 NON_BREAKING_SPACE = " "
 
 ID = "id"
-
-UNIVERSALIS_REQUEST_URL = "https://universalis.app/api/v2/history/"
-MAX_IDS_PER_REQUEST_UNIVERSALIS = 100
-UNIVERSALIS_RESPONSE_PRICE = "pricePerUnit"
-UNIVERSALIS_RESPONSE_QUANTITY = "quantity"
-UNIVERSALIS_RESPONSE_ENTRIES = "entries"
 
 
 QUANTITY = "quantity"

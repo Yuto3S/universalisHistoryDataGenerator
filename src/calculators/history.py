@@ -11,11 +11,11 @@ from src.consts import HISTORY_INFO_TOTAL_MARKET
 from src.consts import HISTORY_INFO_TOTAL_QUANTITY
 from src.consts import ITEMS
 from src.consts import QUANTITY
-from src.consts import UNIVERSALIS_RESPONSE_ENTRIES
-from src.consts import UNIVERSALIS_RESPONSE_PRICE
-from src.consts import UNIVERSALIS_RESPONSE_QUANTITY
 from src.generators.items import get_items_id_to_name
 from src.utils.api.universalis import get_universalis_response
+from src.utils.api.universalis import UNIVERSALIS_RESPONSE_ENTRIES
+from src.utils.api.universalis import UNIVERSALIS_RESPONSE_PRICE
+from src.utils.api.universalis import UNIVERSALIS_RESPONSE_QUANTITY
 
 
 def get_trends_history(items, server, timeframe_hours):
