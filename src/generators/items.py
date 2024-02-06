@@ -1,5 +1,12 @@
+import multiprocessing as mp
+from multiprocessing import Pool
+
+import tqdm as tqdm
+
 from src.consts import NON_BREAKING_SPACE
 from src.generators.shopping_list import MANUAL_SHOPPING_LIST__FIELD_ID
+from src.utils.api.lodestone import get_lodestone_items_for_page
+from src.utils.api.lodestone import get_lodestone_items_number_of_pages
 from src.utils.api.xivapi import get_xiv_api_response
 from src.utils.api.xivapi import protect_rate_limit_xiv_api
 from src.utils.api.xivapi import XIV_API_FIRST_PAGE
@@ -30,6 +37,27 @@ def get_all_items_name_to_id():
         protect_rate_limit_xiv_api()
 
     return all_items_name_to_id
+
+
+def get_all_items_name_to_lodestone_id():
+    all_items_name_to_lodestone_id = {}
+    number_of_pages = get_lodestone_items_number_of_pages() + 1
+
+    with Pool(processes=mp.cpu_count()) as pool:
+        # lodestone_items_pool_result = pool.map(
+        #     get_lodestone_items_for_page, [page_index for page_index in range(number_of_pages + 1)]
+        # )
+        lodestone_items_pool_result = list(
+            tqdm.tqdm(
+                pool.imap(get_lodestone_items_for_page, range(1, number_of_pages)),
+                total=number_of_pages,
+            )
+        )
+
+    for pages_entries in lodestone_items_pool_result:
+        all_items_name_to_lodestone_id.update(pages_entries)
+
+    return all_items_name_to_lodestone_id
 
 
 def maybe_sanitize_item_name(item_name):

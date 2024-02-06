@@ -1,2 +1,4 @@
 GitPython
 requests
+bs4
+tqdm

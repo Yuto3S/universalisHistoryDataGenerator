@@ -1,5 +1,7 @@
 from src.calculators.calculator import calculate_history_trends
 from src.generators.generator import generate_all_items_name_to_id
+from src.generators.generator import generate_all_items_to_attributes
+from src.generators.generator import generate_all_items_to_lodestone_id
 from src.generators.generator import generate_enriched_shopping_lists
 from src.utils.command_line_arguments import parse_command_line_arguments
 
@@ -30,6 +32,8 @@ if __name__ == "__main__":
 
     if fetch_new_items:
         generate_all_items_name_to_id()
+        generate_all_items_to_lodestone_id()
+        generate_all_items_to_attributes()
 
     if generate_new_shopping_lists:
         generate_enriched_shopping_lists()

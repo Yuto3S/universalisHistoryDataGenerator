@@ -30,6 +30,12 @@ FILE_PATH_GENERATED_HISTORY_TREE = "assets/generated/history_tree.json"
 FILE_PATH_GENERATED_ALL_ITEMS_NAMES_TO_ID = (
     "assets/generated/config/all_items_name_to_id.json"
 )
+FILE_PATH_GENERATED_ALL_ITEMS_NAMES_TO_LODESTONE_ID = (
+    "assets/generated/config/all_items_name_to_lodestone_id.json"
+)
+FILE_PATH_GENERATED_ALL_ITEMS_NAMES_TO_ATTRIBUTES = (
+    "assets/generated/config/all_items_name_to_attributes.json"
+)
 
 
 class FFXIVServers(Enum):
