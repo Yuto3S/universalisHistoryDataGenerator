@@ -1,4 +1,4 @@
-from src.calculators.history import calculate_trends
+from src.calculators.calculator import calculate_history_trends
 from src.generators.generator import generate_all_items_name_to_id
 from src.generators.generator import generate_enriched_shopping_lists
 from src.utils.command_line_arguments import parse_command_line_arguments
@@ -35,6 +35,8 @@ if __name__ == "__main__":
         generate_enriched_shopping_lists()
 
     if calculate_shopping_lists:
-        calculate_trends(servers, push_to_git, timeframe_hours, specific_shopping_list)
+        calculate_history_trends(
+            servers, push_to_git, timeframe_hours, specific_shopping_list
+        )
 
     print(" --- Done --- ")

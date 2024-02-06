@@ -73,15 +73,26 @@ def write_dict_content_on_file(file_content_as_dict, file_path):
         file.write(json.dumps(file_content_as_dict))
 
 
-def maybe_make_dir(dir_path):
-    if not os.path.exists(dir_path):
-        os.makedirs(dir_path)
+def get_and_maybe_make_calculated_shopping_lists_path(
+    selected_server, timeframe_hours, folder_date
+):
+    dir_path = get_calculated_shopping_lists_path(
+        selected_server, timeframe_hours, folder_date
+    )
+    maybe_make_dir(dir_path)
+
+    return dir_path
 
 
-def get_generated_shopping_lists_path(selected_server, timeframe_hours, folder_date):
+def get_calculated_shopping_lists_path(selected_server, timeframe_hours, folder_date):
     return (
         f"{FILE_PATH_GENERATED_HISTORY}"
         f"{selected_server.value}/"
         f"{timeframe_hours.value}/"
         f"{folder_date}/"
     )
+
+
+def maybe_make_dir(dir_path):
+    if not os.path.exists(dir_path):
+        os.makedirs(dir_path)
