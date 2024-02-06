@@ -69,8 +69,6 @@ def get_universalis_response(items_id_to_name, server, timeframe_hours):
             print(
                 f"Failed to get requested items with error code {universalis_request.status_code}, "
                 f"{universalis_request.url}, "
-                f"{universalis_request.content}, "
-                f"{universalis_request.text}"
             )
         else:
             result = json.loads(universalis_request.content)
@@ -96,6 +94,22 @@ def calculate_item_info(item_id, result, items, items_id_to_name, extra_attribut
         items, items_id_to_name[item_id], total_gil, total_quantity, extra_attributes
     )
     return item_info
+
+
+def get_default_history(extra_attributes):
+    history = {
+        COLUMNS: [
+            HISTORY_INFO_NAME,
+            HISTORY_INFO_AVERAGE_PRICE,
+            HISTORY_INFO_TOTAL_MARKET,
+            HISTORY_INFO_TOTAL_QUANTITY,
+        ],
+        ITEMS: [],
+    }
+    for extra_attribute in extra_attributes:
+        history[COLUMNS].append(extra_attribute)
+
+    return history
 
 
 def get_default_item_info(

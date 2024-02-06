@@ -70,23 +70,27 @@ def calculate_trends_for_server(
     )
     maybe_make_dir(dir_path)
 
-    for shopping_list in get_all_file_names_in_dir(
-        f"{FILE_PATH_GENERATED_SHOPPING_LIST}"
-    ):
-        if (
-            maybe_specific_shopping_list
-            and shopping_list != maybe_specific_shopping_list
-        ):
-            pass  # Do nothing
-        else:
-            print(f"{selected_server} --> {shopping_list}")
-            items = read_dict_from_file(
-                f"{FILE_PATH_GENERATED_SHOPPING_LIST}{shopping_list}"
-            )
+    if maybe_specific_shopping_list:
+        all_shopping_lists = [maybe_specific_shopping_list]
+    else:
+        all_shopping_lists = get_all_file_names_in_dir(
+            f"{FILE_PATH_GENERATED_SHOPPING_LIST}"
+        )
 
-            trends_history = get_trends_history(
-                items, selected_server, timeframe_hours.value
-            )
+    for index, shopping_list in enumerate(all_shopping_lists):
+        print(
+            f"{selected_server} --> {shopping_list} ({index+1}/{len(all_shopping_lists)})"
+        )
+        items = read_dict_from_file(
+            f"{FILE_PATH_GENERATED_SHOPPING_LIST}{shopping_list}"
+        )
+
+        trends_history = get_trends_history(
+            items, selected_server, timeframe_hours.value
+        )
+        if len(trends_history["items"]) == 0:
+            print(f"Failed getting history for {selected_server} - {shopping_list}")
+        else:
             write_dict_content_on_file(trends_history, f"{dir_path}{shopping_list}")
 
     print(f"{selected_server} --> Done")

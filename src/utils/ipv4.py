@@ -1,4 +1,4 @@
-from socket import socket
+import socket
 
 orig_getaddrinfo = socket.getaddrinfo
 
