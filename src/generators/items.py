@@ -54,6 +54,7 @@ def get_all_items_name_to_lodestone_id():
             )
         )
 
+    # TODO Sanitize name
     for pages_entries in lodestone_items_pool_result:
         all_items_name_to_lodestone_id.update(pages_entries)
 
@@ -61,6 +62,7 @@ def get_all_items_name_to_lodestone_id():
 
 
 def maybe_sanitize_item_name(item_name):
+    # TODO sanitize ó and all the characters starting with \u in the .json config files
     if NON_BREAKING_SPACE in item_name:
         item_name = item_name.replace(NON_BREAKING_SPACE, " ")
         print(f"{item_name} had NON_BREAKING_SPACE")

@@ -21,6 +21,7 @@ HISTORY_INFO_NAME = "Name"
 HISTORY_INFO_AVERAGE_PRICE = "Average Price"
 HISTORY_INFO_TOTAL_MARKET = "Total Market"
 HISTORY_INFO_TOTAL_QUANTITY = "Total Quantity"
+HISTORY_INFO_LODESTONE_ID = "Lodestone Id"
 
 
 FILE_PATH_MANUAL_SHOPPING_LIST = "assets/manual_input/shopping_list/"

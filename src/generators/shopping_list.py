@@ -8,7 +8,7 @@ MANUAL_SHOPPING_LIST__DURATION = "duration"
 MANUAL_SHOPPING_LIST__VENTURE_MIN_LEVEL = "venture_minimum_level"
 
 
-def get_enriched_shopping_list(manual_shopping_list_dict, all_items_name_to_id):
+def get_enriched_shopping_list(manual_shopping_list_dict, all_items_name_to_attributes):
     items_infos = {}
     extra_fields = manual_shopping_list_dict.get(MANUAL_SHOPPING_LIST__EXTRA_FIELDS, [])
 
@@ -17,8 +17,11 @@ def get_enriched_shopping_list(manual_shopping_list_dict, all_items_name_to_id):
             continue
 
         items_infos[item] = {
-            "id": all_items_name_to_id[item],
+            "id": all_items_name_to_attributes[item]["id"],
         }
+        items_infos[item]["lodestone_id"] = all_items_name_to_attributes[item][
+            "lodestone_id"
+        ]
 
         for extra_field in extra_fields:
             items_infos[item][extra_field] = manual_shopping_list_dict[

@@ -15,6 +15,7 @@ def push_generated_to_git(folder_name, list_of_servers, timeframe_hours):
             f"New shopping list informations for {folder_name} - "
             f"{[server.value for server in list_of_servers]} - "
             f"over the last {timeframe_hours.value} hours. "
+            f"With a new attribute for every item lodestone_id"
         )
         origin = repo.remote(name="origin")
         origin.push()

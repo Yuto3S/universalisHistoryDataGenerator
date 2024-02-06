@@ -54,8 +54,8 @@ def generate_all_items_to_attributes():
 
 
 def generate_enriched_shopping_lists():
-    all_items_name_to_id = read_dict_from_file(
-        FILE_PATH_GENERATED_ALL_ITEMS_NAMES_TO_ID
+    all_items_name_to_attributes = read_dict_from_file(
+        FILE_PATH_GENERATED_ALL_ITEMS_NAMES_TO_ATTRIBUTES
     )
 
     for shopping_list in os.listdir(
@@ -67,7 +67,7 @@ def generate_enriched_shopping_lists():
 
         print(f"Enriching {shopping_list}...")
         items_infos = get_enriched_shopping_list(
-            manual_shopping_list_dict, all_items_name_to_id
+            manual_shopping_list_dict, all_items_name_to_attributes
         )
 
         write_dict_content_on_file(
