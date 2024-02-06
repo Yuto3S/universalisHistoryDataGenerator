@@ -4,7 +4,7 @@ from functools import partial
 from multiprocessing import Pool
 
 from src.calculators.history import get_trends_history
-from src.consts import FILE_PATH_GENERATED_HISTORY
+from src.consts import FILE_PATH_GENERATED
 from src.consts import FILE_PATH_GENERATED_HISTORY_TREE
 from src.consts import FILE_PATH_GENERATED_SHOPPING_LIST
 from src.consts import HistoryTimeFrameHours
@@ -93,7 +93,7 @@ def calculate_history_trends_for_server(
 def update_history_tree():
     # This file is used by the web UI and describes the available files to the front-end.
     files_tree = get_files_tree_starting_on_folder(
-        f"{get_root_project_path()}{FILE_PATH_GENERATED_HISTORY}"
+        f"{get_root_project_path()}{FILE_PATH_GENERATED}"
     )
     write_dict_content_on_file(files_tree, FILE_PATH_GENERATED_HISTORY_TREE)
 

@@ -23,7 +23,7 @@ HISTORY_INFO_TOTAL_MARKET = "Total Market"
 HISTORY_INFO_TOTAL_QUANTITY = "Total Quantity"
 HISTORY_INFO_LODESTONE_ID = "Lodestone Id"
 
-
+FILE_PATH_GENERATED = "assets/generated/"
 FILE_PATH_MANUAL_SHOPPING_LIST = "assets/manual_input/shopping_list/"
 FILE_PATH_GENERATED_SHOPPING_LIST = "assets/generated/shopping_list/"
 FILE_PATH_GENERATED_HISTORY = "assets/generated/history/"
