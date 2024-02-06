@@ -1,6 +1,6 @@
 from src.calculators.history import calculate_trends
-from src.generators.items import generate_all_items_name_to_id
-from src.generators.shopping_list import generate_enriched_shopping_lists
+from src.generators.generator import generate_all_items_name_to_id
+from src.generators.generator import generate_enriched_shopping_lists
 from src.utils.command_line_arguments import parse_command_line_arguments
 
 """
