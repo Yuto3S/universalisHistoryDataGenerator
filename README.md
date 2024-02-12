@@ -50,8 +50,8 @@ $ python -m main --calculate_shopping_lists True --push_to_git True
 $ python -m main --calculate_shopping_lists True --generate_new_shopping_lists True --servers Twintania --fetch_new_items True
 ```
 
-https://universalis.app/api/v2/history/Twintania/36262,36246,36261,36630,36256,36245,36260,36244,36259,36257,36258,36255,36203,36243,36254,36253,36264,36242,27799,27800,27736,27756,27735,27852,27774,27773,27734,27851,27797,27733,27850,27732,27763,27764,20003,20004,27798
 
+https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html#//apple_ref/doc/uid/10000172i-SW7-BCIEDDBJ
 # Automated runs using launchctl & plist files
 ```
 ~/Library/LaunchAgents$ cat ffxiv.universalis.24.plist
@@ -65,6 +65,9 @@ launchctl bootout gui/501/ffxiv.universalis
 
 launchctl bootout gui/501/ffxiv.universalis.24 && launchctl bootstrap gui/501 ffxiv.universalis.24.plist && launchctl kickstart gui/501/ffxiv.universalis.24
 launchctl bootout gui/501/ffxiv.universalis.168 && launchctl bootstrap gui/501 ffxiv.universalis.168.plist && launchctl kickstart gui/501/ffxiv.universalis.168
+
+# See status of the processes
+launchctl list | egrep "xiv|PID"
 ```
 
 ### Error files
