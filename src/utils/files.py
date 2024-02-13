@@ -79,6 +79,7 @@ def get_and_maybe_make_calculated_shopping_lists_path(
     dir_path = get_calculated_shopping_lists_path(
         selected_server, timeframe_hours, folder_date
     )
+    print(f"dir path: {dir_path}")
     maybe_make_dir(dir_path)
 
     return dir_path
@@ -94,5 +95,5 @@ def get_calculated_shopping_lists_path(selected_server, timeframe_hours, folder_
 
 
 def maybe_make_dir(dir_path):
-    if not os.path.exists(dir_path):
-        os.makedirs(dir_path)
+    if not os.path.exists(f"{get_root_project_path()}{dir_path}"):
+        os.makedirs(f"{get_root_project_path()}{dir_path}")
