@@ -74,7 +74,11 @@ launchctl list | egrep "xiv|PID"
 ```
 cat /tmp/ffxiv.universalis.24.out
 cat /tmp/ffxiv.universalis.24.err
+tail -f /tmp/ffxiv.universalis.24.out
+tail -f /tmp/ffxiv.universalis.24.err
 
 cat /tmp/ffxiv.universalis.168.out
 cat /tmp/ffxiv.universalis.168.err
+tail -f /tmp/ffxiv.universalis.168.out
+tail -f /tmp/ffxiv.universalis.168.err
 ```
