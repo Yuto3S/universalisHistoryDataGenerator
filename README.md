@@ -4,7 +4,7 @@ This project contains multiple scripts that when combined together will generate
 These trends are currently output as JSON files, and another project [universalisHistoryData](https://github.com/Yuto3S/universalisHistoryData) takes care of displaying them.
 The live version is available at [https://yuto3s.github.io/universalisHistoryData/](https://yuto3s.github.io/universalisHistoryData/)
 
-You can develop your own parser (web, script) to analyze those files. You can see how they look like by picking a specific day in [github - universalisHistoryDataGenerator - Twintania](https://github.com/Yuto3S/universalisHistoryDataGenerator/tree/main/assets/generated/history/Twintania/24)
+You can develop your own parser (web, script) to analyze those files. You can see how they look like by picking a specific day in [github - universalisHistoryDataGenerator - Twintania](https://github.com/Yuto3S/universalisHistoryDataGenerator/tree/main/assets/generated/history/Twintania/24). When I first started this project, I used to display transform the output into CSV to display in [google sheet.](https://docs.google.com/spreadsheets/d/1QRfrvx8pSWnRNhblzwumoaP6sD8IzEloLGzKM8DhOGs/edit#gid=1995563425)
 # How to running locally
 Open your favorite terminal and `cd` to the repo where you want to run this script.
 ```
