@@ -9,12 +9,10 @@ from src.utils.api.lodestone import get_lodestone_items_for_page
 from src.utils.api.lodestone import get_lodestone_items_number_of_pages
 from src.utils.api.xivapi import get_xiv_api_response
 from src.utils.api.xivapi import protect_rate_limit_xiv_api
+from src.utils.api.xivapi import XIV_API_FIELDS
 from src.utils.api.xivapi import XIV_API_FIRST_PAGE
 from src.utils.api.xivapi import XIV_API_ITEM_ID
-from src.utils.api.xivapi import XIV_API_NAME_EN
-from src.utils.api.xivapi import XIV_API_PAGINATION
-from src.utils.api.xivapi import XIV_API_PAGINATION_NEXT
-from src.utils.api.xivapi import XIV_API_PAGINATION_TOTAL
+from src.utils.api.xivapi import XIV_API_ITEM_NAME
 from src.utils.api.xivapi import XIV_API_RESULTS
 
 
@@ -25,15 +23,18 @@ def get_all_items_name_to_id():
     while next_page is not None:
         xiv_api_response = get_xiv_api_response(next_page)
 
-        for entry in xiv_api_response[XIV_API_RESULTS]:
-            item_name_en = maybe_sanitize_item_name(entry[XIV_API_NAME_EN])
-            all_items_name_to_id[item_name_en] = entry[XIV_API_ITEM_ID]
+        if not xiv_api_response[XIV_API_RESULTS]:
+            next_page = None
+        else:
+            for entry in xiv_api_response[XIV_API_RESULTS]:
+                item_name_en = maybe_sanitize_item_name(
+                    entry[XIV_API_FIELDS][XIV_API_ITEM_NAME]
+                )
+                all_items_name_to_id[item_name_en] = entry[XIV_API_ITEM_ID]
+                next_page = entry[XIV_API_ITEM_ID]
 
-        print(
-            f"Page: {next_page}/{xiv_api_response[XIV_API_PAGINATION][XIV_API_PAGINATION_TOTAL]}"
-        )
+        print(f"Items iterated over: {next_page}")
 
-        next_page = xiv_api_response[XIV_API_PAGINATION][XIV_API_PAGINATION_NEXT]
         protect_rate_limit_xiv_api()
 
     return all_items_name_to_id
