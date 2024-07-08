@@ -1,5 +1,5 @@
 {
-  "_last_updated": 6.2,
+  "_last_updated": 7.0,
   "extra_fields": [
     "level",
     "quantity"
@@ -7,6 +7,150 @@
   "is_venture_file": true,
   "venture_minimum_level": 70,
   "items": {
+    "Broccoli": {
+      "quantity": 20,
+      "level": 100
+    },
+    "Windsbalm Bay Leaf": {
+      "quantity": 20,
+      "level": 99
+    },
+    "Pearl Grass": {
+      "quantity": 20,
+      "level": 99
+    },
+    "Yyasulani Garlic": {
+      "quantity": 20,
+      "level": 98
+    },
+    "Wind Parsley": {
+      "quantity": 20,
+      "level": 98
+    },
+    "Levinsilk": {
+      "quantity": 20,
+      "level": 98
+    },
+    "Bell Pepper": {
+      "quantity": 20,
+      "level": 98
+    },
+    "Mesquite Beans": {
+      "quantity": 20,
+      "level": 97
+    },
+    "Claro Walnut Log": {
+      "quantity": 20,
+      "level": 97
+    },
+    "Acacia Log": {
+      "quantity": 20,
+      "level": 97
+    },
+    "Acacia Bark": {
+      "quantity": 20,
+      "level": 97
+    },
+    "White Pepper": {
+      "quantity": 20,
+      "level": 96
+    },
+    "Sarcenet": {
+      "quantity": 20,
+      "level": 96
+    },
+    "Turali Pineapple": {
+      "quantity": 20,
+      "level": 95
+    },
+    "Dark Mahogany Log": {
+      "quantity": 20,
+      "level": 95
+    },
+    "Turali Corn": {
+      "quantity": 20,
+      "level": 94
+    },
+    "Sweet Kukuru Bean": {
+      "quantity": 20,
+      "level": 94
+    },
+    "Shaaloani Oilseeds": {
+      "quantity": 20,
+      "level": 94
+    },
+    "Mountain Flax": {
+      "quantity": 20,
+      "level": 94
+    },
+    "Kozama'uka Chamomile": {
+      "quantity": 20,
+      "level": 94
+    },
+    "Ceiba Log": {
+      "quantity": 20,
+      "level": 93
+    },
+    "Wild Ja Tiika Bananas": {
+      "quantity": 20,
+      "level": 92
+    },
+    "Turali Aloe": {
+      "quantity": 20,
+      "level": 92
+    },
+    "Royal Maple Sap": {
+      "quantity": 20,
+      "level": 92
+    },
+    "Ginseng Log": {
+      "quantity": 20,
+      "level": 92
+    },
+    "Ut'ohmu Tomato": {
+      "quantity": 20,
+      "level": 91
+    },
+    "Snow Cotton": {
+      "quantity": 20,
+      "level": 91
+    },
+    "Eucalyptus": {
+      "quantity": 20,
+      "level": 91
+    },
+    "Lovingbloom": {
+      "quantity": 20,
+      "level": 90
+    },
+    "Field Mustard": {
+      "quantity": 20,
+      "level": 90
+    },
+    "Dark Cherry Log": {
+      "quantity": 20,
+      "level": 90
+    },
+    "Paldao Log": {
+      "quantity": 20,
+      "level": 90
+    },
+    "Mornveil Tree Bark": {
+      "quantity": 20,
+      "level": 90
+    },
+    "Haritaki": {
+      "quantity": 20,
+      "level": 90
+    },
+    "Bayberry": {
+      "quantity": 20,
+      "level": 90
+    },
+    "Thavnairian Corn": {
+      "quantity": 20,
+      "level": 90
+    },
     "Double-edged Herb": {
       "quantity": 5,
       "level": 90

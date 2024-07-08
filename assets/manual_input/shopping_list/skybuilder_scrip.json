@@ -1,5 +1,5 @@
 {
-  "_last_updated": 6.2,
+  "_last_updated": 7.0,
   "extra_fields": [
     "cost"
   ],
@@ -185,9 +185,6 @@
       "cost": 900
     },
     "Craftsman's Coverall Top": {
-      "cost": 2200
-    },
-    "Craftsman's Singlet": {
       "cost": 2200
     },
     "Craftsman's Apron": {

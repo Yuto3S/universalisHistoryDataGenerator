@@ -1,5 +1,5 @@
 {
-  "_last_updated": 6.3,
+  "_last_updated": 7.0,
   "_data_taken_from": [
     "https://garlandtools.org/db/#item/26533"
   ],
@@ -101,6 +101,48 @@
       "cost": 400
     },
     "Quicktongue Materia X": {
+      "cost": 400
+    },
+    "Piety Materia XI": {
+      "cost": 150
+    },
+    "Heavens' Eye Materia XI": {
+      "cost": 150
+    },
+    "Savage Aim Materia XI": {
+      "cost": 150
+    },
+    "Savage Might Materia XI": {
+      "cost": 150
+    },
+    "Battledance Materia XI": {
+      "cost": 150
+    },
+    "Quickarm Materia XI": {
+      "cost": 150
+    },
+    "Quicktongue Materia XI": {
+      "cost": 150
+    },
+    "Piety Materia XII": {
+      "cost": 400
+    },
+    "Heavens' Eye Materia XII": {
+      "cost": 400
+    },
+    "Savage Aim Materia XII": {
+      "cost": 400
+    },
+    "Savage Might Materia XII": {
+      "cost": 400
+    },
+    "Battledance Materia XII": {
+      "cost": 400
+    },
+    "Quickarm Materia XII": {
+      "cost": 400
+    },
+    "Quicktongue Materia XII": {
       "cost": 400
     }
   }
