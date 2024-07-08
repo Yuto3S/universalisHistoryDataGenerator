@@ -37,7 +37,9 @@ def get_universalis_response(items_id_to_name, server, timeframe_hours):
             f"{ids_in_url_as_string}"
             f"?entriesWithin={timeframe_hours * 60 * 60}",
         )
-        combined_items_result = combined_items_result | result[ITEMS]
+
+        items = result.get(ITEMS) if result.get(ITEMS) is not None else {}
+        combined_items_result = combined_items_result | items
 
     return {ITEMS: combined_items_result}
 

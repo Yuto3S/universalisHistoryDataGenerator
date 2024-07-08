@@ -44,6 +44,8 @@ def get_all_items_name_to_lodestone_id():
     all_items_name_to_lodestone_id = {}
     number_of_pages = get_lodestone_items_number_of_pages() + 1
 
+    print("Get all items name to lodestone_id")
+
     with Pool(processes=mp.cpu_count()) as pool:
         # lodestone_items_pool_result = pool.map(
         #     get_lodestone_items_for_page, [page_index for page_index in range(number_of_pages + 1)]
