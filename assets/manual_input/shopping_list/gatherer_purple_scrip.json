@@ -3,45 +3,318 @@
   "_data_taken_from": [
     "https://ffxiv.consolegameswiki.com/wiki/Scrip_Exchange_(Limsa_Lominsa)/Gatherers%27_Scrip_(Materials/Misc.)",
     "https://ffxiv.consolegameswiki.com/wiki/Scrip_Exchange_(Limsa_Lominsa)/Gatherers%27_Scrip_(Materia)",
-    "https://garlandtools.org/db/#item/33914",
+    "https://garlandtools.org/db/#item/25200",
     "https://na.finalfantasyxiv.com/lodestone/playguide/db/shop/64bfdf2f346"
   ],
   "extra_fields": [
     "cost"
   ],
   "items": {
+    "Gatherer's Guerdon Materia IV": {
+      "cost": 25
+    },
+    "Gatherer's Guerdon Materia V": {
+      "cost": 200
+    },
+    "Gatherer's Guerdon Materia VI": {
+      "cost": 200
+    },
+    "Gatherer's Guerdon Materia VII": {
+      "cost": 200
+    },
+    "Gatherer's Guerdon Materia VIII": {
+      "cost": 250
+    },
+    "Gatherer's Guerdon Materia IX": {
+      "cost": 250
+    },
+    "Gatherer's Guile Materia IV": {
+      "cost": 25
+    },
+    "Gatherer's Guile Materia V": {
+      "cost": 200
+    },
+    "Gatherer's Guile Materia VI": {
+      "cost": 200
+    },
+    "Gatherer's Guile Materia VII": {
+      "cost": 200
+    },
+    "Gatherer's Guile Materia VIII": {
+      "cost": 250
+    },
+    "Gatherer's Guile Materia IX": {
+      "cost": 250
+    },
+    "Gatherer's Grasp Materia IV": {
+      "cost": 25
+    },
+    "Gatherer's Grasp Materia V": {
+      "cost": 200
+    },
+    "Gatherer's Grasp Materia VI": {
+      "cost": 200
+    },
+    "Gatherer's Grasp Materia VII": {
+      "cost": 200
+    },
+    "Gatherer's Grasp Materia VIII": {
+      "cost": 250
+    },
+    "Gatherer's Grasp Materia IX": {
+      "cost": 250
+    },
     "Gatherer's Guerdon Materia X": {
-      "cost": 500
+      "cost": 250
     },
     "Gatherer's Guile Materia X": {
-      "cost": 500
+      "cost": 250
     },
     "Gatherer's Grasp Materia X": {
-      "cost": 500
+      "cost": 250
+    },
+    "Gatherer's Guerdon Materia XI": {
+      "cost": 250
+    },
+    "Gatherer's Guile Materia XI": {
+      "cost": 250
+    },
+    "Gatherer's Grasp Materia XI": {
+      "cost": 250
+    },
+    "Garden Gravel": {
+      "cost": 75
+    },
+    "Firebloom": {
+      "cost": 50
+    },
+    "Seastone Brazier": {
+      "cost": 50
+    },
+    "Fruit Stall": {
+      "cost": 50
+    },
+    "Vegetable Stall": {
+      "cost": 50
+    },
+    "Mineral Display": {
+      "cost": 50
+    },
+    "Major-General Cushion": {
+      "cost": 200
+    },
+    "Small Angler's Canvas": {
+      "cost": 150
+    },
+    "Medium Angler's Canvas": {
+      "cost": 225
+    },
+    "Large Angler's Canvas": {
+      "cost": 375
+    },
+    "Extra Large Angler's Canvas": {
+      "cost": 600
+    },
+    "Carpet of Flowers": {
+      "cost": 75
+    },
+    "Chocobo Raincoat": {
+      "cost": 800
+    },
+    "Freedom Orchestrion Roll": {
+      "cost": 200
+    },
+    "Songs of Salt and Suffering Orchestrion Roll": {
+      "cost": 200
+    },
+    "Hope Forgotten Orchestrion Roll": {
+      "cost": 200
+    },
+    "The Stone Remembers Orchestrion Roll": {
+      "cost": 200
+    },
+    "Old Wounds Orchestrion Roll": {
+      "cost": 200
+    },
+    "Pterodactyl": {
+      "cost": 20
+    },
+    "Eurhinosaur": {
+      "cost": 5
+    },
+    "Gem Marimo": {
+      "cost": 10
+    },
+    "Crown Trout": {
+      "cost": 5
+    },
+    "Retribution Staff": {
+      "cost": 10
+    },
+    "Thief Betta": {
+      "cost": 5
+    },
+    "Goldsmith Crab": {
+      "cost": 5
+    },
+    "Peteinosaur": {
+      "cost": 40
+    },
+    "Sphalerite": {
+      "cost": 10
+    },
+    "Cloud Mythril Ore": {
+      "cost": 20
+    },
+    "Wind Silk": {
+      "cost": 75
+    },
+    "Cloud Cotton Boll": {
+      "cost": 10
+    },
+    "Stormcloud Cotton Boll": {
+      "cost": 20
+    },
+    "Dinosaur Leather": {
+      "cost": 75
+    },
+    "Royal Mistletoe": {
+      "cost": 10
+    },
+    "Red Balloon": {
+      "cost": 1
+    },
+    "Magma Worm": {
+      "cost": 1
+    },
+    "Fiend Worm": {
+      "cost": 1
+    },
+    "Wool Top": {
+      "cost": 200
+    },
+    "Flannel": {
+      "cost": 200
+    },
+    "New World Macrame": {
+      "cost": 200
+    },
+    "Pellitory": {
+      "cost": 200
+    },
+    "Brute Leech": {
+      "cost": 1
+    },
+    "Giant Crane Fly": {
+      "cost": 1
+    },
+    "Silkworm": {
+      "cost": 1
+    },
+    "Bream Lure": {
+      "cost": 15
+    },
+    "Suspending Minnow": {
+      "cost": 15
+    },
+    "Blue Gatherers' Scrip Token": {
+      "cost": 25
+    },
+    "Dusklight Aethersand": {
+      "cost": 10
+    },
+    "Dawnlight Aethersand": {
+      "cost": 10
+    },
+    "Everbright Aethersand": {
+      "cost": 15
+    },
+    "Everborn Aethersand": {
+      "cost": 15
+    },
+    "Everdeep Aethersand": {
+      "cost": 15
+    },
+    "Blue Bobbit": {
+      "cost": 1
+    },
+    "Stonefly Larva": {
+      "cost": 1
+    },
+    "Robber Ball": {
+      "cost": 3
+    },
+    "Jerked Ovim": {
+      "cost": 3
+    },
+    "Short Bill Minnow": {
+      "cost": 30
+    },
+    "Chiaroglow Aethersand": {
+      "cost": 10
+    },
+    "Scuroglow Aethersand": {
+      "cost": 10
+    },
+    "Agedeep Aethersand": {
+      "cost": 20
+    },
+    "Agewood Aethersand": {
+      "cost": 20
+    },
+    "Ageflow Aethersand": {
+      "cost": 20
+    },
+    "Levinstrike Aethersand": {
+      "cost": 30
+    },
+    "Squid Strip": {
+      "cost": 5
+    },
+    "Baitbugs": {
+      "cost": 5
+    },
+    "Sky Spoon Lure": {
+      "cost": 50
+    },
+    "Panic Jig": {
+      "cost": 50
+    },
+    "Chimera Worm": {
+      "cost": 5
     },
     "Moonlight Aethersand": {
-      "cost": 100
+      "cost": 10
     },
     "Endstone Aethersand": {
-      "cost": 200
+      "cost": 20
     },
     "Endwood Aethersand": {
-      "cost": 200
+      "cost": 20
     },
     "Endtide Aethersand": {
-      "cost": 200
+      "cost": 20
     },
     "Earthbreak Aethersand": {
-      "cost": 300
+      "cost": 30
     },
     "Mackerel Strip": {
-      "cost": 5
+      "cost": 3
     },
     "Mayfly": {
-      "cost": 5
+      "cost": 3
     },
     "Stardust": {
+      "cost": 3
+    },
+    "Popper Lure": {
+      "cost": 50
+    },
+    "Dragonfly": {
       "cost": 5
+    },
+    "Shucked Clam": {
+      "cost": 50
     }
   }
 }
